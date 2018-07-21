@@ -399,26 +399,21 @@ We clarify the meaning of some notations here.
 \caption{Notations applied in the following part of this chapter}
 \label{tab1}
 \centering
-\begin{tabular}{llr}
+\begin{tabular}{l p{6.5cm}}
 \toprule
 %\multicolumn{2}{c}{Item} \\
 %\cmidrule(r){1-2}
 Symbol & Description \\
 \midrule
 $\gamma_i$ & QuasiSINR of WBS $i$\\
-$f_{ji}^c$  & The interference caused by WBS $j$ on the interference reference \\
-			& point of WBS $i$, and both of them work on channel $c$\\
-$f_i^c$ & The sum of interference caused on the interference reference \\
-			& points of WBS $i$ \\
-$\tilde{P_i}^c$ & The power of the signal of interest on auxiliary circle of WBS $i$ \\
-			& which works on channel $c$     \\
+$f_{ji}^c$  & The interference caused by WBS $j$ on the interference reference point of WBS $i$, and both of them work on channel $c$\\
+$f_i^c$ & The sum of interference caused on the interference reference points of WBS $i$ \\
+$\tilde{P_i}^c$ & The power of the signal of interest on auxiliary circle of WBS $i$ which works on channel $c$     \\
 $P_i$		& The transmission power of WBS $i$\\
-$h_{ij}$ & The attenuation from the co-channel interfering WBS $j$ to the \\
-		& corresponding interference reference point of WBS $i$.\\
-$h_{i}$ & The attenuation from the WBS $i$ to its auxiliary circle.\\
-$z_{ij}$ & The shadowing from the co-channel interfering  WBS $j$ to the\\
-		& corresponding interference reference point of WBS $i$.\\
-$z_{i}$ & The shadowing from WBS $i$ to its auxiliary circle.\\		
+$h_{ij}$ & The attenuation from the co-channel interfering WBS $j$ to the corresponding interference reference point of WBS $i$.\\
+$h_{i}$ & The attenuation from WBS $i$ to its auxiliary circle.\\
+$z_{ij}$ & The shadowing from the co-channel interfering  WBS $j$ to the corresponding interference reference point of WBS $i$.\\
+$z_{i}$ & The shadowing from WBS $i$ to auxiliary circle.\\		
 \bottomrule
 \end{tabular}
 \end{table}
@@ -717,7 +712,7 @@ The gain of SINR on end terminals by applying convex optimization to decide the 
 \end{figure}
 
 
-Optimization problem \ref{cvx} provides the maximum permitted transmission power for each WBS and over each channel.
+Optimization problem \ref{cvx} provides the maximum permitted transmission power for every WBS over each channel.
 When all the WBSs working on the same channel, the generated interference doesn't exceed the threshold on the interference measurement devices at the contour of TV service area. 
 If there are multiple channels available and WBSs are free to choose their preferred channels, the aggregate interference on one channel will be smaller than that when all WBSs work on that channel. 
 Thus, there is exists a interference margin created by using multiple channels, which provides a room for network dynamics such as new WBS starting to work or increased interference on TV contour due to the variance of broadcast path condition. 
@@ -763,10 +758,11 @@ Problem \ref{QLP} is a non-linear problem with binary variables, but it can be r
 	\begin{equation}
 \label{QLP_2}
 			\begin{aligned}
-			& \underset{}{\text{minimize}}
-			& &	\sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_k \frac{P_{jk}\cdot h_{ji}\cdot z_{ji}}{P_{ik}\cdot h_i\cdot z_i}\cdot  x_{jk}\cdot x_{ik}  + \sum\limits_k \frac{N_0}{P_{ik}\cdot h_i\cdot z_i}\cdot x_{ik})\\
-			& \text{subject to} 
-			& & \sum\limits_{k=1}^{|\mathcal{C}|}x_{ik}=1, x_{ik}\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+			\underset{}{\text{minimize}}
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_k \frac{P_{jk}\cdot h_{ji}\cdot z_{ji}}{P_{ik}\cdot h_i\cdot z_i}\cdot  x_{jk}\cdot x_{ik}  \\
+			& + \sum\limits_k \frac{N_0}{P_{ik}\cdot h_i\cdot z_i}\cdot x_{ik})\\
+			\text{subject to} 
+			& \sum\limits_{k=1}^{|\mathcal{C}|}x_{ik}=1, x_{ik}\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
 			\end{aligned}
 		\end{equation}
 
@@ -776,12 +772,12 @@ The result of this centralized channel assignment will be evaluated in the simul
 
 
 
-\subsection{Distributed White Space Channel Allocation (WitheCat): Algorithm and Protocol}
+\subsection{Distributed White Space Channel Allocation (WhiteCat): Algorithm and Protocol}
 \label{whitecat}
-In this section a distributed scheme for WBSs to allocate channels is proposed, which is named as \underline{white} space \underline{c}hannel \underline{a}llocation \underline{t}echnology (WitheCat). 
-WitheCat adopts the best response process, where each WBS (referred as $i$) chooses the channel which brings the bigger utility $u_i$ as the response of other WBSs' choices on channels.
+In this section a distributed scheme for WBSs to allocate channels is proposed, which is named as \underline{white} space \underline{c}hannel \underline{a}llocation \underline{t}echnology (WhiteCat). 
+WhiteCat adopts the best response process, where each WBS (referred as $i$) chooses the channel which brings the bigger utility $u_i$ as the response of other WBSs' choices on channels.
 %and the sum of all WBSs' utilities is minimized after finite times of updates even the interaction between WBSs are asymmetric. The utility is as follows,
-WitheCat is depicted by algorithm \ref{whitecatalgo}.
+WhiteCat is depicted by algorithm \ref{whitecatalgo}.
 
 \begin{equation}
 \label{utility}
@@ -836,9 +832,12 @@ Some parameters needed to calculate the utility are identical for all WBSs, such
 	\item $ f_{ij}^c$: the interference caused by $i$ on $j$'s virtual measurement point when $i$ works on channel $\forall c\in \mathcal{C}$.
 	\item $P_j^c$: transmission power of $j$ for using $\forall c\in \mathcal{C}$.
 	\end{itemize}
-Unfortunately, it is difficult to get these interferences of interested measured, for station $i$, it is low efficient to scan all channels and obtain the interferences $f_{ji}$ on virtual measurement point for each channel, furthermore, it is impossible to split the interference $f_{ij}$ from the total interference received on WBS $j$' virtual measurement point. 
+Unfortunately, it is difficult to measure the interference of interested, \ie for WBS $i$, it is not efficient to scan all channels and obtain the interference $f_{ji}$ on virtual measurement point for each channel, furthermore, it is impossible to split the interference $f_{ij}$ from the total interference received on WBS $j$' virtual measurement point. 
 
-We refer \cite{CApotentialLearning_05dyspan} to decide the sequence for WBSs to update their channel. \cite{CApotentialLearning_05dyspan} proposes a method like random access mechanism of CSMA/DA, where the access for broadcast medium is changed to getting access to the centralized center to retrieve the current channel usage and update its new channel. All WBSs are able to access the database in one round (with random or predetermined sequence). As WBSs are connected with database, the control messages needed to decide the sequence will not become a burden. Update of channels can happen in the boot phase, or when the quality of services (the SINR on its end users) of WBSs falls below a threshold, or a fixed time duration comes to end, or a new WBS joins in the network. 
+We refer \cite{CApotentialLearning_05dyspan} to decide WBSs' sequence to update their channels.
+\cite{CApotentialLearning_05dyspan} proposes a method which is akin to the random access mechanism of CSMA/DA, where the access for broadcast medium is changed to get access to the centralized center to retrieve the current channel usage and update its new channel. 
+All WBSs are able to access the database in one round (with random or predetermined sequence). As WBSs are connected with database, the control messages needed to decide the sequence will not become a burden. 
+Update of channels can happen in the boot phase, or when the quality of services (the SINR on its end users) of WBSs falls below a threshold, or a fixed time duration comes to end, or a new WBS joins in the network. 
 
 Similar with~\cite{SenseLess2011}, we let every WBS store the location information and maximal power map of all other WBSs, \ie $P_i^c, i\in\mathcal{N}, c\in\mathcal{C}$, and each WBS retrieves information about channel usage of other WBSs from centralized base station.
 After executing Algorithm \ref{whitecatalgo}, it reports to centralized database of its channel if it updates the working channel.
@@ -1129,13 +1128,13 @@ To illustrate the structure, we list the contents in Figure~\ref{evaluationConte
 \end{figure}
 
 The evaluation setting is as follows.
-A square area which is 60km x 60km is divided into 16 square blocks evenly, for each block there is one WBS locating in the middle of it. 
-Same mount of end terminals distributed in each minor block.
-The terminals don't necessarily choose the WBS which is nearest to them to obtain service, in stead they choose the WBS to join, which provides the strongest RSSI at them.
-There is a 20km wide rim area around the square area, where the interference measurement devices for TV receiver are randomly located.
-The number of such interference measurement devices is the same with the number of channels in the system, each device works on one channel.
+A square area which is 60km x 60km is divided evenly into 16 square blocks.
+There is one WBS locating in the middle of each block.
+Same amount of end terminals are distributed in each block, where the end terminals don't necessarily choose the WBS which is nearest to them to obtain service, in stead they choose the WBS which provides them with the strongest RSSI.
+There is a 20km wide rim area around the square area, where the interference measurement devices for the TV receivers are randomly located.
+As to each channel there is one interference measurement device.
 The locations of WBSs and TV contours are illustrated in Fig.~\ref{sim:layout}.
-WBSs' locations are fixed, but the locations of interference measurement devices for TV receivers, the end terminals, and the sequence for WBS to update are randomly decided in each run.
+WBSs' locations are fixed, but the locations of interference measurement devices for the TV receivers, the end terminals, and the sequence for WBS to update are randomly decided in each run.
 Simulations are conducted for 50 times.
 
 \begin{figure}[h!]
@@ -1488,9 +1487,9 @@ it is clear that our proposed approach achieves the best among the distributed s
 
 \begin{figure}[h!]
   \centering
-      \includegraphics[width=0.9\textwidth]{24.pdf}
-  \caption{Cumulative distribution of SINR on end users after channel and power allocation}
-          \label{joint_SINRcdf}
+      \includegraphics[width=0.5\textwidth]{24.pdf}
+  		\caption{Cumulative distribution of SINR on end users after channel and power allocation}
+     \label{joint_SINRcdf}
 \end{figure}
 
 \section{Conclusions}

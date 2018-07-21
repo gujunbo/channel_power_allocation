@@ -8,7 +8,7 @@
 \BOOKMARK [1][]{section.4}{4 The Maximum Permitted Transmission Power}{}% 8
 \BOOKMARK [1][]{section.5}{5 Channel Allocation with Fixed Transmission Power}{}% 9
 \BOOKMARK [2][]{subsection.5.1}{5.1 Centralized Optimization Programming}{section.5}% 10
-\BOOKMARK [2][]{subsection.5.2}{5.2 Distributed White Space Channel Allocation \(WitheCat\): Algorithm and Protocol}{section.5}% 11
+\BOOKMARK [2][]{subsection.5.2}{5.2 Distributed White Space Channel Allocation \(WhiteCat\): Algorithm and Protocol}{section.5}% 11
 \BOOKMARK [2][]{subsection.5.3}{5.3 Analysis in Game Theoretical Framework}{section.5}% 12
 \BOOKMARK [1][]{section.6}{6 Variable Transmission Power After Channel Allocation}{}% 13
 \BOOKMARK [1][]{section.7}{7 Joint Channel and Power Allocation}{}% 14
