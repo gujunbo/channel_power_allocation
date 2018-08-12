@@ -91,6 +91,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 %\usepackage{authblk}
 
 \usepackage{color}
+\renewcommand{\vec}[1]{\mathbf{#1}}
 
 \begin{document}
 
@@ -392,7 +393,7 @@ In the following part of this chapter, the notations are exclusively about the W
 We clarify the meaning of some notations here.
 
 \begin{table}[h]
-\caption{Notations applied in the following part of this chapter}
+\caption{Notations}
 \label{tab1}
 \centering
 \begin{tabular}{l p{6.5cm}}
@@ -405,7 +406,9 @@ $\gamma_i$ & QuasiSINR of WBS $i$\\
 $f_{ji}^c$  & The interference caused by WBS $j$ on the interference reference point of WBS $i$, and both of them work on channel $c$\\
 $f_i^c$ & The sum of interference caused on the interference reference points of WBS $i$ \\
 $\tilde{P_i}^c$ & The power of the signal of interest on auxiliary circle of WBS $i$ which works on channel $c$     \\
-$P_i$		& The transmission power of WBS $i$\\
+$p_i^k$		& The transmission power of WBS $i$\\
+$P_i^k$		& The maximal transmission power of WBS $i$ in scheme I\\
+$P_\mu, P_{\mathtt{op}}$		& The minimum and maximal possible transmission power of WBS $i$ in scheme II\\
 $h_{ij}$ & The attenuation from the co-channel interfering WBS $j$ to the corresponding interference reference point of WBS $i$.\\
 $h_{i}$ & The attenuation from WBS $i$ to its auxiliary circle.\\
 $z_{ij}$ & The shadowing from the co-channel interfering  WBS $j$ to the corresponding interference reference point of WBS $i$.\\
@@ -460,6 +463,7 @@ In related works, the protection on primary users is taken care in the same time
 But according to the current regulations and standards, there exist no communication means between the secondary users and the primary users.
 Besides, when assuming such communication media is available and preventing primary users from being interfered during secondary users' power and channel allocation, the communication overhead between primary users and second users is considerable.
 
+\begin{comment}
 \subsection{Problem Decomposition}
 We obtain the maximal transmission power over each channel for every WBS before dealing with channel and power allocation, afterwards, the transmission power should not exceed this power mask.
 The maximal transmission power over all channels for each WBS is obtained at the centralized database.
@@ -540,9 +544,9 @@ Two distributed schemes are proposed, joint channel and power allocation is form
 Distributed algorithm based on Learning is proposed in \cite{cogCE_huang} for LTE to allocate the the resource block in down link, which leads to correlated equilibrium, but slow converge hinters its application.
 %
 
+\end{comment}
 
-
-\subsection{Utilization of TV White Space}
+\subsection*{Utilization of TV White Space}
 Here we introduce the solutions proposed on the utilization of TV white space, which includes regulations, proposed standards and recent research advances.
 In accordance with the regulations of FCC, there are some prototype applications proposed in both cellular network~\cite{tvwhite_lte2011, multicell_geo_dyspan11} and WiFi-like network~\cite{whitefi09}.
 The secondary users access a centralized data base to know the allowed channels and transmission power.
@@ -635,8 +639,11 @@ As to our knowledge, there is no work dealing with channel allocation problem wh
 %coordinates the transmissions of a group of links sharing a
 %common spectrum.xxxxxx
 
-
-\section{The Maximum Permitted Transmission Power}
+In this paper we propose two schemes to exploit the TV white space.
+\section{Scheme I (with Different Transmission Power)}
+The first scheme lays restrictions on transmission power of the WBSs so that the TV receivers will not be affected even when all the WBSs operate on the same channel.
+Afterwards, WBSs choose channels to maximize their individual utilities in a distributed manner.
+\subsection{The Maximum Permitted Transmission Power}
 \label{powermap}
 %interference measuring devices
 The WBSs work in underlay manner and coexist with primary TV stations and receivers, the aggregate generated interference from WBSs on each channel should not exceed the threshold of the TV receivers.
@@ -654,10 +661,10 @@ Then the maximum permitted transmission power on channel $c$ for each WBS can be
 \label{lp}
 		\begin{aligned}
 		& {\text{Maximize}}
-		& & \sum_{i\in \mathcal{N}} P^c_i \\
+		& & \sum_{i\in \mathcal{N}} P^k_i \\
 		& \text{subject to}
-		& & \sum_{i\in \mathcal{N}} (P^c_i \cdot h_{i,pt}\cdot z) < I^c_{pt},\\
-		& & & P_{min}^c \leq P_i^c \leq P_{max}^c		
+		& & \sum_{i\in \mathcal{N}} (P^k_i \cdot h_{i,pt}\cdot z) < I^k_{pt},\\
+		& & & P_{min}^k \leq P_i^k \leq P_{max}^k
 		\end{aligned}
 	\end{equation}
 	
@@ -686,9 +693,9 @@ To address this fairness issue, we maximize the sum of the logarithmic value of 
 		\label{cvx}
 		\begin{aligned}
 		& {\text{Maximize}}
-		& & \sum_{i\in \mathcal{N}} \log P^c_i \\
+		& & \sum_{i\in \mathcal{N}} \log p^k_i \\
 		& \text{subject to}
-		& & \sum_{i\in \mathcal{N}} (P^c_i \cdot h_{i,pt}\cdot z) < I^c_{pt}, 
+		& & \sum_{i\in \mathcal{N}} (p^k_i \cdot h_{i,pt}\cdot z) < I^k_{pt}, 
 		\end{aligned}
 	\end{equation}
 
@@ -715,29 +722,29 @@ Thus, there is exists a interference margin created by using multiple channels, 
 %XXX As mentioned above, it is not clear which impact the relationship between maximum transmit power planning and channel selection has XXX.
 
 
-\section{Channel Allocation with Fixed Transmission Power}
-\label{CA_fixedPower_2subproblem}
-%As discussed in~\ref{CA}, there is 
-First, we give the centralized solution to obtain the global optimum for this subproblem, then the decentralized scheme under the game theoretic framework is introduced.
+In the following subsections, we firstly present the centralized solution to obtain the global optimum, then introduce the decentralized scheme under the game theoretic framework.
 
-\subsection{Centralized Optimization Programming}
+
+\subsection{Centralized Optimization for Channel Allocation}
 \label{03_centralized_ca}
+
 We formulate the channel allocation problem into a binary quadratic programming problem which can be solved in a centralized way.  
-Let $X_i = \{x_{i1}\cdots x_{ik}\cdots x_{i|\mathcal{C}|}\}$ denote the vector of channel usage, there is $|X_i| = |\mathcal{C}|$ and binary element $x_{ik}$ represent whether WBS $i$ occupies channel $k$.
-For two WBSs $i$ and $j$, there is,
+Let $X_i = \{x_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathcal{C}|}\}$ denote the vector of channel usage, there is $|X_i| = |\mathcal{C}|$ and binary element $x_i^k$ represent whether WBS $i$ occupies channel $k$.
+Given two WBSs $i$ and $j$, there is,
 \begin{equation}
 \begin{split}
-X_i^TX_j = \sum\limits_{k=1}^{|\mathcal{C}|}x_{ik}\cdot x_{jk} = 
+X_i^TX_j = \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k\cdot x_j^k = 
 \left\{ \begin{array}{ll}
-1 & \mbox{if $c_i=c_j$} \\
-0 & \mbox{if $c_i\neq c_j$} 
+1 & \mbox{if $c(i)=c(j)$} \\
+0 & \mbox{if $c(i)\neq c(j)$} 
 \end{array}
 \right.
 \end{split}
 \end{equation}
 
-The power levels across all channels are denoted by a constant vector $P^{|\mathcal{C}|\times 1}$, which is possibly nonidentical to WBSs due to different locations. 
-The power used by user $i$ is $P_i^TX_i = \sum\limits_{k=1}^{|\mathcal{C}|}P_{i}^k\cdot x_{ik}$.
+$c(i)$ means the working channel which is chosen by WBS $i$.
+The transmission power levels on all channels for WBS $i$ are denoted by a constant vector $\vec{P}_i = \{P_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathcal{C}|}\}$. 
+The transmission power adopted by WBS $i$ is $\vec{P}_i^TX_i = \sum\limits_{k=1}^{|\mathcal{C}|}P_{i}^k\cdot x_i^k$.
 
 
 Problem \ref{problem} can be modeled via general purpose nonlinear optimization:
@@ -745,20 +752,20 @@ Problem \ref{problem} can be modeled via general purpose nonlinear optimization:
 \label{QLP}
 		\begin{aligned}
 		& \underset{}{\text{minimize}}
-		& & \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}P^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{P^TX_ih_iz_i}\\
+		& & \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}\vec{P}_j^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{\vec{P}^TX_ih_iz_i}\\
 		& \text{subject to}
-		& & \sum\limits_{k=1}^{|\mathcal{C}|}x_{ik}=1, x_{ik}\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+		& & \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_{ik}\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
 		\end{aligned}
 	\end{equation}
-Problem \ref{QLP} is a non-linear problem with binary variables, but it can be reformulated in to a quadratic programming problem as,
+Problem \ref{QLP} is a non-linear problem with binary variables, but it can be reformulated into a quadratic programming problem as,
 	\begin{equation}
 \label{QLP_2}
 			\begin{aligned}
 			\underset{}{\text{minimize}}
-			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_k \frac{P_{jk}\cdot h_{ji}\cdot z_{ji}}{P_{ik}\cdot h_i\cdot z_i}\cdot  x_{jk}\cdot x_{ik}  \\
-			& + \sum\limits_k \frac{N_0}{P_{ik}\cdot h_i\cdot z_i}\cdot x_{ik})\\
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k\in\mathcal{C}} \frac{P_j^k\cdot h_{ji}\cdot z_{ji}}{P_i^k\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
+			& + \sum\limits_{k\in\mathcal{C}} \frac{N_0}{P_i^k\cdot h_i\cdot z_i}\cdot x_i^k)\\
 			\text{subject to} 
-			& \sum\limits_{k=1}^{|\mathcal{C}|}x_{ik}=1, x_{ik}\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
 			\end{aligned}
 		\end{equation}
 
@@ -768,9 +775,11 @@ The result of this centralized channel assignment will be evaluated in the simul
 
 
 
-\subsection{Distributed White Space Channel Allocation (WhiteCat): Algorithm and Protocol}
+\subsection{Distributed White Space Channel Allocation (WhiteCat)}
 \label{whitecat}
 In this section a distributed scheme for WBSs to allocate channels is proposed, which is named as \underline{white} space \underline{c}hannel \underline{a}llocation \underline{t}echnology (WhiteCat). 
+
+\subsubsection{Algorithm and Protocol}
 WhiteCat adopts the best response process, where each WBS (referred as $i$) chooses the channel which brings the bigger utility $u_i$ as the response of other WBSs' choices on channels.
 %and the sum of all WBSs' utilities is minimized after finite times of updates even the interaction between WBSs are asymmetric. The utility is as follows,
 WhiteCat is depicted by algorithm \ref{whitecatalgo}.
@@ -840,7 +849,7 @@ After executing Algorithm \ref{whitecatalgo}, it reports to centralized database
 As the location of WBSs and TV stations and the transmission channel and power of TV stations are usually static (entries of TV station change averagely once in 2 days\cite{SenseLess2011}), except for the channel usage in the network, the change of the other data stored in WBS is infrequent. 
 
 
-\subsection{Analysis in Game Theoretical Framework}
+\subsubsection{Analysis in Game Theoretical Framework}
 \label{game}
 In this section, We give the proof on whiteCat's convergence in the framework of congestion game theory.
 Formulating a spectrum sharing problem into a congestion game and the concept of \textit{virtual resources} are firstly proposed in \cite{allerton08_liu}.
@@ -876,7 +885,7 @@ This equivalence doesn't exist in our problem, but by carefully choosing the cos
 
 
 
-\subsubsection*{The Congestion Game Formulated from the Algorithm WhiteCat}
+\subsubsection{From WhiteCat to Congestion Game}
 \label{gameforproblem}
 We utilize the conception of virtual resource which is firstly introduced in \cite{allerton08_liu}. 
 Virtual resource is a triplet $\{i, j, c\}$, where $i,j$ are two WBSs and $c\in \mathcal{C}$ is one channel.
@@ -925,9 +934,8 @@ At the first glance, this is a player specific congestion game, as $g_{(i,j,c)}$
 But actually the resource ${(i,j,c)}$ excludes the players except for $i$ and $j$ from using it, thus the cost happened on this resource is only dependant on how many of players from the set $\{i, j\}$ to use it.
 Hence, the cost is a function of the number of players using the resource, and this is a canonical congestion game.
 
-\subsubsection*{Bridging the Game and Algorithm WhiteCat}
 
-When we substitute Formula \ref{costfuc4resrc} to Formula \ref{6}, the total cost for user $i$ under strategy profile $\sigma$ . 
+Now we substitute Formula \ref{costfuc4resrc} to Formula \ref{6}, the total cost for user $i$ under strategy profile $\sigma$ . 
 
 \begin{equation}
 \label{cost1player}
@@ -968,7 +976,7 @@ G(\sigma)
 When players minimize their utilities (cost or potential) illustrated by Formula \ref{cost1player}, the total congestion in the secondary network given by Formula \ref{allPotential} decreases monotonically before reaching one Nash equilibrium. Players' greedy update in the game to minimize its cost Function\ref{cost1player}, which ceases finally in pure Nash Equilibrium. The strategy and cost function of players in the game is transplanted as Algorithm \ref{whitecatalgo} and utility Function \ref{utility} respectively.
 
 
-\subsubsection*{Gap between the Potential of Game and the Objective}
+\subsubsection{Comparison between the Potential in the Congestion Game and the Objective of WhiteCat}
 It is natural to raise the question, is the sum of the final utilities of all WBSs exactly the same with the value of potential when the game converges to a Nash equilibrium, which is represented by \ref{allPotential}?
 The answer is, they are identical when $N_0$ is zero, and there will be a little difference when $N_0$ is not zero.
 Recall the target objective we want to minimize in Problem \ref{problem} is,
@@ -998,7 +1006,7 @@ In this case, the utility of one user can be formulated to incorporate the infor
 
 
 
-\subsubsection*{Communication Overhead of WhiteCat}
+\subsubsection{Communication Overhead of WhiteCat}
 
 The problem of channel allocation with different and fixed transmission power is NP hard.
 WhiteCat is a distributed scheme but certain information of the other WBSs is needed.
@@ -1022,7 +1030,118 @@ Although a WBS
 
 The upper bound of total update steps is $2n^2$, thus averagely, the upper bound of update steps for each WBS is $2n$.
 
+\section{Scheme II (with Identical Transmission Power)}
+The second scheme is similar with the FCC proposals in terms of transmission power, \ie WBSs operate with the same transmission power $P_{\mathtt{op}}$.
+In this scheme, when all or many WBSs operate on the same channel, the sum of interference may cause interference to TV receivers, so that the number of WBSs operating on a certain channel should be restricted.
+In other words, not all WBSs can operate and the problem is how to find out those WBSs and let them be idle.
+\subsection{Distributed Scheme}
+To protect the TV receivers from harmful interference, some WBSs are not allowed to operate, and the operating WBSs choose channels in distributed manner.
+We name this scheme as \underline{white} space \underline{S}econdary \underline{U}ser \underline{S}election and \underline{S}pectrum \underline{A}llocation (WhiteSussa). 
 
+\subsection{Centralized Optimization for Channel Allocation}
+Due to the existence of certain WBSs which don't transmit, we can not adopt the problem formulation~\ref{problem} directly because some denominators in the objective function, which are related with the idle WBSs are zero.
+In order to solve this problem, we allow the idle WBSs to work with a very low transmission power.
+That being said, the power used by user $i$ can be presented as $\vec{P}_i^T X_i = \sum\limits_{k=1}^{|\mathcal{C}|}p_i^k\cdot x_{ik}$.
+There is $p_i^k\in \{P_\mu, P_{\mathtt{op}}\}$, where $P_\mu$ represents the very weak transmission power.
+
+
+Problem \ref{problem} can be modeled via general purpose nonlinear optimization:
+	\begin{equation}
+\label{QLP}
+		\begin{aligned}
+		& \underset{}{\text{Minimize}}
+		&  \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}\vec{P}_j^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{\vec{P}_i^TX_ih_iz_i}\\
+		& \text{subject to}
+		&  \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+		& & p_i^k\in \{P_\mu, P_{\mathtt{op}}\}, \mathtt{for} \forall i\in \mathcal{N}, \forall k\in \mathcal{C}\\
+     	& & \sum_{i\in \mathcal{N}} (p^k_i \cdot h_{i,pt}\cdot z) < I^c_{pt},  \mathtt{for} \forall k\in \mathcal{C} 
+		\end{aligned}
+	\end{equation}
+	
+Problem \ref{QLP} is a non-linear problem with binary variables, with the technique in Section~\ref{03_centralized_ca}, it can be written as,
+	\begin{equation}
+\label{QLP_2}
+			\begin{aligned}
+			\underset{}{\text{minimize}}
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k\in\mathcal{C}} \frac{p_j^k\cdot h_{ji}\cdot z_{ji}}{p_i^k\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
+			& + \sum\limits_k \frac{N_0}{p_i^k\cdot h_i\cdot z_i}\cdot x_i^k)\\
+			\text{subject to} 
+			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+			& p_i^k\in \{P_\mu, P_{\mathtt{op}}\} \mathtt{for} \forall i\in \mathcal{N}, \forall k\in \mathcal{C}\\
+			& \sum\limits^{n}_{i=1}x_i^k\cdot p_i^k\cdot h_{i,pt}\cdot z \leq I^k_{pt}, \mathtt{for}\forall k\in \mathcal{C} \\
+			\end{aligned}
+		\end{equation}
+		
+Formulation \ref{QLP_2} is nonlinear but we can transform it into a quadratic optimization with auxiliary variables.
+We introduce binary number $\alpha$, real number $\beta$ and $q$, where
+	\begin{equation}
+	\label{alpha_opt}
+x_j^k\cdot x_i^k =\alpha_{ij}^k
+	\end{equation}
+	\begin{equation}
+	\label{beta_opt}
+\beta_{ij}^k = p_j^k\cdot \alpha_{ij}^k
+	\end{equation}
+	\begin{equation}
+	\label{q_opt}	
+\frac{1}{p_i^k} = q_i^k
+	\end{equation}
+Then the optimization~\ref{QLP_2} is transformed as:
+	\begin{equation}
+\label{scheme2optimizaiton}
+			\begin{aligned}
+			& \underset{}{\text{minimize}}\\
+			&\sum\limits^{n}_{i=1}(\sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_k q_{i}^k\cdot \beta_{ij}^k \cdot h_{ji}\cdot z + \sum\limits_k N_0\cdot q_{i}^k\cdot x_i^k)\\
+			& \text{subject to:} \\
+			& x_j^k + x_i^k - \alpha_{ij}^k\leq 1 \\
+			& -x_j^k - x_i^k +2\cdot \alpha_{ij}^k \leq 0 \\
+			& \beta_{ij}^k - p_{\mathtt{op}}\cdot \alpha_{ij}^k \leq 0 \\
+			& - \beta_{ij}^k + p_\mu\cdot \alpha_{ij}^k \leq 0 \\
+			& \beta_{ij}^k - p_j^k - p_\mu\cdot \alpha_{ij}^k \leq -p_j^{k,min} \\			
+			& -\beta_{ij}^k + p_j^k + p_{\mathtt{op}}\cdot \alpha_{ij}^k \leq p_j^{k,max} \\			
+			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+			& q_i^k\cdot p_i^k =1\\
+			& \sum\limits^{n}_{i=1}x_i^1\cdot p_i^1\cdot h_{i,pt}\cdot z \leq I^1_{pt}\\
+			& \vdots\\
+			& \sum\limits^{n}_{i=1}x_i^k\cdot p_i^k\cdot h_{i,pt}\cdot z \leq I^k_{pt}\\
+			& \vdots\\
+			&  \sum\limits^{n}_{i=1}x_i^{|\mathcal{C}|}\cdot p_i^{|\mathcal{C}|}\cdot h_{i,pt}\cdot z \leq I^{|\mathcal{C}|}_{pt}\\
+			\end{aligned}
+		\end{equation}
+%		\todo{result is not ready.}
+
+The objective function is quadratic and there is a quadratic equality constraint.
+We can use MATLAB tool which uses interior-point algorithm to solve it.
+
+\subsection{Distributed White Space Channel Allocation (WhiteSussa)}
+Being aware of the accumulated interference on the interference measurement devices for the primary users, each WBS decides on the channel, which doesn't result in harmful interference onto the primary system.
+If such channel doesn't exist, then the WBS switches to idle state.
+The pseudo code is as follows,
+
+\begin{algorithm}[h]
+\caption{Spectrum selection by WBS $i$}          % give the algorithm a caption
+\label{whitecatalgo} 
+\DontPrintSemicolon
+\SetAlgoLined
+\KwIn{The complete graph of the network, \ie the distance, path lose and shadowing parameter between each WBS and any other WBS and every TV interference measurement devices ;\\ transmission power;\\Secondary network operation profile $c(i), f_i$ where $i\in \mathcal{N}$. $c(i)$ is the channel used by WBS $i$, $f_i$ is the co-channel interference received on WBS $i$.}
+
+\While{Operation profile is different from previous round}{
+	\For{$i\in \mathcal{N}$}{
+		\For{$c\in \mathcal{C}\setminus c(i)$}{
+		 \If{$\sum f^c_m \leq Threshold^c$}{
+			\If{$c(i)\in \mathcal{C} \&\& f^c_i < f_i$}{
+			$f_i = f^c_i$\\
+			$c(i) = c$
+		 }
+		}
+		}
+	}
+	}
+	
+	
+Notify database of its channel usage, which further notifies the other WBSs
+
+\end{algorithm}
 
 \section{Variable Transmission Power After Channel Allocation}
 \label{powerAllocation}
@@ -1054,9 +1173,10 @@ To adopt this algorithm, every WBS keeps on minimizing its utility and finally a
 
 
 \section{Joint Channel and Power Allocation}
-In the section~\ref{CA_fixedPower_2subproblem}, the problem is decomposed into three subproblems which are solved sequentially.
-The first is solved with linear/convex programming in the centralized database, and the others are solved with distributed schemes.
-The decomposition of the original problem, and the distributed scheme may yield result which is far away from the global optimum, so in this section, we propose a centralized scheme which looks for the global optimum in order to examine the performance of our cascaded and distributed channel and power allocation scheme.
+%In the section~\ref{CA_fixedPower_2subproblem}, the problem is decomposed into three subproblems which are solved sequentially.
+%The first is solved with linear/convex programming in the centralized database, and the others are solved with distributed schemes.
+Due to the decomposition of the original problem in scheme I and identical transmission power in scheme II, the distributed schemes may yield result which is far away from the global optimum.
+In this section, we propose a centralized scheme which looks for the local optimum in order to examine the performance of our cascaded and distributed channel and power allocation scheme.
 
 
 \subsection{Centralized Optimization}
@@ -1095,13 +1215,7 @@ Then the optimization problem can be stated as:
 %		\todo{result is not ready.}
 
 The objective function is quadratic.
-We notice that all the constraints except for the last one are linear.
-The first two constrains realizes Formula~\ref{alpha_opt}, the following four constraints realizes Formula~\ref{beta_opt}.
-Due to the quadratic equability constraint $q_i\cdot p_i =1$, the optimization problem is non-convex which makes this optimization problem very challenging to solve~\cite{hmam2010quadratic,Quadratic_min_one_equality}.
-%
-Linearisation is possible when the matrix Q in the quadratic is positive definite.% 'Quadratic Optimisation with One Quadratic Equality Constraint'.
-As we don't regulate the locations of the WBSs, and the attenuation is random among them, thus the positive definite can not be guaranteed.
-We use solver LINDO~\cite{lindo} to look for the global optimum.
+Same as the formulation~\ref{scheme2optimizaiton}, we also use MATLAB solver to obtain the local optimum.
 
 
 
