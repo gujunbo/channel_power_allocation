@@ -1031,9 +1031,10 @@ Although a WBS
 The upper bound of total update steps is $2n^2$, thus averagely, the upper bound of update steps for each WBS is $2n$.
 
 \section{Scheme II (with Identical Transmission Power)}
-The second scheme is similar with the FCC proposals in terms of transmission power, \ie WBSs operate with the same transmission power $P_{\mathtt{op}}$.
-In this scheme, when all or many WBSs operate on the same channel, the sum of interference may cause interference to TV receivers, so that the number of WBSs operating on a certain channel should be restricted.
-In other words, not all WBSs can operate and the problem is how to find out those WBSs and let them be idle.
+The second scheme is line with the FCC proposals in terms of transmission power, \ie WBSs operate with the same transmission power $P_{\mathtt{op}}$.
+When the number of transmitters increases, the accumulated interference may cause interference to TV receivers.
+In this scenario, the number of WBSs operating need to be restricted.
+This being said, when the number of WBSs is large, some of them need to stop transmitting.
 \subsection{Distributed Scheme}
 To protect the TV receivers from harmful interference, some WBSs are not allowed to operate, and the operating WBSs choose channels in distributed manner.
 We name this scheme as \underline{white} space \underline{S}econdary \underline{U}ser \underline{S}election and \underline{S}pectrum \underline{A}llocation (WhiteSussa). 
@@ -1043,9 +1044,9 @@ Due to the existence of certain WBSs which don't transmit, we can not adopt the 
 In order to solve this problem, we allow the idle WBSs to work with a very low transmission power.
 That being said, the power used by user $i$ can be presented as $\vec{P}_i^T X_i = \sum\limits_{k=1}^{|\mathcal{C}|}p_i^k\cdot x_{ik}$.
 There is $p_i^k\in \{P_\mu, P_{\mathtt{op}}\}$, where $P_\mu$ represents the very weak transmission power.
+The transmission power levels are the same as for all the WBSs, so we omit the superscript when we refer the transmission power.
 
-
-Problem \ref{problem} can be modeled via general purpose nonlinear optimization:
+As all the WBS transmit with the same transmission power, the Problem \ref{problem} is modeled as following:
 	\begin{equation}
 \label{QLP}
 		\begin{aligned}
@@ -1053,7 +1054,7 @@ Problem \ref{problem} can be modeled via general purpose nonlinear optimization:
 		&  \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}\vec{P}_j^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{\vec{P}_i^TX_ih_iz_i}\\
 		& \text{subject to}
 		&  \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
-		& & p_i^k\in \{P_\mu, P_{\mathtt{op}}\}, \mathtt{for} \forall i\in \mathcal{N}, \forall k\in \mathcal{C}\\
+		& & p_i^k\in \{P_\mu, P_{\mathtt{op}}\}, \mathtt{for} \forall i\in \mathcal{N}\\
      	& & \sum_{i\in \mathcal{N}} (p^k_i \cdot h_{i,pt}\cdot z) < I^c_{pt},  \mathtt{for} \forall k\in \mathcal{C} 
 		\end{aligned}
 	\end{equation}
@@ -1063,54 +1064,94 @@ Problem \ref{QLP} is a non-linear problem with binary variables, with the techni
 \label{QLP_2}
 			\begin{aligned}
 			\underset{}{\text{minimize}}
-			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k\in\mathcal{C}} \frac{p_j^k\cdot h_{ji}\cdot z_{ji}}{p_i^k\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
-			& + \sum\limits_k \frac{N_0}{p_i^k\cdot h_i\cdot z_i}\cdot x_i^k)\\
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k\in\mathcal{C}} \frac{p_j\cdot h_{ji}\cdot z_{ji}}{p_i\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
+			& + \sum\limits_k \frac{N_0}{p_i\cdot h_i\cdot z_i}\cdot x_i^k)\\
 			\text{subject to} 
 			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
-			& p_i^k\in \{P_\mu, P_{\mathtt{op}}\} \mathtt{for} \forall i\in \mathcal{N}, \forall k\in \mathcal{C}\\
-			& \sum\limits^{n}_{i=1}x_i^k\cdot p_i^k\cdot h_{i,pt}\cdot z \leq I^k_{pt}, \mathtt{for}\forall k\in \mathcal{C} \\
+			& p_i\in \{P_\mu, P_{\mathtt{op}}\} \mathtt{for} \forall i\in \mathcal{N}\\
+			& \sum\limits^{n}_{i=1}x_i^k\cdot p_i\cdot h_{i,pt}\cdot z \leq I^k_{pt}, \mathtt{for}\forall k\in \mathcal{C} \\
 			\end{aligned}
 		\end{equation}
 		
 Formulation \ref{QLP_2} is nonlinear but we can transform it into a quadratic optimization with auxiliary variables.
-We introduce binary number $\alpha$, real number $\beta$ and $q$, where
+We introduce binary number $\alpha_{ij}^k$, real number $\beta_{ij}^k$ and $q_i$, where
 	\begin{equation}
 	\label{alpha_opt}
 x_j^k\cdot x_i^k =\alpha_{ij}^k
 	\end{equation}
 	\begin{equation}
 	\label{beta_opt}
-\beta_{ij}^k = p_j^k\cdot \alpha_{ij}^k
+\beta_{ij}^k = p_j\cdot \alpha_{ij}^k
 	\end{equation}
 	\begin{equation}
 	\label{q_opt}	
-\frac{1}{p_i^k} = q_i^k
+\frac{1}{p_i} = q_i
 	\end{equation}
-Then the optimization~\ref{QLP_2} is transformed as:
+	
+	\ref{q_opt} is a quadratic equality, which makes the problem to be non-convex. 
+	We transform it into a linear inequalities as following.
+	First, we let $P_\mu \cdot P_{\mathtt{op}} = 1$.
+	Then we replace $p_i$ and $q_i$ with binary variables $y_i$ and $z_i$ respectively:
 	\begin{equation}
-\label{scheme2optimizaiton}
-			\begin{aligned}
+	\label{p_to_binary}	
+	\begin{aligned}
+& p_i = y_i P_\mu + (1-y_i) P_{\mathtt{op}}\\
+& q_i = z_i P_\mu + (1-z_i) P_{\mathtt{op}}\\
+   \end{aligned}
+	\end{equation}	
+	
+Now we conduct convex relaxation by applying McCormick envelope~\cite{Gupte2012MixedIB}.
+As we want to get the lower bound of the objective function, we get the overestimators so as to expand the search space as follows,
+
+	\begin{equation}
+	\label{McCormick_envelope}	
+	\begin{aligned}
+& p_i \cdot q_i  \leq q_i P_{\mathtt{op}} + p_i P_\mu - P_{\mathtt{op}}P_\mu\\
+& p_i \cdot q_i   \leq p_i P_{\mathtt{op}} + q_i P_\mu - P_{\mathtt{op}}P_\mu\\
+%& p_i \cdot q_i   \geq 	q_i P_\mu + p_i P_\mu - P_\mu^2\\
+%& p_i \cdot q_i   \geq 	q_i P_{\mathtt{op}} + p_i P_{\mathtt{op}} - P_{\mathtt{op}}^2\\
+   \end{aligned}
+	\end{equation}
+	
+
+	
+	Considering $q_i  p_i =1$ and bring formula~\ref{p_to_binary} into ~\ref{McCormick_envelope}, we get the binary linear constrains with respect to the transmission powers:
+	
+		\begin{equation}
+	\label{relaxation_power}	
+	\begin{aligned}
+	& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} z_i + P_\mu y_i)  \leq P_{\mathtt{op}}^2 - 1\\
+	& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} y_i + P_\mu z_i)  \leq P_{\mathtt{op}}^2 - 1\\
+%	& P_\mu(P_\mu - P_{\mathtt{op}}) (y_i + z_i) + 2P_{\mathtt{op}}P_\mu -P_\mu^2 \leq 1\\
+%	& P_{\mathtt{op}} (P_\mu - P_{\mathtt{op}}) (y_i + z_i) + P_{\mathtt{op}}^2 \leq 1\\
+   \end{aligned}
+	\end{equation}	
+	
+Then the optimization~\ref{QLP_2} is transformed to be:
+
+			\begin{align}
+			\label{scheme2optimizaiton}
 			& \underset{}{\text{minimize}}\\
-			&\sum\limits^{n}_{i=1}(\sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_k q_{i}^k\cdot \beta_{ij}^k \cdot h_{ji}\cdot z + \sum\limits_k N_0\cdot q_{i}^k\cdot x_i^k)\\
+			&\sum\limits^{n}_{i=1}(\sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_k q_{i}\cdot \beta_{ij}^k \cdot h_{ji}\cdot z_{ji} + \sum\limits_k N_0\cdot q_{i}\cdot x_i^k)\\
 			& \text{subject to:} \\
 			& x_j^k + x_i^k - \alpha_{ij}^k\leq 1 \\
-			& -x_j^k - x_i^k +2\cdot \alpha_{ij}^k \leq 0 \\
-			& \beta_{ij}^k - p_{\mathtt{op}}\cdot \alpha_{ij}^k \leq 0 \\
-			& - \beta_{ij}^k + p_\mu\cdot \alpha_{ij}^k \leq 0 \\
-			& \beta_{ij}^k - p_j^k - p_\mu\cdot \alpha_{ij}^k \leq -p_j^{k,min} \\			
-			& -\beta_{ij}^k + p_j^k + p_{\mathtt{op}}\cdot \alpha_{ij}^k \leq p_j^{k,max} \\			
+			& -x_j^k - x_i^k +2 \alpha_{ij}^k \leq 0 \\
+			& \beta_{ij}^k - P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \\
+			& - \beta_{ij}^k + P_\mu \alpha_{ij}^k \leq 0 \\
+			& \beta_{ij}^k + (P_{\mathtt{op}} - P_\mu)y_j - P_\mu \alpha_{ij}^k \leq P_{\mathtt{op}}- P_\mu \\	
+			& -\beta_{ij}^k + (P_\mu - P_{\mathtt{op}})y_j + P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \\					
+			& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} y_i + P_\mu z_i)  \leq P_{\mathtt{op}}^2-1\\
+			& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} z_i + P_\mu y_i)  \leq P_{\mathtt{op}}^2 - 1\\
+%			& P_\mu(P_\mu - P_{\mathtt{op}}) (y_i + z_i) + 2P_{\mathtt{op}}P_\mu -P_\mu^2 \leq 1\\
+%			& P_{\mathtt{op}} (P_\mu - P_{\mathtt{op}}) (y_i + z_i) + P_{\mathtt{op}}^2 \leq 1\\
 			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
-			& q_i^k\cdot p_i^k =1\\
-			& \sum\limits^{n}_{i=1}x_i^1\cdot p_i^1\cdot h_{i,pt}\cdot z \leq I^1_{pt}\\
-			& \vdots\\
-			& \sum\limits^{n}_{i=1}x_i^k\cdot p_i^k\cdot h_{i,pt}\cdot z \leq I^k_{pt}\\
-			& \vdots\\
-			&  \sum\limits^{n}_{i=1}x_i^{|\mathcal{C}|}\cdot p_i^{|\mathcal{C}|}\cdot h_{i,pt}\cdot z \leq I^{|\mathcal{C}|}_{pt}\\
-			\end{aligned}
-		\end{equation}
-%		\todo{result is not ready.}
+			& \sum\limits^{n}_{i=1} (P_\mu - P_{\mathtt{op}})x_i^k y_i + P_{\mathtt{op}}x_i^k \leq  \dfrac{I^k_{pt}}{h_{i,pt} z_{i,pt}}\\
+%			& \sum\limits^{n}_{i=1}x_i^k p_i h_{i,pt} z \leq I^k_{pt}\\
+			& \forall i, j\in \mathcal{N}, k\in \mathcal{C}
+			\end{align}
 
-The objective function is quadratic and there is a quadratic equality constraint.
+
+The objective function is quadratic and there is a quadratic inequality constraint.
 We can use MATLAB tool which uses interior-point algorithm to solve it.
 
 \subsection{Distributed White Space Channel Allocation (WhiteSussa)}
@@ -1192,7 +1233,7 @@ x_{jk}\cdot x_{ik} =\alpha_{ij}^k
 \beta_{ij}^k = p_j^k\cdot \alpha_{ij}^k
 	\end{equation}
 	\begin{equation}
-	\label{q_opt}	
+	\label{q_opt_2}	
 \frac{1}{p_i^k} = q_i^k
 	\end{equation}
 Then the optimization problem can be stated as:
