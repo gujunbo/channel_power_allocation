@@ -6,6 +6,7 @@
 
 \usepackage[colorlinks,bookmarksopen,bookmarksnumbered,citecolor=red,urlcolor=red]{hyperref}
 
+\usepackage{cite}
 \newcommand\BibTeX{{\rmfamily B\kern-.05em \textsc{i\kern-.025em b}\kern-.08em
 T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
@@ -58,6 +59,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \usepackage{mwe} %<- For dummy images
 \usepackage{multirow}
 \usepackage{multicol}
+\usepackage{cleveref}
 
 %% Andere Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{a4wide} %%Kleinere Seitenränder = mehr Text pro Zeile.
@@ -398,8 +400,6 @@ We clarify the meaning of some notations here.
 \centering
 \begin{tabular}{l p{6.5cm}}
 \toprule
-%\multicolumn{2}{c}{Item} \\
-%\cmidrule(r){1-2}
 Symbol & Description \\
 \midrule
 $\gamma_i$ & QuasiSINR of WBS $i$\\
@@ -412,7 +412,8 @@ $P_\mu, P_{\mathtt{op}}$		& The minimum and maximal possible transmission power 
 $h_{ij}$ & The attenuation from the co-channel interfering WBS $j$ to the corresponding interference reference point of WBS $i$.\\
 $h_{i}$ & The attenuation from WBS $i$ to its auxiliary circle.\\
 $z_{ij}$ & The shadowing from the co-channel interfering  WBS $j$ to the corresponding interference reference point of WBS $i$.\\
-$z_{i}$ & The shadowing from WBS $i$ to auxiliary circle.\\		
+$z$ & The shadowing from WBS $i$ to auxiliary circle.\\
+$\alpha_{ij}^k, \beta_{ij}^k, y_i, z_i$ & Binary auxiliary variables in the optimization in Section~\ref{schemeII}.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1031,6 +1032,7 @@ Although a WBS
 The upper bound of total update steps is $2n^2$, thus averagely, the upper bound of update steps for each WBS is $2n$.
 
 \section{Scheme II (with Identical Transmission Power)}
+\label{schemeII}
 The second scheme is line with the FCC proposals in terms of transmission power, \ie WBSs operate with the same transmission power $P_{\mathtt{op}}$.
 When the number of transmitters increases, the accumulated interference may cause interference to TV receivers.
 In this scenario, the number of WBSs operating need to be restricted.
@@ -1064,7 +1066,7 @@ Problem \ref{QLP} is a non-linear problem with binary variables, with the techni
 \label{QLP_2}
 			\begin{aligned}
 			\underset{}{\text{minimize}}
-			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k\in\mathcal{C}} \frac{p_j\cdot h_{ji}\cdot z_{ji}}{p_i\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathcal{C}|} \frac{p_j\cdot h_{ji}\cdot z_{ji}}{p_i\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
 			& + \sum\limits_k \frac{N_0}{p_i\cdot h_i\cdot z_i}\cdot x_i^k)\\
 			\text{subject to} 
 			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
@@ -1075,6 +1077,8 @@ Problem \ref{QLP} is a non-linear problem with binary variables, with the techni
 		
 Formulation \ref{QLP_2} is nonlinear but we can transform it into a quadratic optimization with auxiliary variables.
 We introduce binary number $\alpha_{ij}^k$, real number $\beta_{ij}^k$ and $q_i$, where
+% TODO: use \begin{aligned} to decrease the line distance.
+\end{align}
 	\begin{equation}
 	\label{alpha_opt}
 x_j^k\cdot x_i^k =\alpha_{ij}^k
@@ -1098,10 +1102,10 @@ x_j^k\cdot x_i^k =\alpha_{ij}^k
 & p_i = y_i P_\mu + (1-y_i) P_{\mathtt{op}}\\
 & q_i = z_i P_\mu + (1-z_i) P_{\mathtt{op}}\\
    \end{aligned}
-	\end{equation}	
+	\end{equation}
 	
-Now we conduct convex relaxation by applying McCormick envelope~\cite{Gupte2012MixedIB}.
-As we want to get the lower bound of the objective function, we get the overestimators so as to expand the search space as follows,
+Now we conduct convex relaxation by applying McCormick envelope~\cite{Mitsos2009}.
+As we want to get the lower bound of the objective function, we get the over-estimators so as to expand the search space as follows,
 
 	\begin{equation}
 	\label{McCormick_envelope}	
@@ -1118,7 +1122,7 @@ As we want to get the lower bound of the objective function, we get the overesti
 	Considering $q_i  p_i =1$ and bring formula~\ref{p_to_binary} into ~\ref{McCormick_envelope}, we get the binary linear constrains with respect to the transmission powers:
 	
 		\begin{equation}
-	\label{relaxation_power}	
+	\label{relaxation_power}
 	\begin{aligned}
 	& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} z_i + P_\mu y_i)  \leq P_{\mathtt{op}}^2 - 1\\
 	& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} y_i + P_\mu z_i)  \leq P_{\mathtt{op}}^2 - 1\\
@@ -1132,27 +1136,28 @@ Then the optimization~\ref{QLP_2} is transformed to be:
 			\begin{align}
 			\label{scheme2optimizaiton}
 			& \underset{}{\text{minimize}}\\
-			&\sum\limits^{n}_{i=1}(\sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_k q_{i}\cdot \beta_{ij}^k \cdot h_{ji}\cdot z_{ji} + \sum\limits_k N_0\cdot q_{i}\cdot x_i^k)\\
+			&\sum\limits^{n}_{i=1}\sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathcal{C}|} ((P_\mu - P_{\mathtt{op}})h_{ji} z_{ji} \beta_{ij}^k z_i  \\
+			&  + (P_\mu - P_{\mathtt{op}})N_0  x_i^k z_i + P_{\mathtt{op}}h_{ji} z_{ji} \beta_{ij}^k +  P_{\mathtt{op}}N_0x_i^k)\\
 			& \text{subject to:} \\
-			& x_j^k + x_i^k - \alpha_{ij}^k\leq 1 \\
-			& -x_j^k - x_i^k +2 \alpha_{ij}^k \leq 0 \\
-			& \beta_{ij}^k - P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \\
-			& - \beta_{ij}^k + P_\mu \alpha_{ij}^k \leq 0 \\
-			& \beta_{ij}^k + (P_{\mathtt{op}} - P_\mu)y_j - P_\mu \alpha_{ij}^k \leq P_{\mathtt{op}}- P_\mu \\	
-			& -\beta_{ij}^k + (P_\mu - P_{\mathtt{op}})y_j + P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \\					
-			& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} y_i + P_\mu z_i)  \leq P_{\mathtt{op}}^2-1\\
-			& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} z_i + P_\mu y_i)  \leq P_{\mathtt{op}}^2 - 1\\
-%			& P_\mu(P_\mu - P_{\mathtt{op}}) (y_i + z_i) + 2P_{\mathtt{op}}P_\mu -P_\mu^2 \leq 1\\
-%			& P_{\mathtt{op}} (P_\mu - P_{\mathtt{op}}) (y_i + z_i) + P_{\mathtt{op}}^2 \leq 1\\
+			& x_i^k + x_j^k  - \alpha_{ij}^k\leq 1 \label{alpha_opt_1}\\
+			& - x_i^k - x_j^k + 2 \alpha_{ij}^k \leq 0 \label{alpha_opt_2} \\
+			& \beta_{ij}^k - P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \label{beta_opt_1}\\
+			& - \beta_{ij}^k + P_\mu \alpha_{ij}^k \leq 0 \label{beta_opt_2}\\
+			& \beta_{ij}^k + (P_{\mathtt{op}} - P_\mu)y_j - P_\mu \alpha_{ij}^k \leq P_{\mathtt{op}}- P_\mu \label{beta_opt_3}\\	
+			& -\beta_{ij}^k + (P_\mu - P_{\mathtt{op}})y_j + P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \label{beta_opt_4}\\					
+			& P_{\mathtt{op}} y_i + P_\mu z_i  \leq \dfrac{P_{\mathtt{op}}^2-1}{P_{\mathtt{op}} - P_\mu}\label{p_to_binary_rex_1}\\
+			& P_\mu y_i + P_{\mathtt{op}} z_i  \leq \dfrac{P_{\mathtt{op}}^2-1}{P_{\mathtt{op}} - P_\mu} \label{p_to_binary_rex_2}\\
 			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
 			& \sum\limits^{n}_{i=1} (P_\mu - P_{\mathtt{op}})x_i^k y_i + P_{\mathtt{op}}x_i^k \leq  \dfrac{I^k_{pt}}{h_{i,pt} z_{i,pt}}\\
 %			& \sum\limits^{n}_{i=1}x_i^k p_i h_{i,pt} z \leq I^k_{pt}\\
-			& \forall i, j\in \mathcal{N}, k\in \mathcal{C}
+			& \forall i, j\in \mathcal{N}, i\neq j, k\in \mathcal{C}
 			\end{align}
 
 
-The objective function is quadratic and there is a quadratic inequality constraint.
-We can use MATLAB tool which uses interior-point algorithm to solve it.
+Inequalities~\ref{alpha_opt_1} and \ref{alpha_opt_2} are equivalent to Formula~\ref{alpha_opt}.
+Inequalities~\ref{beta_opt_1} to \ref{beta_opt_4} are equivalent to Formula~\ref{beta_opt}.
+Inequalities~\ref{p_to_binary_rex_1} and \ref{p_to_binary_rex_2} are relaxation of Formula~\ref{p_to_binary}.
+The objective function is quadratic and there is only linear and quadratic inequality constraints, so we use GUROBI Mixed-Integer Programming solver to solve it get the lower bound of the objective function.
 
 \subsection{Distributed White Space Channel Allocation (WhiteSussa)}
 Being aware of the accumulated interference on the interference measurement devices for the primary users, each WBS decides on the channel, which doesn't result in harmful interference onto the primary system.
@@ -1662,13 +1667,7 @@ Except for channel allocation, we also propose solutions for transmission power 
 %This solution makes full use of the infrastructure, the centralized database, and distributes the computation and decision making afterwards on channel and transmission power.
 
 
+
+\bibliography{../backmatter/myrefs}{}
 \bibliographystyle{IEEEtran}
-\bibliography{../backmatter/myrefs}
-
-
-%\ack This class file was developed by Sunrise Setting Ltd,
-%Paignton, Devon, UK. Website:\\
-%\href{http://www.sunrise-setting.co.uk}{\texttt{www.sunrise-setting.co.uk}}
-
-
 \end{document}
