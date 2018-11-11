@@ -95,6 +95,13 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \usepackage{color}
 \renewcommand{\vec}[1]{\mathbf{#1}}
 
+\usepackage{algpseudocode}
+\algnewcommand{\algorithmicand}{\textbf{ and }}
+\algnewcommand{\algorithmicor}{\textbf{ or }}
+\algnewcommand{\OR}{\algorithmicor}
+\algnewcommand{\AND}{\algorithmicand}
+\algnewcommand{\var}{\texttt}
+
 \begin{document}
 
 %\runningheads{A.~N.~Other}{A demonstration of the \journalabb\
@@ -1066,8 +1073,8 @@ Problem \ref{QLP} is a non-linear problem with binary variables, with the techni
 \label{QLP_2}
 			\begin{aligned}
 			\underset{}{\text{minimize}}
-			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathcal{C}|} \frac{p_j\cdot h_{ji}\cdot z_{ji}}{p_i\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
-			& + \sum\limits_k \frac{N_0}{p_i\cdot h_i\cdot z_i}\cdot x_i^k)\\
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathcal{C}|} \frac{p_j\cdot h_{ji}\cdot z_{ji}}{p_i\cdot h_{ii}\cdot z_{ii}}\cdot  x_j^k\cdot x_i^k  \\
+			& + \sum\limits_{k=1}^{|\mathcal{C}|} \frac{N_0}{p_i\cdot h_{ii}\cdot z_{ii}}\cdot x_i^k)\\
 			\text{subject to} 
 			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
 			& p_i\in \{P_\mu, P_{\mathtt{op}}\} \mathtt{for} \forall i\in \mathcal{N}\\
@@ -1078,60 +1085,60 @@ Problem \ref{QLP} is a non-linear problem with binary variables, with the techni
 Formulation \ref{QLP_2} is nonlinear but we can transform it into a quadratic optimization with auxiliary variables.
 We introduce binary number $\alpha_{ij}^k$, real number $\beta_{ij}^k$ and $q_i$, where
 % TODO: use \begin{aligned} to decrease the line distance.
-\end{align}
+
+%	\begin{equation}
+%	\label{alpha_opt}
+%x_j^k\cdot x_i^k =\alpha_{ij}^k
+%	\end{equation}
+%	\begin{equation}
+%	\label{beta_opt}
+%\beta_{ij}^k = p_j\cdot \alpha_{ij}^k
+%	\end{equation}
+%	\begin{equation}
+%	\label{q_opt}	
+%\frac{1}{p_i} = q_i
+%	\end{equation}
+	
+	\begin{align}
+	& x_j^k\cdot x_i^k =\alpha_{ij}^k\label{alpha_opt}\\
+	& \beta_{ij}^k = p_j\cdot \alpha_{ij}^k\label{beta_opt}\\
+	& \frac{1}{p_i} = q_i\label{q_opt}	
+	\end{align}
+	
+Now the objective function is is quadratic as shown in Formula~\ref{scheme2-obj-intermediate},
 	\begin{equation}
-	\label{alpha_opt}
-x_j^k\cdot x_i^k =\alpha_{ij}^k
-	\end{equation}
-	\begin{equation}
-	\label{beta_opt}
-\beta_{ij}^k = p_j\cdot \alpha_{ij}^k
-	\end{equation}
-	\begin{equation}
-	\label{q_opt}	
-\frac{1}{p_i} = q_i
+	\label{scheme2-obj-intermediate}
+	\sum\limits^{n}_{i=1} (h_{ji}z_{ji} \sum\limits_{j\in\mathcal{N}, j\neq i}  \sum\limits_{k=1}^{|\mathcal{C}|}  \beta_{ij}^k q_i  + N_0\sum\limits_{k=1}^{|\mathcal{C}|}  x_i^k q_i )
 	\end{equation}
 	
-	\ref{q_opt} is a quadratic equality, which makes the problem to be non-convex. 
-	We transform it into a linear inequalities as following.
-	First, we let $P_\mu \cdot P_{\mathtt{op}} = 1$.
-	Then we replace $p_i$ and $q_i$ with binary variables $y_i$ and $z_i$ respectively:
-	\begin{equation}
-	\label{p_to_binary}	
-	\begin{aligned}
-& p_i = y_i P_\mu + (1-y_i) P_{\mathtt{op}}\\
-& q_i = z_i P_\mu + (1-z_i) P_{\mathtt{op}}\\
-   \end{aligned}
-	\end{equation}
+	but the constraint \ref{q_opt} is a quadratic equality, which makes the problem to be non-convex. 
+	Thus we need to relax it into a linear inequalities.
+	As $p_i$ is either $P_{\mathtt{op}}$ or $P_\mu$, we can replace $p_i$ and $q_i$ with the help of two binary variables $y_i$ and $z_i$ respectively:
+
+	\begin{align}
+	& p_i = y_i P_\mu + (1-y_i) P_{\mathtt{op}}\label{p_to_binary}	\\
+	& q_i = z_i \frac{1}{P_{\mathtt{op}}} + (1-z_i)\frac{1}{P_\mu}\label{q_to_binary_1}
+   \end{align}
+
+Here we put a restriction on $P_\mu$ and $P_{\mathtt{op}}$ with $P_\mu P_{\mathtt{op}} = 1$, Function~\ref{q_to_binary_1} becomes
+	\begin{align}
+	& q_i = P_\mu z_i  + (1-z_i) P_{\mathtt{op}} \label{q_to_binary_2}
+   \end{align}
 	
-Now we conduct convex relaxation by applying McCormick envelope~\cite{Mitsos2009}.
+Now we conduct convex relaxation by applying McCormick envelope~\cite{Mitsos2009McCormickBasedRO}.
 As we want to get the lower bound of the objective function, we get the over-estimators so as to expand the search space as follows,
 
-	\begin{equation}
-	\label{McCormick_envelope}	
-	\begin{aligned}
-& p_i \cdot q_i  \leq q_i P_{\mathtt{op}} + p_i P_\mu - P_{\mathtt{op}}P_\mu\\
-& p_i \cdot q_i   \leq p_i P_{\mathtt{op}} + q_i P_\mu - P_{\mathtt{op}}P_\mu\\
-%& p_i \cdot q_i   \geq 	q_i P_\mu + p_i P_\mu - P_\mu^2\\
-%& p_i \cdot q_i   \geq 	q_i P_{\mathtt{op}} + p_i P_{\mathtt{op}} - P_{\mathtt{op}}^2\\
-   \end{aligned}
-	\end{equation}
+	\begin{align}
+& 1 = p_i \cdot q_i  \leq q_i P_{\mathtt{op}} + p_i P_\mu - P_{\mathtt{op}}P_\mu\label{McCormick_envelope-1}	\\
+& 1= p_i \cdot q_i   \leq p_i P_{\mathtt{op}} + q_i P_\mu - P_{\mathtt{op}}P_\mu\label{McCormick_envelope-2}\\
+& 1= p_i \cdot q_i   \geq 	q_i P_\mu + p_i P_\mu - P_\mu^2\label{McCormick_envelope-3}\\
+& 1= p_i \cdot q_i   \geq 	q_i P_{\mathtt{op}} + p_i P_{\mathtt{op}} - P_{\mathtt{op}}^2\label{McCormick_envelope-4}
+	\end{align}
 	
 
 	
-	Considering $q_i  p_i =1$ and bring formula~\ref{p_to_binary} into ~\ref{McCormick_envelope}, we get the binary linear constrains with respect to the transmission powers:
-	
-		\begin{equation}
-	\label{relaxation_power}
-	\begin{aligned}
-	& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} z_i + P_\mu y_i)  \leq P_{\mathtt{op}}^2 - 1\\
-	& (P_{\mathtt{op}} - P_\mu)(P_{\mathtt{op}} y_i + P_\mu z_i)  \leq P_{\mathtt{op}}^2 - 1\\
-%	& P_\mu(P_\mu - P_{\mathtt{op}}) (y_i + z_i) + 2P_{\mathtt{op}}P_\mu -P_\mu^2 \leq 1\\
-%	& P_{\mathtt{op}} (P_\mu - P_{\mathtt{op}}) (y_i + z_i) + P_{\mathtt{op}}^2 \leq 1\\
-   \end{aligned}
-	\end{equation}	
-	
-Then the optimization~\ref{QLP_2} is transformed to be:
+	By bringing formulas~\ref{p_to_binary} and ~\ref{q_to_binary_2} into formulas ~\ref{McCormick_envelope-1} to ~\ref{McCormick_envelope-4}, the binary linear constrains with respect to the transmission powers are obtained, which are inequalities~\ref{p_to_binary_rex_1} to~\ref{p_to_binary_rex_4} in the transformed optimization problem~\ref{QLP_2}:
+
 
 			\begin{align}
 			\label{scheme2optimizaiton}
@@ -1144,19 +1151,21 @@ Then the optimization~\ref{QLP_2} is transformed to be:
 			& \beta_{ij}^k - P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \label{beta_opt_1}\\
 			& - \beta_{ij}^k + P_\mu \alpha_{ij}^k \leq 0 \label{beta_opt_2}\\
 			& \beta_{ij}^k + (P_{\mathtt{op}} - P_\mu)y_j - P_\mu \alpha_{ij}^k \leq P_{\mathtt{op}}- P_\mu \label{beta_opt_3}\\	
-			& -\beta_{ij}^k + (P_\mu - P_{\mathtt{op}})y_j + P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \label{beta_opt_4}\\					
-			& P_{\mathtt{op}} y_i + P_\mu z_i  \leq \dfrac{P_{\mathtt{op}}^2-1}{P_{\mathtt{op}} - P_\mu}\label{p_to_binary_rex_1}\\
-			& P_\mu y_i + P_{\mathtt{op}} z_i  \leq \dfrac{P_{\mathtt{op}}^2-1}{P_{\mathtt{op}} - P_\mu} \label{p_to_binary_rex_2}\\
+			& -\beta_{ij}^k + (P_\mu - P_{\mathtt{op}})y_j + P_{\mathtt{op}} \alpha_{ij}^k \leq 0 \label{beta_opt_4}\\		
+			& P_\mu y_i + P_{\mathtt{op}} z_i  \leq \dfrac{P_{\mathtt{op}}^2-1}{P_{\mathtt{op}} - P_\mu} \label{p_to_binary_rex_1}\\	
+			& P_{\mathtt{op}} y_i + P_\mu z_i  \leq \dfrac{P_{\mathtt{op}}^2-1}{P_{\mathtt{op}} - P_\mu}\label{p_to_binary_rex_2}\\
+			& -y_i - z_i  \leq \frac{1+P_\mu^2-2P_{\mathtt{op}}P_\mu  }{P_\mu (P_{\mathtt{op}} - P_\mu)} \label{p_to_binary_rex_3}\\
+			& -y_i - z_i  \leq \frac{1- P_{\mathtt{op}}^2}{P_{\mathtt{op}}(P_{\mathtt{op}} - P_\mu) }\label{p_to_binary_rex_4}\\		
 			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
-			& \sum\limits^{n}_{i=1} (P_\mu - P_{\mathtt{op}})x_i^k y_i + P_{\mathtt{op}}x_i^k \leq  \dfrac{I^k_{pt}}{h_{i,pt} z_{i,pt}}\\
-%			& \sum\limits^{n}_{i=1}x_i^k p_i h_{i,pt} z \leq I^k_{pt}\\
+			& \sum\limits^{n}_{i=1} ((P_\mu - P_{\mathtt{op}})x_i^k y_i + P_{\mathtt{op}}x_i^k) \leq  \dfrac{I^k_{pt}}{h_{i,pt} z_{i,pt}}\\
+			& x_i^k, \alpha_{ij}^k, \beta_{ij}^k, y_i, z_i \in \{0,1\}\\
 			& \forall i, j\in \mathcal{N}, i\neq j, k\in \mathcal{C}
 			\end{align}
 
 
 Inequalities~\ref{alpha_opt_1} and \ref{alpha_opt_2} are equivalent to Formula~\ref{alpha_opt}.
-Inequalities~\ref{beta_opt_1} to \ref{beta_opt_4} are equivalent to Formula~\ref{beta_opt}.
-Inequalities~\ref{p_to_binary_rex_1} and \ref{p_to_binary_rex_2} are relaxation of Formula~\ref{p_to_binary}.
+Inequalities~\ref{beta_opt_1} - \ref{beta_opt_4} are equivalent to Formula~\ref{beta_opt}.
+Inequalities~\ref{p_to_binary_rex_1} - \ref{p_to_binary_rex_4} are relaxation of the equality quadratic~\ref{q_opt}.
 The objective function is quadratic and there is only linear and quadratic inequality constraints, so we use GUROBI Mixed-Integer Programming solver to solve it get the lower bound of the objective function.
 
 \subsection{Distributed White Space Channel Allocation (WhiteSussa)}
@@ -1175,7 +1184,7 @@ The pseudo code is as follows,
 	\For{$i\in \mathcal{N}$}{
 		\For{$c\in \mathcal{C}\setminus c(i)$}{
 		 \If{$\sum f^c_m \leq Threshold^c$}{
-			\If{$c(i)\in \mathcal{C} \&\& f^c_i < f_i$}{
+			\If{$c(i)\in \mathcal{C} \And{}  f^c_i < f_i$}{
 			$f_i = f^c_i$\\
 			$c(i) = c$
 		 }
@@ -1588,6 +1597,6 @@ Except for channel allocation, we also propose solutions for transmission power 
 
 
 
-\bibliography{../backmatter/myrefs}{}
+\bibliography{../backmatter/myrefs}
 \bibliographystyle{IEEEtran}
 \end{document}

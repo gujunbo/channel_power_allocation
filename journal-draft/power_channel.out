@@ -10,10 +10,7 @@
 \BOOKMARK [2][]{subsection.5.1}{5.1 Distributed Scheme}{section.5}% 10
 \BOOKMARK [2][]{subsection.5.2}{5.2 Centralized Optimization for Channel Allocation}{section.5}% 11
 \BOOKMARK [2][]{subsection.5.3}{5.3 Distributed White Space Channel Allocation \(WhiteSussa\)}{section.5}% 12
-\BOOKMARK [1][]{section.6}{6 Variable Transmission Power After Channel Allocation}{}% 13
-\BOOKMARK [1][]{section.7}{7 Joint Channel and Power Allocation}{}% 14
-\BOOKMARK [2][]{subsection.7.1}{7.1 Centralized Optimization}{section.7}% 15
-\BOOKMARK [1][]{section.8}{8 Performance Evaluation}{}% 16
-\BOOKMARK [2][]{subsection.8.1}{8.1 Maximal Permitted Power Decision and the Distributed Channel Allocation Schemes}{section.8}% 17
-\BOOKMARK [2][]{subsection.8.2}{8.2 Performance of Joint Power and Channel Allocation}{section.8}% 18
-\BOOKMARK [1][]{section.9}{9 Conclusions}{}% 19
+\BOOKMARK [1][]{section.6}{6 Performance Evaluation}{}% 13
+\BOOKMARK [2][]{subsection.6.1}{6.1 Maximal Permitted Power Decision and the Distributed Channel Allocation Schemes}{section.6}% 14
+\BOOKMARK [2][]{subsection.6.2}{6.2 Performance of Joint Power and Channel Allocation}{section.6}% 15
+\BOOKMARK [1][]{section.7}{7 Conclusions}{}% 16
