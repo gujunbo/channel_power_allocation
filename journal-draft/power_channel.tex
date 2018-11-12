@@ -1111,7 +1111,15 @@ Now the objective function is is quadratic as shown in Formula~\ref{scheme2-obj-
 	\sum\limits^{n}_{i=1} (h_{ji}z_{ji} \sum\limits_{j\in\mathcal{N}, j\neq i}  \sum\limits_{k=1}^{|\mathcal{C}|}  \beta_{ij}^k q_i  + N_0\sum\limits_{k=1}^{|\mathcal{C}|}  x_i^k q_i )
 	\end{equation}
 	
-	but the constraint \ref{q_opt} is a quadratic equality, which makes the problem to be non-convex. 
+	Constraint~\ref{beta_opt} can be formulated as a set of linear constraints:
+		\begin{align}
+	& x_j^k\cdot x_i^k =\alpha_{ij}^k\label{alpha_opt}\\
+	& \beta_{ij}^k = p_j\cdot \alpha_{ij}^k\label{beta_opt}\\
+	& \frac{1}{p_i} = q_i\label{q_opt}	
+	\end{align}
+	
+	
+	The constraint \ref{q_opt} is a quadratic equality, which makes the problem to be non-convex. 
 	Thus we need to relax it into a linear inequalities.
 	As $p_i$ is either $P_{\mathtt{op}}$ or $P_\mu$, we can replace $p_i$ and $q_i$ with the help of two binary variables $y_i$ and $z_i$ respectively:
 
