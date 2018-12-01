@@ -236,15 +236,15 @@ WBSs locate in one area which is surrounded by areas where TV service is deliver
 WBSs serve a set of end users/terminals.
 These secondary systems are distributed over a certain area $A$ and is surrounded by multiple DTV service areas, as Fig.~\ref{sysmodel} shows. 
 The set of DTV stations is denoted as $\mathcal{K}$ and the collection of WBSs is denoted as $\mathcal{N}$ where $|\mathcal{N}|=N$. 
-The set of TV white spectrum contains multiple channels which are denoted as $\mathcal{C}$, they are assumed to be identical in terms of attenuation and shadowing on the same path.
+The set of TV white spectrum contains multiple channels which are denoted as $\mathbb{C}$, they are assumed to be identical in terms of attenuation and shadowing on the same path.
 Let $c(i)$ denote the channel used by a WBS $i\in \mathcal{N}$.
 
 When two WBSs working on the same channel, co-channel interference is caused on each, while, neighbouring channel interference is not considered in our model. 
 To simplify the analysis, we assume that each DTV station as well as each WBS utilizes exactly one channel.\footnote{The assumption that one WBS only utilizes one channel is for convenience of analysis. In reality multiple channel usage (channel bonding) is requisite as one single TV channel's bandwidth is 6 MHz which is not adequate for a WBS to fulfil system requirement. 
 %We will relax this single channel usage assumption without hammering our scheme in the end of section \ref{sec_CA}.
 }
-We represent the usage of channel for WBS $i$ with a binary vector $X_i^{|\mathcal{C}|\times 1}=\{\cdots, x_{ik}, \cdots\}\in \{0,1\}^{|\mathcal{C}|}$, where $k\in \mathcal{C}$ and binary variable $x_{ik}$ denotes whether channel $k$ is used by user $i$. 
-As each node can only uses one channel, for $X_i$, there is $\sum_{k=1}^{|\mathcal{C}|}x_{ik}=1$. 
+We represent the usage of channel for WBS $i$ with a binary vector $X_i^{|\mathbb{C}|\times 1}=\{\cdots, x_{ik}, \cdots\}\in \{0,1\}^{|\mathbb{C}|}$, where $k\in \mathbb{C}$ and binary variable $x_{ik}$ denotes whether channel $k$ is used by user $i$. 
+As each node can only uses one channel, for $X_i$, there is $\sum_{k=1}^{|\mathbb{C}|}x_{ik}=1$. 
 The transmission power of WBS $i$ on channel $c$ is $P_i^c$. 
 
 
@@ -451,8 +451,8 @@ To ensure fairness among WBSs, instead of maximizing the sum of quasiSINR of all
 			& {\text{Minimize}}
 			& & \sum_{i\in \mathcal{N}}\frac{1}{\gamma_{i}} \\
 			& \text{subject to}
-			& & \sum_{k=1}^{|\mathcal{C}|}x_{ik}=1 \\
-			& & & P_{i,min}^c \leq P_i^c \leq P_{i,max}^c, c \in \mathcal{C}, i\in \mathcal{N}
+			& & \sum_{k=1}^{|\mathbb{C}|}x_{ik}=1 \\
+			& & & P_{i,min}^c \leq P_i^c \leq P_{i,max}^c, c \in \mathbb{C}, i\in \mathcal{N}
 			\end{aligned}
 		\end{equation}
 		where $P_{i,min}^c$ and $P_{i,max}^c$ are the minimal and maximal transmission power of the transmitter of WBS $i$, where are restricted by the hardware configuration or capabilities.
@@ -486,7 +486,7 @@ In summery, we solve the channel and power allocation in downlink communication 
 In other words, the dynamics in the secondary network is transparent to the primary system. 
 \item Secondly, once the maximum permitted transmission power is determined, WBSs choose their operating channels.
 Note that this channel assignment problem is different from the works available in literature, where the transmission power is identical over different channels for different WBSs.
-In this subproblem, the maximum permitted transmission power $p_i^c$ could be different for different channel $c\in \mathcal{C}$ and different WBS $i\in \mathcal{N}$.
+In this subproblem, the maximum permitted transmission power $p_i^c$ could be different for different channel $c\in \mathbb{C}$ and different WBS $i\in \mathcal{N}$.
 \item Thirdly, working with the maximal permitted transmission power may not be the optimal in terms of power consumption and the SINR on terminals, thus distributed power adjustment is conducted and the working channel is unchanged.
 \end{itemize}
 %The first subproblem is a centralized approach, the following two problems are solved with distributed schemes.
@@ -660,7 +660,7 @@ We adopt the interference model and the optimization methodology from the work o
 %\todo{describe\\ the\\ interference\\ model\\ of [14]} 
 Having a global view of the propagation parameters, geolocations of WBSs and interference threshold at interference measuring devices which locate on the contour of TV service area, linear programming is implied in the database to calculate the maximum permitted power over each channel.
 
-For WBS $i\in \mathcal{N}$, the maximum transmission power allowed on channel $c\in \mathcal{C}$ is denoted as $P_i^c$. 
+For WBS $i\in \mathcal{N}$, the maximum transmission power allowed on channel $c\in \mathbb{C}$ is denoted as $P_i^c$. 
 As to each channel $c$, the generated interference on each interference measuring device should be within a predefined interference margin $I^c_{pt}$.
 The interference margin in a slow fading environment is decided according to~\cite{aggregate_interference_shadow_fading_2010}.
 
@@ -687,9 +687,9 @@ Since WBSs' transmission power is higher and their altitude is higher\cite{multi
 The first constraint indicates that the interference margin will not be exceeded even when all the WBSs work on the same channel.
 
 
-Formula~\ref{lp} will be solved for each channel $c\in \mathcal{C}$.
+Formula~\ref{lp} will be solved for each channel $c\in \mathbb{C}$.
 %There will be multiple constraints for \ref{cvx} if there are multiple DTV contours working on channel $c$. 
-After solving the $|\mathcal{C}|$ problems, the maximum permitted transmission power vector $\bm{P^c} =\{P_1,\cdots,P_{|\mathcal{N}|}\}, \forall c\in \mathcal{C}$ is obtained.
+After solving the $|\mathbb{C}|$ problems, the maximum permitted transmission power vector $\bm{P^c} =\{P_1,\cdots,P_{|\mathcal{N}|}\}, \forall c\in \mathbb{C}$ is obtained.
 %We solve this convex optimization problem with \cite{cvx} in the centralized base station.
 
 When working with the same transmission power, the WBSs locating closer to the TV interference measuring devices contribute more to the aggregate interference comparing with the WBSs which locate far from the TV interference measuring devices.
@@ -707,7 +707,7 @@ To address this fairness issue, we maximize the sum of the logarithmic value of 
 		\end{aligned}
 	\end{equation}
 
-This optimization will be solved for each channel $c\in \mathcal{C}$.
+This optimization will be solved for each channel $c\in \mathbb{C}$.
 
 Figure~\ref{lpcvx} depicts the distribution of maximum permitted transmission power levels obtained in 100 simulations.
 In each simulation the locations of TV interference measuring devices are randomly decided around the WBSs.
@@ -737,11 +737,11 @@ In the following subsections, we firstly present the centralized solution to obt
 \label{03_centralized_ca}
 
 We formulate the channel allocation problem into a binary quadratic programming problem which can be solved in a centralized way.  
-Let $X_i = \{x_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathcal{C}|}\}$ denote the vector of channel usage, there is $|X_i| = |\mathcal{C}|$ and binary element $x_i^k$ represent whether WBS $i$ occupies channel $k$.
+Let $X_i = \{x_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathbb{C}|}\}$ denote the vector of channel usage, there is $|X_i| = |\mathbb{C}|$ and binary element $x_i^k$ represent whether WBS $i$ occupies channel $k$.
 Given two WBSs $i$ and $j$, there is,
 \begin{equation}
 \begin{split}
-X_i^TX_j = \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k\cdot x_j^k = 
+X_i^TX_j = \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k\cdot x_j^k = 
 \left\{ \begin{array}{ll}
 1 & \mbox{if $c(i)=c(j)$} \\
 0 & \mbox{if $c(i)\neq c(j)$} 
@@ -751,8 +751,8 @@ X_i^TX_j = \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k\cdot x_j^k =
 \end{equation}
 
 $c(i)$ means the working channel which is chosen by WBS $i$.
-The transmission power levels on all channels for WBS $i$ are denoted by a constant vector $\vec{P}_i = \{P_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathcal{C}|}\}$. 
-The transmission power adopted by WBS $i$ is $\vec{P}_i^TX_i = \sum\limits_{k=1}^{|\mathcal{C}|}P_{i}^k\cdot x_i^k$.
+The transmission power levels on all channels for WBS $i$ are denoted by a constant vector $\vec{P}_i = \{P_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathbb{C}|}\}$. 
+The transmission power adopted by WBS $i$ is $\vec{P}_i^TX_i = \sum\limits_{k=1}^{|\mathbb{C}|}P_{i}^k\cdot x_i^k$.
 
 
 Problem \ref{problem} can be modeled via general purpose nonlinear optimization:
@@ -762,7 +762,7 @@ Problem \ref{problem} can be modeled via general purpose nonlinear optimization:
 		& \underset{}{\text{minimize}}
 		& & \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}\vec{P}_j^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{\vec{P}^TX_ih_iz_i}\\
 		& \text{subject to}
-		& & \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_{ik}\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+		& & \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_{ik}\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
 		\end{aligned}
 	\end{equation}
 Problem \ref{QLP} is a non-linear problem with binary variables, but it can be reformulated into a quadratic programming problem as,
@@ -770,10 +770,10 @@ Problem \ref{QLP} is a non-linear problem with binary variables, but it can be r
 \label{QLP_2}
 			\begin{aligned}
 			\underset{}{\text{minimize}}
-			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k\in\mathcal{C}} \frac{P_j^k\cdot h_{ji}\cdot z_{ji}}{P_i^k\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
-			& + \sum\limits_{k\in\mathcal{C}} \frac{N_0}{P_i^k\cdot h_i\cdot z_i}\cdot x_i^k)\\
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k\in\mathbb{C}} \frac{P_j^k\cdot h_{ji}\cdot z_{ji}}{P_i^k\cdot h_i\cdot z_i}\cdot  x_j^k\cdot x_i^k  \\
+			& + \sum\limits_{k\in\mathbb{C}} \frac{N_0}{P_i^k\cdot h_i\cdot z_i}\cdot x_i^k)\\
 			\text{subject to} 
-			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+			& \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
 			\end{aligned}
 		\end{equation}
 
@@ -817,11 +817,11 @@ The proof is in Appendix \ref{proof}.
 \label{whitecatalgo} 
 \DontPrintSemicolon
 \SetAlgoLined
-\KwIn{the distance, path lose and shadowing parameter between WBS $i$ to WBS $j\in \mathcal{N}\setminus i$;\\  radius of auxiliary circle, noise $N_0$, total number of WBSs $N$;\\ for $j\in \mathcal{N}\setminus i$, the maximal transmission power $P_j^c, c\in \mathcal{C}$ and the working channel $c(j)$.
+\KwIn{the distance, path lose and shadowing parameter between WBS $i$ to WBS $j\in \mathcal{N}\setminus i$;\\  radius of auxiliary circle, noise $N_0$, total number of WBSs $N$;\\ for $j\in \mathcal{N}\setminus i$, the maximal transmission power $P_j^c, c\in \mathbb{C}$ and the working channel $c(j)$.
 }
 %\KwOut{a channel }
 
-	\For{$c\in \mathcal{C}\setminus c(i)$}{
+	\For{$c\in \mathbb{C}\setminus c(i)$}{
 	 calculate $u_i(c)$ based on Formula \ref{utility}
 	 \eIf{$u_i(c)<u_i(c(i))$}{
 	 	$c(i)\leftarrow c$
@@ -836,14 +836,14 @@ Notify database of its channel usage, which further notifies the other WBSs
 
 
 %//废话
-%Imitating the player's behaviour in the congestion game, each base station tries to find the channel $c\in \mathcal{C}$ that brings the smallest $u_i$ based on the other stations' decisions, every channel update decreases the summation of utilities in the whole network and finally converges to a pure Nash equilibrium (proof is in section \ref{game}.
+%Imitating the player's behaviour in the congestion game, each base station tries to find the channel $c\in \mathbb{C}$ that brings the smallest $u_i$ based on the other stations' decisions, every channel update decreases the summation of utilities in the whole network and finally converges to a pure Nash equilibrium (proof is in section \ref{game}.
 
 
 Some parameters needed to calculate the utility are identical for all WBSs, such as quasi distance $e$, the total number of WBSs $N$, number of channels $C$, attenuation factor $\alpha$, standard deviation $\sigma_{WBS}$ in flat shadowing and noise $N_0$, albeit the following information is further needed to calculate $u_i$: 
 	\begin{itemize} %{labelitemi}{$\bullet$}
-	\item $\sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}^c, c\in \mathcal{C}$: the received interference on $i$' virtual measurement point from other WBSs $j$ working on the same channel for $\forall c\in \mathcal{C}$.
-	\item $ f_{ij}^c$: the interference caused by $i$ on $j$'s virtual measurement point when $i$ works on channel $\forall c\in \mathcal{C}$.
-	\item $P_j^c$: transmission power of $j$ for using $\forall c\in \mathcal{C}$.
+	\item $\sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}^c, c\in \mathbb{C}$: the received interference on $i$' virtual measurement point from other WBSs $j$ working on the same channel for $\forall c\in \mathbb{C}$.
+	\item $ f_{ij}^c$: the interference caused by $i$ on $j$'s virtual measurement point when $i$ works on channel $\forall c\in \mathbb{C}$.
+	\item $P_j^c$: transmission power of $j$ for using $\forall c\in \mathbb{C}$.
 	\end{itemize}
 Unfortunately, it is difficult to measure the interference of interested, \ie for WBS $i$, it is not efficient to scan all channels and obtain the interference $f_{ji}$ on virtual measurement point for each channel, furthermore, it is impossible to split the interference $f_{ij}$ from the total interference received on WBS $j$' virtual measurement point. 
 
@@ -852,7 +852,7 @@ We refer \cite{CApotentialLearning_05dyspan} to decide WBSs' sequence to update 
 All WBSs are able to access the database in one round (with random or predetermined sequence). As WBSs are connected with database, the control messages needed to decide the sequence will not become a burden. 
 Update of channels can happen in the boot phase, or when the quality of services (the SINR on its end users) of WBSs falls below a threshold, or a fixed time duration comes to end, or a new WBS joins in the network. 
 
-Similar with~\cite{SenseLess2011}, we let every WBS store the location information and maximal power map of all other WBSs, \ie $P_i^c, i\in\mathcal{N}, c\in\mathcal{C}$, and each WBS retrieves information about channel usage of other WBSs from centralized base station.
+Similar with~\cite{SenseLess2011}, we let every WBS store the location information and maximal power map of all other WBSs, \ie $P_i^c, i\in\mathcal{N}, c\in\mathbb{C}$, and each WBS retrieves information about channel usage of other WBSs from centralized base station.
 After executing Algorithm \ref{whitecatalgo}, it reports to centralized database of its channel if it updates the working channel.
 As the location of WBSs and TV stations and the transmission channel and power of TV stations are usually static (entries of TV station change averagely once in 2 days\cite{SenseLess2011}), except for the channel usage in the network, the change of the other data stored in WBS is infrequent. 
 
@@ -896,14 +896,14 @@ This equivalence doesn't exist in our problem, but by carefully choosing the cos
 \subsubsection{From WhiteCat to Congestion Game}
 \label{gameforproblem}
 We utilize the conception of virtual resource which is firstly introduced in \cite{allerton08_liu}. 
-Virtual resource is a triplet $\{i, j, c\}$, where $i,j$ are two WBSs and $c\in \mathcal{C}$ is one channel.
+Virtual resource is a triplet $\{i, j, c\}$, where $i,j$ are two WBSs and $c\in \mathbb{C}$ is one channel.
 This piece of resource is regarded used by $i$ when both $i$ and $j$ use channel $c$, otherwise, $\{i, j, c\}$ is not used by any WBS.
 
 In the following, we list the element of the congestion game which emulates Algorithm~\ref{whitecatalgo}.
 In this section, player and base station are used interchangeably.
 
 \begin{itemize}
-\item Player $i$' strategy space is $\Sigma_i=\{(i,j,c), j\in \mathcal{N}, j\ne i, c(\sigma_j)=c, c=1,2,\cdots,N\}$, and $i$ has $C$ admissible strategies, one strategy related with channel $c\in\mathcal{C}$ is described by the set of virtual resources it uses: $\sigma_i=\{(i,j,c), j\in \mathcal{N}, j\ne i, c(\sigma_j)=c\}$, note that virtual resource $(i,j,c)\neq(j,i,c)$.
+\item Player $i$' strategy space is $\Sigma_i=\{(i,j,c), j\in \mathcal{N}, j\ne i, c(\sigma_j)=c, c=1,2,\cdots,N\}$, and $i$ has $C$ admissible strategies, one strategy related with channel $c\in\mathbb{C}$ is described by the set of virtual resources it uses: $\sigma_i=\{(i,j,c), j\in \mathcal{N}, j\ne i, c(\sigma_j)=c\}$, note that virtual resource $(i,j,c)\neq(j,i,c)$.
 
 \item Under the strategy profile $\sigma=(\sigma_1, \sigma_2, \cdots \sigma_N)$, player $i$ obtains a total cost of 
 
@@ -916,7 +916,7 @@ In this section, player and base station are used interchangeably.
 		\end{equation}
 \end{itemize}
 
-The transmission power over all channels of player $i$ is $\{p_i^1, p_i^2,\cdots, p_i^{|\mathcal{C}|}\}$.
+The transmission power over all channels of player $i$ is $\{p_i^1, p_i^2,\cdots, p_i^{|\mathbb{C}|}\}$.
 %According to our system model, interfere xxxxxx
 %Path loss is assumed reciprocal: $h_{ij}=h_{ji}$, but nor is the flat fading $z$. To keep the formula clear in the following part, we denote $\tilde{f_{ij}}= P_i\cdot h_{ij}\cdot z$, $\tilde{f_{ji}}= P_j\cdot h_{ij}\cdot z$, $\tilde{P_i}=h_{iQ}$ for $i\in \mathcal{N}$, where $h_{ji}=h_{ij}=(d_{ji}-e)^{-\alpha}, h_{ii}=h_{jj}=e^{-\alpha}$, $d_{ji}$ is the distance between base station $i$ and $j$, and $\delta$ is the quasi distance introduced in section \ref{SystemModel}. $N_0$ is noise which is identical for any channel and any WBS. 
 We define the cost function for virtual recourses $(i,j,c)$ as follows,
@@ -1051,7 +1051,7 @@ We name this scheme as \underline{white} space \underline{S}econdary \underline{
 \subsection{Centralized Optimization for Channel Allocation}
 Due to the existence of certain WBSs which don't transmit, we can not adopt the problem formulation~\ref{problem} directly because some denominators in the objective function, which are related with the idle WBSs are zero.
 In order to solve this problem, we allow the idle WBSs to work with a very low transmission power.
-That being said, the power used by user $i$ can be presented as $\vec{P}_i^T X_i = \sum\limits_{k=1}^{|\mathcal{C}|}p_i^k\cdot x_{ik}$.
+That being said, the power used by user $i$ can be presented as $\vec{P}_i^T X_i = \sum\limits_{k=1}^{|\mathbb{C}|}p_i^k\cdot x_{ik}$.
 There is $p_i^k\in \{P_\mu, P_{\mathtt{op}}\}$, where $P_\mu$ represents the very weak transmission power.
 The transmission power levels are the same as for all the WBSs, so we omit the superscript when we refer the transmission power.
 
@@ -1062,9 +1062,9 @@ As all the WBS transmit with the same transmission power, the Problem \ref{probl
 		& \underset{}{\text{Minimize}}
 		&  \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}\vec{P}_j^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{\vec{P}_i^TX_ih_iz_i}\\
 		& \text{subject to}
-		&  \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+		&  \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
 		& & p_i^k\in \{P_\mu, P_{\mathtt{op}}\}, \mathtt{for} \forall i\in \mathcal{N}\\
-     	& & \sum_{i\in \mathcal{N}} (p^k_i \cdot h_{i,pt}\cdot z) < I^c_{pt},  \mathtt{for} \forall k\in \mathcal{C} 
+     	& & \sum_{i\in \mathcal{N}} (p^k_i \cdot h_{i,pt}\cdot z) < I^c_{pt},  \mathtt{for} \forall k\in \mathbb{C} 
 		\end{aligned}
 	\end{equation}
 	
@@ -1073,12 +1073,12 @@ Problem \ref{QLP} is a non-linear problem with binary variables, with the techni
 \label{QLP_2}
 			\begin{aligned}
 			\underset{}{\text{minimize}}
-			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathcal{C}|} \frac{p_j\cdot h_{ji}\cdot z_{ji}}{p_i\cdot h_{ii}\cdot z_{ii}}\cdot  x_j^k\cdot x_i^k  \\
-			& + \sum\limits_{k=1}^{|\mathcal{C}|} \frac{N_0}{p_i\cdot h_{ii}\cdot z_{ii}}\cdot x_i^k)\\
+			& \sum\limits^{n}_{i=1} ( \sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathbb{C}|} \frac{p_j\cdot h_{ji}\cdot z_{ji}}{p_i\cdot h_{ii}\cdot z_{ii}}\cdot  x_j^k\cdot x_i^k  \\
+			& + \sum\limits_{k=1}^{|\mathbb{C}|} \frac{N_0}{p_i\cdot h_{ii}\cdot z_{ii}}\cdot x_i^k)\\
 			\text{subject to} 
-			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
+			& \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
 			& p_i\in \{P_\mu, P_{\mathtt{op}}\} \mathtt{for} \forall i\in \mathcal{N}\\
-			& \sum\limits^{n}_{i=1}x_i^k\cdot p_i\cdot h_{i,pt}\cdot z \leq I^k_{pt}, \mathtt{for}\forall k\in \mathcal{C} \\
+			& \sum\limits^{n}_{i=1}x_i^k\cdot p_i\cdot h_{i,pt}\cdot z \leq I^k_{pt}, \mathtt{for}\forall k\in \mathbb{C} \\
 			\end{aligned}
 		\end{equation}
 		
@@ -1108,14 +1108,15 @@ We introduce binary number $\alpha_{ij}^k$, real number $\beta_{ij}^k$ and $q_i$
 Now the objective function is is quadratic as shown in Formula~\ref{scheme2-obj-intermediate},
 	\begin{equation}
 	\label{scheme2-obj-intermediate}
-	\sum\limits^{n}_{i=1} (h_{ji}z_{ji} \sum\limits_{j\in\mathcal{N}, j\neq i}  \sum\limits_{k=1}^{|\mathcal{C}|}  \beta_{ij}^k q_i  + N_0\sum\limits_{k=1}^{|\mathcal{C}|}  x_i^k q_i )
+	\sum\limits^{n}_{i=1} (h_{ji}z_{ji} \sum\limits_{j\in\mathcal{N}, j\neq i}  \sum\limits_{k=1}^{|\mathbb{C}|}  \beta_{ij}^k q_i  + N_0\sum\limits_{k=1}^{|\mathbb{C}|}  x_i^k q_i )
 	\end{equation}
 	
-	Constraint~\ref{beta_opt} can be formulated as a set of linear constraints:
+	Constraint~\ref{beta_opt} can be transformed as a set of linear constraints:
 		\begin{align}
-	& x_j^k\cdot x_i^k =\alpha_{ij}^k\label{alpha_opt}\\
-	& \beta_{ij}^k = p_j\cdot \alpha_{ij}^k\label{beta_opt}\\
-	& \frac{1}{p_i} = q_i\label{q_opt}	
+			& \beta_{ij}^k - p_{\mathtt{op}}\cdot \alpha_{ij}^k \leq 0 \label{beta_linearization_1}\\
+			& - \beta_{ij}^k + p_\mu\cdot \alpha_{ij}^k \leq 0 \label{beta_linearization_2}\\
+			& \beta_{ij}^k - p_j - p_\mu\cdot \alpha_{ij}^k \leq -p_\mu \label{beta_linearization_3}\\			
+			& -\beta_{ij}^k + p_j + p_{\mathtt{op}}\cdot \alpha_{ij}^k \leq p_{\mathtt{op}} \label{beta_linearization_4}
 	\end{align}
 	
 	
@@ -1145,13 +1146,14 @@ As we want to get the lower bound of the objective function, we get the over-est
 	
 
 	
-	By bringing formulas~\ref{p_to_binary} and ~\ref{q_to_binary_2} into formulas ~\ref{McCormick_envelope-1} to ~\ref{McCormick_envelope-4}, the binary linear constrains with respect to the transmission powers are obtained, which are inequalities~\ref{p_to_binary_rex_1} to~\ref{p_to_binary_rex_4} in the transformed optimization problem~\ref{QLP_2}:
-
+	By bringing Formulas~\ref{p_to_binary}, \ref{q_to_binary_2} into the Formulas ~\ref{McCormick_envelope-1} to ~\ref{McCormick_envelope-4}, the binary linear constrains with respect to the transmission powers are obtained, which are inequalities~\ref{p_to_binary_rex_1} to~\ref{p_to_binary_rex_4} in the transformed optimization problem~\ref{QLP_2}.
+Meanwhile, inequalities~\ref{alpha_opt_1} to ~\ref{alpha_opt_2} are relaxation of Formula~\ref{alpha_opt}.
+Inequalities~\ref{beta_opt_1} to ~\ref{beta_opt_4} are relaxation of Formula~\ref{beta_opt} when we bring Formula~\ref{p_to_binary} into Formula~\ref{beta_linearization_3} and~\ref{beta_linearization_4}.
 
 			\begin{align}
 			\label{scheme2optimizaiton}
 			& \underset{}{\text{minimize}}\\
-			&\sum\limits^{n}_{i=1}\sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathcal{C}|} ((P_\mu - P_{\mathtt{op}})h_{ji} z_{ji} \beta_{ij}^k z_i  \\
+			&\sum\limits^{n}_{i=1}\sum\limits_{j\in\mathcal{N}, j\neq i}\sum\limits_{k=1}^{|\mathbb{C}|} ((P_\mu - P_{\mathtt{op}})h_{ji} z_{ji} \beta_{ij}^k z_i  \\
 			&  + (P_\mu - P_{\mathtt{op}})N_0  x_i^k z_i + P_{\mathtt{op}}h_{ji} z_{ji} \beta_{ij}^k +  P_{\mathtt{op}}N_0x_i^k)\\
 			& \text{subject to:} \\
 			& x_i^k + x_j^k  - \alpha_{ij}^k\leq 1 \label{alpha_opt_1}\\
@@ -1164,10 +1166,10 @@ As we want to get the lower bound of the objective function, we get the over-est
 			& P_{\mathtt{op}} y_i + P_\mu z_i  \leq \dfrac{P_{\mathtt{op}}^2-1}{P_{\mathtt{op}} - P_\mu}\label{p_to_binary_rex_2}\\
 			& -y_i - z_i  \leq \frac{1+P_\mu^2-2P_{\mathtt{op}}P_\mu  }{P_\mu (P_{\mathtt{op}} - P_\mu)} \label{p_to_binary_rex_3}\\
 			& -y_i - z_i  \leq \frac{1- P_{\mathtt{op}}^2}{P_{\mathtt{op}}(P_{\mathtt{op}} - P_\mu) }\label{p_to_binary_rex_4}\\		
-			& \sum\limits_{k=1}^{|\mathcal{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathcal{C}|}\\
-			& \sum\limits^{n}_{i=1} ((P_\mu - P_{\mathtt{op}})x_i^k y_i + P_{\mathtt{op}}x_i^k) \leq  \dfrac{I^k_{pt}}{h_{i,pt} z_{i,pt}}\\
+			& \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
+			& \sum\limits^{n}_{i=1} (((P_\mu - P_{\mathtt{op}})x_i^k y_i + P_{\mathtt{op}}x_i^k)h_{i,pt} z_{i,pt}) \leq  I^k_{pt}\\
 			& x_i^k, \alpha_{ij}^k, \beta_{ij}^k, y_i, z_i \in \{0,1\}\\
-			& \forall i, j\in \mathcal{N}, i\neq j, k\in \mathcal{C}
+			& \forall i, j\in \mathcal{N}, i\neq j, k\in \mathbb{C}
 			\end{align}
 
 
@@ -1177,8 +1179,9 @@ Inequalities~\ref{p_to_binary_rex_1} - \ref{p_to_binary_rex_4} are relaxation of
 The objective function is quadratic and there is only linear and quadratic inequality constraints, so we use GUROBI Mixed-Integer Programming solver to solve it get the lower bound of the objective function.
 
 \subsection{Distributed White Space Channel Allocation (WhiteSussa)}
-Being aware of the accumulated interference on the interference measurement devices for the primary users, each WBS decides on the channel, which doesn't result in harmful interference onto the primary system.
-If such channel doesn't exist, then the WBS switches to idle state.
+Being aware of the accumulated interference on the interference measurement devices for the primary users, each WBS can decide whether to switch from idle state to operation state and work on a channel which brings it with the highest utility, or to change its operating channel to get higher utility value.
+The operation of the WBSs should not result in harmful interference onto the primary system.
+
 The pseudo code is as follows,
 
 \begin{algorithm}[h]
@@ -1186,18 +1189,19 @@ The pseudo code is as follows,
 \label{whitecatalgo} 
 \DontPrintSemicolon
 \SetAlgoLined
-\KwIn{The complete graph of the network, \ie the distance, path lose and shadowing parameter between each WBS and any other WBS and every TV interference measurement devices ;\\ transmission power;\\Secondary network operation profile $c(i), f_i$ where $i\in \mathcal{N}$. $c(i)$ is the channel used by WBS $i$, $f_i$ is the co-channel interference received on WBS $i$.}
+\KwIn{For each WBS, the complete graph of the network, which includes: (1) the distance and signal shadowing between it and any other WBS and TV interference measurement device; (2)Transmission power and channel of the WBS $i\in \mathcal{N}$. }
 
 \While{Operation profile is different from previous round}{
 	\For{$i\in \mathcal{N}$}{
-		\For{$c\in \mathcal{C}\setminus c(i)$}{
-		 \If{$\sum f^c_m \leq Threshold^c$}{
-			\If{$c(i)\in \mathcal{C} \And{}  f^c_i < f_i$}{
-			$f_i = f^c_i$\\
-			$c(i) = c$
-		 }
-		}
-		}
+			\If{$i$ is idle}{
+			$i$ choose channel $c$, where \\
+			$\sum f^c_t \leq THOLD^c_t, \forall t\in \mathcal{T}$, and $ \gamma^c_i > \gamma_i^{c'}$, $c'\in \mathbb{C}\setminus c$
+			}
+			\If{$i$ is operating}{
+						\If{$ f^{c'}_i < f_i^{c(i)}$ \textbf{and} $\sum f^{c'}_t \leq THOLD^{c'}_t$}{
+						$c(i)= c'$					
+						}
+			}
 	}
 	}
 	
@@ -1389,8 +1393,8 @@ For example, the 20\% and 80\% percentile of the SINR achieved by WhiteCat and t
 \subsubsection*{Convergence Speed}
 
 %Complexity: 
-%For each player, there are at most $(n-1)*|\mathcal{C}|$ resources available for usage, while, because the produced congestion on each resource is independent on channel, in other words, the congestions involving the same pair of players are quantitatively identical, there are only $(n-1)$ quantitatively different congestions on one player's resources. So, the number of combinations with quantitatively non-identical congestions involved with that player is $2^{(n-1)}$, accordingly there are totally $n*2^{(n-1)}$ quantitatively different congestions for the whole the problem. We adopt the method of \cite{LectureA}, which resorts the congestions in a increasing sequence, and replaces the original congestions with integer values starting form 1. We call the integers as \textit{new} congestions. In this way the preferences of the players are preserved and we can find easily the biggest possible congestion is $n*2^{(n-1)}$, which is the upper bound for the number of steps towards convergence.
-In the congestion game where scheme whiteCat is derived, each player (WBS) has at most $(n-1)*|\mathcal{C}|$ resources available for usage, thus there is no polynomial steps converging to NE, while, simulation shows the algorithm can quickly converge to NE when the number of WBS is up to 100. 
+%For each player, there are at most $(n-1)*|\mathbb{C}|$ resources available for usage, while, because the produced congestion on each resource is independent on channel, in other words, the congestions involving the same pair of players are quantitatively identical, there are only $(n-1)$ quantitatively different congestions on one player's resources. So, the number of combinations with quantitatively non-identical congestions involved with that player is $2^{(n-1)}$, accordingly there are totally $n*2^{(n-1)}$ quantitatively different congestions for the whole the problem. We adopt the method of \cite{LectureA}, which resorts the congestions in a increasing sequence, and replaces the original congestions with integer values starting form 1. We call the integers as \textit{new} congestions. In this way the preferences of the players are preserved and we can find easily the biggest possible congestion is $n*2^{(n-1)}$, which is the upper bound for the number of steps towards convergence.
+In the congestion game where scheme whiteCat is derived, each player (WBS) has at most $(n-1)*|\mathbb{C}|$ resources available for usage, thus there is no polynomial steps converging to NE, while, simulation shows the algorithm can quickly converge to NE when the number of WBS is up to 100. 
 %Figure \ref{100converge} shows that for 100 WBSs, whitecat executes at most 5 iterations (in one iteration all WBSs update their choices). 
 %Figure \ref{convergeComp} depicts one instance of simulation, where whiteCat converges quickly, No-regret produces oscillation but converges finally, while WhiteCase can not converge thus has to be enforced stop after 16000 updates. %\todo{replot}%, whereas 
 %
