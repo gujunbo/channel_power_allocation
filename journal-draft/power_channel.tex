@@ -228,7 +228,7 @@ We elucidate the system model in Section II, afterwards related work and problem
 
 \section{System Model and Problem Statement}
 \label{SystemModel}
-Following the IEEE 802.22 standard, the primary systems considered in this chapter are digital TV (DTV) stations which use the TV spectrum legally. 
+According to the IEEE 802.22 standard, the primary systems considered in this chapter are digital TV (DTV) stations which use the TV spectrum legally. 
 TV stations provide service to passive TV receivers.
 The secondary users are IEEE 802.22 Wireless Regional Area Network base stations utilizing the TV spectrum with senseless mode~\cite{SenseLess2011}. 
 DTV's service should not be interfered by secondary systems. 
@@ -420,7 +420,8 @@ $h_{ij}$ & The attenuation from the co-channel interfering WBS $j$ to the corres
 $h_{i}$ & The attenuation from WBS $i$ to its auxiliary circle.\\
 $z_{ij}$ & The shadowing from the co-channel interfering  WBS $j$ to the corresponding interference reference point of WBS $i$.\\
 $z$ & The shadowing from WBS $i$ to auxiliary circle.\\
-$\alpha_{ij}^k, \beta_{ij}^k, y_i, z_i$ & Binary auxiliary variables in the optimization in Section~\ref{schemeII}.\\
+$\alpha_{ij}^k,\beta_{ij}^k$ & 4 binary auxiliary variables in the optimization in\\
+$y_i, z_i$ & Section~\ref{schemeII}.\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -648,12 +649,12 @@ As to our knowledge, there is no work dealing with channel allocation problem wh
 %common spectrum.xxxxxx
 
 In this paper we propose two schemes to exploit the TV white space.
-\section{Scheme I (with Different Transmission Power)}
-The first scheme lays restrictions on transmission power of the WBSs so that the TV receivers will not be affected even when all the WBSs operate on the same channel.
-Afterwards, WBSs choose channels to maximize their individual utilities in a distributed manner.
+\section{Channel and Power Allocation Scheme complying with ECC Rules}
+In this section we will discuss the channel and power allocation problem complies with the rules regulated by ECC.
+According to the ECC regulations, the transmission power of the WBSs are strictly regulated, so that the TV receivers are affected even when all the WBSs operate on the same channel.
+%Afterwards, WBSs choose channels to maximize their individual utilities in a distributed manner.
 \subsection{The Maximum Permitted Transmission Power}
 \label{powermap}
-%interference measuring devices
 The WBSs work in underlay manner and coexist with primary TV stations and receivers, the aggregate generated interference from WBSs on each channel should not exceed the threshold of the TV receivers.
 We adopt the interference model and the optimization methodology from the work of \cite{multipleIntf_pimrc11} to plan the maximum transmission power on each channel for WBSs.
 %XXX Why is exactly this approach adopted ?XXX.
@@ -1038,9 +1039,9 @@ Although a WBS
 
 The upper bound of total update steps is $2n^2$, thus averagely, the upper bound of update steps for each WBS is $2n$.
 
-\section{Scheme II (with Identical Transmission Power)}
+\section{Channel and Power Allocation Scheme complying with FCC Rules}
 \label{schemeII}
-The second scheme is line with the FCC proposals in terms of transmission power, \ie WBSs operate with the same transmission power $P_{\mathtt{op}}$.
+The second scheme is in line with the FCC proposals in terms of transmission power, \ie WBSs operate with the same transmission power $P_{\mathtt{op}}$.
 When the number of transmitters increases, the accumulated interference may cause interference to TV receivers.
 In this scenario, the number of WBSs operating need to be restricted.
 This being said, when the number of WBSs is large, some of them need to stop transmitting.
@@ -1186,7 +1187,7 @@ The pseudo code is as follows,
 
 \begin{algorithm}[h]
 \caption{Spectrum selection by WBS $i$}          % give the algorithm a caption
-\label{whitecatalgo} 
+\label{whiteSussAlgo} 
 \DontPrintSemicolon
 \SetAlgoLined
 \KwIn{For each WBS, the complete graph of the network, which includes: (1) the distance and signal shadowing between it and any other WBS and TV interference measurement device; (2)Transmission power and channel of the WBS $i\in \mathcal{N}$. }
@@ -1194,21 +1195,51 @@ The pseudo code is as follows,
 \While{Operation profile is different from previous round}{
 	\For{$i\in \mathcal{N}$}{
 			\If{$i$ is idle}{
-			$i$ choose channel $c$, where \\
-			$\sum f^c_t \leq THOLD^c_t, \forall t\in \mathcal{T}$, and $ \gamma^c_i > \gamma_i^{c'}$, $c'\in \mathbb{C}\setminus c$
+				\If{$\exists c$, \textbf{where}
+				$\sum f^c_t \leq Thold^c_t, \forall t\in \mathcal{T}$, $ \gamma^c_i > \gamma_i^{c'}$, $c'\in \mathbb{C}\setminus c$}{
+				$c(i)= c$
+				}
 			}
 			\If{$i$ is operating}{
-						\If{$ f^{c'}_i < f_i^{c(i)}$ \textbf{and} $\sum f^{c'}_t \leq THOLD^{c'}_t$}{
+						\If{$\exists c', f^{c'}_i < f_i^{c(i)}$ \textbf{and} $\sum f^{c'}_t \leq Thold^{c'}_t, \forall t\in \mathcal{T}$}{
 						$c(i)= c'$					
 						}
 			}
 	}
 	}
-	
-	
-Notify database of its channel usage, which further notifies the other WBSs
+	\end{algorithm}
 
-\end{algorithm}
+
+When a WBS switches its state from idle to operation, new interference is generated on the other WBSs which work with the same channel.
+Due to this disturbance , the affected WBSs may change their channels to achieve better $\gamma$.
+
+This process can be formulated as a congestion game which eventually converges, furthermore, the dynamics initiated by the WBS starting operation eventually ceases. 
+Here we have Lemma~\ref{scheme2Lemma}.
+\begin{lemma}
+\label{scheme2Lemma}
+\emph{The dynamics caused by a WBS changing its state from idle to operation ceases after finite steps.}
+\end{lemma}
+\begin{proof}
+After a WBS switches on, all the WBSs will choose the channel which brings the highest $\gamma$, \ie, the lowest co-channel interference considering the transmission power is identical to each WBS.
+This process is the same as the problem of channel assignment with identical transmission power, which is discussed in \cite{allerton08_liu}.
+In \cite{allerton08_liu}, WBSs change operating channels in order to minimize the received co-channel interference is formulated into a congestion game, then the convergence of the channel assignment is proved.
+\end{proof}
+
+Note that according to Algorithm~\ref{whiteSussAlgo}, after a WBS starts to operate, it will never change back to idle state.
+Now we have the following theorem.
+\begin{theorem}
+The whole process ends after finite updates.
+\end{theorem}
+
+\begin{proof}
+Whenever there is a WBS changes its state from idle to operation, a new congestion game among the WBSs begins.
+As the convergence is guaranteed as shown in lemma~\ref{scheme2Lemma} and there is only a limited number of WBSs which change their state from idle to operation, the whole process, which consists of a series of concatenated congestion games, will eventually end.
+\end{proof}
+
+
+	
+	
+
 
 
 \section{Performance Evaluation}
