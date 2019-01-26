@@ -173,35 +173,58 @@ The the distributed channel allocation and power control are conducted sequentia
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Secondary users working with TV white space is promising to cope with the scarcity of spectrum resources~\cite{FCC_2010_sedond_memorandumm}. 
-Firstly, more unused TV white frequencies become vacant than ever with the ongoing transition from analog to digital broadcasts. Secondly, the frequencies of TV bands enable broadband access over larger geographic ranges compared to higher frequency bands. Nevertheless, services on TV receivers need to be protected with so called interference margin~\footnote{interference margin is the maximal interference caused by secondary users, which doesn't violate TV service.}~\cite{multipleIntf_pimrc11} which should not be exceeded by the accumulated interference caused by all secondary users working on the the channel.
 
-FCC and ECC have announced rules on the transmission power of secondary users working in TV white space in US and Europe respectively~\cite{FCC_2010_sedond_memorandumm, ecc159}. 
-FCC requires a minimum distance between secondary user and TV service area, besides, the transmission power for fixed secondary users is set as $4$ \textup{W}, which is a conservative setting. %If the interference margin of the TV receivers can be fully utilized, the requirement on secondary users' transmission power can be relaxed to some extent. 
-FCC believes with these prudent measures, the interference margin can not be exceeded by interference from secondary users.
-But it may not be the case when there are multiple secondary equipments transmitting at the same time, which is pointed in~\cite{Jaentti11}.
-ECC requires the secondary users to adapt their maximum transmission power according to the distance away from the TV receivers.
-%In this manner, secondary systems have to determine their maximum transmission power.
+With the transition from analog TV to digital terrestrial TV (DTT), a considerable amount of frequency bands, as shown in Figure~\ref{variability_TVWS}, become vacant.
+The spectrum that is left over by digital TV and other incumbent users is referred to as TV white spaces (TVWSs).
+TVWS can be used for telemedicine, precision agriculture, smart energy and so on by new devices as long as DTT reception is not interfered~\cite{FCC_2010_sedond_memorandumm}. 
+These unlicensed devices are called white space devices (WSDs) and their operation should be restricted in terms of location, channel and transmission power, so that no harmful interfering is generated to the incumbents.
+The utilization of TVWS by the WSDs are regulated by national regulatory authorities and relevant committees, \ie in the US, the Federal Communications Commission (FCC) has regulated the utilization of TVWS since 2012. 
+The Electronic Communications Committee (ECC) and Ofcom have released guidelines in EU and UK respectively in terms of the operation of WSDs.
+Although many regulation details from the three institutes are different, white space data base (WSDB) is adopted by all the three institutes.
+how does WSDB work~\ref{ECC236}[FCC][OfCOm].
+
+TV White Space database was first brought as a way to overcome the technical hurdles faced by spectrum sensing techniques to precisely detect very weak primary signals.
+WSD should contact a white space data base and provide its location and technical characteristics.
+The database holds information about the incumbents, and calculates which spectrum and power levels are available at any location.
+WSD needs to access the WSDB to get the available channels and powers before starting transmission.
+WSDB is proposed mainly due to the difficulty to implement spectrum sensing, which is suggested by the regulators.
+
+WSDB lies in the middle of the utilization of TVWS, which has the global view of the WSDs in the network and protects the DTT receivers.
+The resource which is available for the WSDs is decided by the strategy of WSDB, which is regulated by the regulators.
+Ofcom and ECC allows TVDB to have different transmission power, so long as the insulted interference on the critical points, i.e., the location of the certain DTT receivers doesn’t exceed certain threshold.
+FCC initially regulated stringent restriction on the transmission power of WSDs, only relaxed later and allows the transmission power to be between 1w and 4w.
+%
+Nevertheless, as to the issue of spectrum sharing among the WSDs, the regulator institutes only provide suggestion instead of regulations.
+IEEE 802.22 is a standard for wireless regional area network (WRAN) and utilize TVWS.
+IEEE 802.22 regulates the MAC layer protocol, but it doesn't prevent the co-channel interference caused by other WSDs.
+In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among among the WSDs.
+
+% with so called interference margin~\footnote{interference margin is the maximal interference caused by secondary users, which doesn't violate TV service.}~\cite{multipleIntf_pimrc11} which should not be exceeded by the accumulated interference caused by all secondary users working on the the channel.
+
+%FCC and ECC have announced rules on the transmission power of secondary users working in TV white space in US and Europe respectively~\cite{FCC_2010_sedond_memorandumm, ecc159}. 
+%FCC requires a minimum distance between secondary user and TV service area, besides, the transmission power for fixed secondary users is set as $4$ \textup{W}, which is a conservative setting. 
+%FCC believes with these prudent measures, the interference margin can not be exceeded by interference from secondary users.
+%But it may not be the case when there are multiple secondary equipments transmitting at the same time, which is pointed in~\cite{Jaentti11}.
+%ECC requires the secondary users to adapt their maximum transmission power according to the distance away from the TV receivers.
+
 
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.9\linewidth]{TWWS_availability_east.pdf}
   \caption{Variability of available channels in a densely populated area. This figure is obtained from \cite{googleDatabase}}
-\label{variability_avai_channel}
+\label{variability_TVWS}
 \end{figure}
 
 
 FCC issued a memorandum~\cite{FCC_2010_sedond_memorandumm,FCCdatabasae} in 2010, which removes the mandatory rigid sensing requirements, and prompts the usage of geolocations\footnote{Geolocation means both geographic location and terrain.}.
 FCC regulates a centralized database, which registers all the secondary users within one certain area, and decides on the available channels for them to use.
 The secondary users should access the database to obtain the list of available channels for the to use.
-% thus greatly facilitates the use of the spectrum with geolocation based channel allocation.
 The authors of ~\cite{SenseLess2011} validate this regulation and demonstrate the feasibility of only using geolocations and  propagation model.
 They adopt a central database which contains the geolocations of all TV stations.
 Then with sophisticated propagation model (Longley-Rice), the central database calculates the received signal strength index (RSSI) levels of TV UHF signals in a vast area.
 If RSSI on a channel is below a certain threshold on a location, TV service is regarded to be idle on that channel there and the secondary users there are allowed to use.
 The calculated results on channel availability is very close to the measurement results, which gives big impetus to the application of database mode in the exploration of TV white space.
-%
-%Through this work, it can be seen that the RSSI level caused by secondary users on TV receivers can be calculated accurately in a centralized entity if secondary users' transmission power, geographic location and appropriate propagation model are provided. 
+
 The FCC memorandum~\cite{FCC_2010_sedond_memorandumm,FCCdatabasae} and the work~\cite{SenseLess2011} initialize a new and easier way to utilize the TV white space, and the work~\cite{SenseLess2011} illustrates it is feasible to decide the RSSI level only with appropriate propagation model and geolocation.
 %Given the geolocation of the TV stations and secondary users, and appropriate propagation model, secondary users' maximum transmission power can be determined by the central entity according to the interference margin (maximum RSSI level from secondary users) on the TV receivers. 
 
@@ -650,6 +673,7 @@ As to our knowledge, there is no work dealing with channel allocation problem wh
 
 In this paper we propose two schemes to exploit the TV white space.
 \section{Channel and Power Allocation Scheme complying with ECC Rules}
+
 In this section we will discuss the channel and power allocation problem complies with the rules regulated by ECC.
 According to the ECC regulations, the transmission power of the WBSs are strictly regulated, so that the TV receivers are affected even when all the WBSs operate on the same channel.
 %Afterwards, WBSs choose channels to maximize their individual utilities in a distributed manner.
@@ -1244,16 +1268,17 @@ As the convergence is guaranteed as shown in lemma~\ref{scheme2Lemma} and there 
 
 \section{Performance Evaluation}
 \label{simulation}
-Performance evaluation consists two parts, in the first part whiteCat are compared with other distributed schemes proposed for the problem of channel allocation with different fixed transmission power, where the transmission power levels associated with WBSs and channels are different.
-In the second part, we compare the distributed joint channel and power allocation solution with other solutions for this problem.
-To illustrate the structure, we list the contents in Figure~\ref{evaluationContent}.
+In this section, we will investigate both centralized and distributed schemes which are proposed to comply with ECC and FCC regulations respectively.
+%Performance evaluation consists of two parts, in the first part whiteCat are compared with other distributed schemes proposed for the problem of channel allocation with different fixed transmission power, where the transmission power levels associated with WBSs and channels are different.
+%In the second part, we compare the distributed joint channel and power allocation solution with other solutions for this problem.
+%To illustrate the structure, we list the contents in Figure~\ref{evaluationContent}.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\linewidth]{evaluation_content.pdf}
-  \caption{The evaluation contents in this section, the left part is discussed in Section~\ref{MaxPower_whitecat} and the right part is in Section~\ref{joint}. 	}
-\label{evaluationContent}
-\end{figure}
+%\begin{figure}[h!]
+%  \centering
+%  \includegraphics[width=\linewidth]{evaluation_content.pdf}
+%  \caption{The evaluation contents in this section, the left part is discussed in Section~\ref{MaxPower_whitecat} and the right part is in Section~\ref{joint}. 	}
+%\label{evaluationContent}
+%\end{figure}
 
 The evaluation setting is as follows.
 A square area which is 60km x 60km is divided evenly into 16 square blocks.
