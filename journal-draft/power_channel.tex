@@ -185,7 +185,7 @@ how does WSDB work~\ref{ECC236}[FCC][OfCOm].
 
 TV White Space database was first brought as a way to overcome the technical hurdles faced by spectrum sensing techniques to precisely detect very weak primary signals.
 WSD should contact a white space data base and provide its location and technical characteristics.
-The database holds information about the incumbents, and calculates which spectrum and power levels are available at any location.
+The TVDB translates the information on incumbent services and the technical characteristics and location of the WSDs into a list of allowed frequencies and associated transmit powers for devices.
 WSD needs to access the WSDB to get the available channels and powers before starting transmission.
 WSDB is proposed mainly due to the difficulty to implement spectrum sensing, which is suggested by the regulators.
 
@@ -195,9 +195,10 @@ Ofcom and ECC allows TVDB to have different transmission power, so long as the i
 FCC initially regulated stringent restriction on the transmission power of WSDs, only relaxed later and allows the transmission power to be between 1w and 4w.
 %
 Nevertheless, as to the issue of spectrum sharing among the WSDs, the regulator institutes only provide suggestion instead of regulations.
-IEEE 802.22 is a standard for wireless regional area network (WRAN) and utilize TVWS.
-IEEE 802.22 regulates the MAC layer protocol, but it doesn't prevent the co-channel interference caused by other WSDs.
 In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among among the WSDs.
+
+
+
 
 % with so called interference margin~\footnote{interference margin is the maximal interference caused by secondary users, which doesn't violate TV service.}~\cite{multipleIntf_pimrc11} which should not be exceeded by the accumulated interference caused by all secondary users working on the the channel.
 
@@ -215,38 +216,54 @@ In this paper, we will follow the most prevalent regulations on the usage of TVW
 \label{variability_TVWS}
 \end{figure}
 
-
-FCC issued a memorandum~\cite{FCC_2010_sedond_memorandumm,FCCdatabasae} in 2010, which removes the mandatory rigid sensing requirements, and prompts the usage of geolocations\footnote{Geolocation means both geographic location and terrain.}.
-FCC regulates a centralized database, which registers all the secondary users within one certain area, and decides on the available channels for them to use.
-The secondary users should access the database to obtain the list of available channels for the to use.
-The authors of ~\cite{SenseLess2011} validate this regulation and demonstrate the feasibility of only using geolocations and  propagation model.
-They adopt a central database which contains the geolocations of all TV stations.
-Then with sophisticated propagation model (Longley-Rice), the central database calculates the received signal strength index (RSSI) levels of TV UHF signals in a vast area.
-If RSSI on a channel is below a certain threshold on a location, TV service is regarded to be idle on that channel there and the secondary users there are allowed to use.
-The calculated results on channel availability is very close to the measurement results, which gives big impetus to the application of database mode in the exploration of TV white space.
-
-The FCC memorandum~\cite{FCC_2010_sedond_memorandumm,FCCdatabasae} and the work~\cite{SenseLess2011} initialize a new and easier way to utilize the TV white space, and the work~\cite{SenseLess2011} illustrates it is feasible to decide the RSSI level only with appropriate propagation model and geolocation.
-%Given the geolocation of the TV stations and secondary users, and appropriate propagation model, secondary users' maximum transmission power can be determined by the central entity according to the interference margin (maximum RSSI level from secondary users) on the TV receivers. 
-
-%ZZZZ modify the following paragraphs ZZZ
-In this paper, we investigate the efficient way to exploit the TV spectrum in a wireless regional area network which complies with IEEE 802.22 network.
-The secondary users are assumed to be cellular base stations and associated terminals, all of which work on TV white spectrum. 
-The base station is referred as WBS.
-%The corresponding secondary base stations are referred as white base stations (WBS). 
-Some cellular networks, \ie GSM or LTE network, work on licensed spectrum and emphasis on providing satisfactory services to their end terminals by choosing proper transmission channel and power. 
-As to cellular network working on TV white spectrum, they have to keep one eye on the primary users to make sure that TV service is not violated, which makes the problem of channel and power selection difficult.
-With the existence of central database, it is natural to utilize it as a central controller to assign channel and power usage for secondary users, but the secondary users may belong to different commercial groups and they may not contend with the assigned resource.
-%Besides, as the TV channels have different quality, \ie interference level, and permitted transmission power, it is difficult for the database to assign them to the 
-Hence, the spectrum sharing of the secondary users in IEEE 802.22 network should be decided in distributed manner and each secondary user takes care of its own interest, \ie to maximize its preferred utility.
+The TVBDs are classified into two functional categories: 1) higher power ‘‘fixed’’ devices , 2) lower power personal/portable devices, such as Wi-Fi like cards in laptop computers.
+The fixed devices and some portable devices should access the TVDB to obtain the available spectrum and permitted transmission.
+%
+The fixed WSDs work as base stations and provides a backhaul for broadband client access.
+They are the base stations in the IEEE 802.22 standard which is designed for wireless regional area networks.
+As the fixed WSDs work with high transmission power, they are the major thread to the DTT receivers so that their transmission characteristics should be carefully decided by the TWDB.
+IEEE 802.22 regulates the MAC layer protocol, but it doesn't prevent the co-channel interference caused by the co-channel WSDs which work as base stations.
+In this paper, we investigate the efficient way to exploit the TV spectrum among the fixed WSDs which work as base station in a IEEE 802.22 network.
 
 Given all the other WBSs' selection on channel and transmission power, a WBS is interested in choosing the channel which brings it the best performance, \ie the data rate of its end users.
 A WBS prefers to choose the channel which experiences the minimum interference, and the transmission power allowed on that channel is higher, so as to obtain better SINR on its terminals and meanwhile maximize their coverage \cite{wuinfocom09, HoangPowerChannel2010}. 
 Nevertheless, high transmission power causes significant co-channel interference to other secondary users operating on the same channel. 
 Hence, a secondary cell has to balance its transmission power and the caused interference on other cells, meanwhile to choose working channel to decrease the experienced interference on its terminals. 
-The goal of this chapter is to protect the primary users from harmful interference, meanwhile to find a strategy for WBSs to choose channel and power level in order to acquire good SINR on end terminals.
+The existence of WSDB makes it a natural choice to adopt centralized decision and the calculation happens only in the WSDB, but considering the provision of WSDB services is still under discussion, we will also provide distributed solutions, which will distribute the work load of the WSDB.
+%The goal of this paper is to find a strategy for WBSs to choose channel and power level in the in order to acquire good SINR on end terminals.
+
+
+\textcolor{blue}{--------}
+
+%FCC issued a memorandum~\cite{FCC_2010_sedond_memorandumm,FCCdatabasae} in 2010, which removes the mandatory rigid sensing requirements, and prompts the usage of geolocations\footnote{Geolocation means both geographic location and terrain.}.
+%FCC regulates a centralized database, which registers all the secondary users within one certain area, and decides on the available channels for them to use.
+%The secondary users should access the database to obtain the list of available channels for the to use.
+%The authors of ~\cite{SenseLess2011} validate this regulation and demonstrate the feasibility of only using geolocations and  propagation model.
+%They adopt a central database which contains the geolocations of all TV stations.
+%Then with sophisticated propagation model (Longley-Rice), the central database calculates the received signal strength index (RSSI) levels of TV UHF signals in a vast area.
+%If RSSI on a channel is below a certain threshold on a location, TV service is regarded to be idle on that channel there and the secondary users there are allowed to use.
+%The calculated results on channel availability is very close to the measurement results, which gives big impetus to the application of database mode in the exploration of TV white space.
+%
+%The FCC memorandum~\cite{FCC_2010_sedond_memorandumm,FCCdatabasae} and the work~\cite{SenseLess2011} initialize a new and easier way to utilize the TV white space, and the work~\cite{SenseLess2011} illustrates it is feasible to decide the RSSI level only with appropriate propagation model and geolocation.
+%%Given the geolocation of the TV stations and secondary users, and appropriate propagation model, secondary users' maximum transmission power can be determined by the central entity according to the interference margin (maximum RSSI level from secondary users) on the TV receivers. 
+
+%%ZZZZ modify the following paragraphs ZZZ
+%In this paper, we investigate the efficient way to exploit the TV spectrum in a wireless regional area network which complies with IEEE 802.22 network.
+%The secondary users are assumed to be cellular base stations and associated terminals, all of which work on TV white spectrum. 
+%The base station is referred as WBS.
+%%The corresponding secondary base stations are referred as white base stations (WBS). 
+%Some cellular networks, \ie GSM or LTE network, work on licensed spectrum and emphasis on providing satisfactory services to their end terminals by choosing proper transmission channel and power. 
+%As to cellular network working on TV white spectrum, they have to keep one eye on the primary users to make sure that TV service is not violated, which makes the problem of channel and power selection difficult.
+%With the existence of central database, it is natural to utilize it as a central controller to assign channel and power usage for secondary users, but the secondary users may belong to different commercial groups and they may not contend with the assigned resource.
+%%Besides, as the TV channels have different quality, \ie interference level, and permitted transmission power, it is difficult for the database to assign them to the 
+%Hence, the spectrum sharing of the secondary users in IEEE 802.22 network should be decided in distributed manner and each secondary user takes care of its own interest, \ie to maximize its preferred utility.
+
+
 
 The rest of the paper is organized as follows. 
-We elucidate the system model in Section II, afterwards related work and problem formulation is presented in Section III. In Section IV, we discuss how to utilize the white space sufficiently by setting the transmission powers based on a convex problem formulation. We analyze the spectrum allocation problem under game theoretical framework and propose an algorithm in Section V, thereafter performance evaluation is presented in Section VI. Finally, we conclude our work and point out directions of future research in Section VII.
+We elucidate the system model in Section II, afterwards related work is presented in Section III. 
+In Section IV, we discuss how to utilize the white space sufficiently by setting the transmission powers based on a convex problem formulation. 
+We analyze the spectrum allocation problem under game theoretical framework and propose an algorithm in Section V, thereafter performance evaluation is presented in Section VI. Finally, we conclude our work and point out directions of future research in Section VII.
 
 
 \section{System Model and Problem Statement}
