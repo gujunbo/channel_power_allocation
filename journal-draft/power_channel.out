@@ -1,16 +1,15 @@
 \BOOKMARK [1][]{section.1}{1 Introduction}{}% 1
 \BOOKMARK [1][]{section.2}{2 System Model and Problem Statement}{}% 2
-\BOOKMARK [2][]{subsection.2.1}{2.1 Problem Statement}{section.2}% 3
-\BOOKMARK [1][]{section.3}{3 Problem Decomposition and Related Works}{}% 4
-\BOOKMARK [1][]{section.4}{4 Channel and Power Allocation Scheme complying with ECC Rules}{}% 5
-\BOOKMARK [2][]{subsection.4.1}{4.1 The Maximum Permitted Transmission Power}{section.4}% 6
-\BOOKMARK [2][]{subsection.4.2}{4.2 Centralized Optimization for Channel Allocation}{section.4}% 7
-\BOOKMARK [2][]{subsection.4.3}{4.3 Distributed White Space Channel Allocation \(WhiteCat\)}{section.4}% 8
-\BOOKMARK [1][]{section.5}{5 Channel and Power Allocation Scheme complying with FCC Rules}{}% 9
-\BOOKMARK [2][]{subsection.5.1}{5.1 Distributed Scheme}{section.5}% 10
-\BOOKMARK [2][]{subsection.5.2}{5.2 Centralized Optimization for Channel Allocation}{section.5}% 11
-\BOOKMARK [2][]{subsection.5.3}{5.3 Distributed White Space Channel Allocation \(WhiteSussa\)}{section.5}% 12
-\BOOKMARK [1][]{section.6}{6 Performance Evaluation}{}% 13
-\BOOKMARK [2][]{subsection.6.1}{6.1 Maximal Permitted Power Decision and the Distributed Channel Allocation Schemes}{section.6}% 14
-\BOOKMARK [2][]{subsection.6.2}{6.2 Performance of Joint Power and Channel Allocation}{section.6}% 15
-\BOOKMARK [1][]{section.7}{7 Conclusions}{}% 16
+\BOOKMARK [1][]{section.3}{3 Problem Decomposition and Related Works}{}% 3
+\BOOKMARK [1][]{section.4}{4 Channel and Power Allocation Scheme complying with ECC Rules}{}% 4
+\BOOKMARK [2][]{subsection.4.1}{4.1 The Maximum Permitted Transmission Power}{section.4}% 5
+\BOOKMARK [2][]{subsection.4.2}{4.2 Centralized Optimization for Channel Allocation}{section.4}% 6
+\BOOKMARK [2][]{subsection.4.3}{4.3 Distributed White Space Channel Allocation \(WhiteCat\)}{section.4}% 7
+\BOOKMARK [1][]{section.5}{5 Channel and Power Allocation Scheme complying with FCC Rules}{}% 8
+\BOOKMARK [2][]{subsection.5.1}{5.1 Distributed Scheme}{section.5}% 9
+\BOOKMARK [2][]{subsection.5.2}{5.2 Centralized Optimization for Channel Allocation}{section.5}% 10
+\BOOKMARK [2][]{subsection.5.3}{5.3 Distributed White Space Channel Allocation \(WhiteSussa\)}{section.5}% 11
+\BOOKMARK [1][]{section.6}{6 Performance Evaluation}{}% 12
+\BOOKMARK [2][]{subsection.6.1}{6.1 Maximal Permitted Power Decision and the Distributed Channel Allocation Schemes}{section.6}% 13
+\BOOKMARK [2][]{subsection.6.2}{6.2 Performance of Joint Power and Channel Allocation}{section.6}% 14
+\BOOKMARK [1][]{section.7}{7 Conclusions}{}% 15
