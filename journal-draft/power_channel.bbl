@@ -28,38 +28,21 @@
   \url{http://hraunfoss.fcc.gov/edocs_public/attachmatch/DA-11-131A1.pdf}, Jan.
   2011, visited July 2012.
 
-\bibitem{multipleIntf_pimrc11}
-K.~Koufos, K.~Ruttik, and R.~Jantti, ``Controlling the interference from
-  multiple secondary systems at the {TV} cell border,'' in \emph{Proc. of IEEE
-  PIMRC 2011}, Sep. 2011.
+\bibitem{ECC236}
+T.~E. C.~C. (ECC), ``guidance for national implementation of a regulatory
+  framework for tv wsd using geo-location databases,'' May. 2015.
 
-\bibitem{ecc159}
+\bibitem{ofcom15}
 \BIBentryALTinterwordspacing
-``{Technical and operational requirements for the possible operation of
-  cognitive radio systems in the 'white spaces' of the frequency band 470-790
-  MHz, Cardiff},''
-  \url{http://www.erodocdb.dk/docs/doc98/official/Pdf/ECCRep159.pdf}, Jan.
-  2011, visited July 2012. [Online]. Available:
-  \url{http://www.erodocdb.dk/docs/doc98/official/Pdf/ECCRep159.pdf}
+Ofcom, ``Implementing tv white spaces.'' [Online]. Available:
+  \url{https://www.ofcom.org.uk/__data/assets/pdf_file/0034/68668/tvws-statement.pdf}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Jaentti11}
-R.~Jäntti, J.~Kerttula, K.~Koufos, and K.~Ruttik, ``Aggregate interference
-  with fcc and ecc white space usage rules: case study in finland,'' in
-  \emph{Proc. of IEEE DySPAN 2011}, May 2011.
-
-\bibitem{FCCdatabasae}
+\bibitem{googleDatabase}
 \BIBentryALTinterwordspacing
-``{FCC} frees up vacant {TV} airwaves for ”{S}uper {W{i-{F{i” Technologies
-  and Other Technologies}}}},'' \url{http://hraunfoss.fcc.gov}, Sep. 2010,
-  visited July 2012. [Online]. Available:
-  \url{http://hraunfoss.fcc.gov/edocs_public/attachmatch/DOC-301650A1.pdf}
+``{Google spectrum database},'' visited Juni 2016. [Online]. Available:
+  \url{https://www.google.com/get/spectrumdatabase/}
 \BIBentrySTDinterwordspacing
-
-\bibitem{SenseLess2011}
-R.~Murty, R.~Chandra, T.~Moscibroda, and V.~Bahl, ``Senseless: A
-  database-driven white spaces network,'' in \emph{Proc. of IEEE DySpan 2011},
-  May 2011.
 
 \bibitem{wuinfocom09}
 Y.~Wu and D.~Tsang, ``Distributed power allocation algorithm for spectrum
@@ -80,96 +63,23 @@ X.~Chen and J.~Huang, ``Game theoretic analysis of distributed spectrum sharing
   Conference on Distributed Computing Systems (ICDCS)}, June 2012, pp.
   255--264.
 
-\bibitem{tvwhite_lte2011}
-M.~I. Rahman, A.~Behravan, H.~Koorapaty, J.~Sachs, and K.~Balachandran,
-  ``License-exempt {LTE} systems for secondary spectrum usage: scenarios and
-  first assessment,'' in \emph{Dyspan 2011, IEEE}, May 2011.
+\bibitem{ECC186}
+T.~E. C.~C. (ECC), \emph{Technical and operational requirements for the
+  operation of white space devices undergeo-location approach}.
 
-\bibitem{multicell_geo_dyspan11}
-X.~Feng, J.~Zhang, and Q.~Zhang, ``Database-assisted multi-{AP} network on {TV}
-  white spaces: Architecture, spectrum allocation and ap discovery,'' in
-  \emph{Proc. of IEEE DySPAN 2011}, may 2011, pp. 265 --276.
+\bibitem{ECMA392}
+E.~International, \emph{MAC and PHY for Operation in TVWS}, ser. 1 June 2012.
 
-\bibitem{whitefi09}
-T.~M. R.~M. Paramvir~Bahl, Ranveer~Chandra and M.~Welsh, ``White space
-  networking with {Wi-Fi} like connectivity,'' in \emph{Proc. of ACM SIGCOMM
-  2009}, Aug. 2009.
+\bibitem{multipleIntf_pimrc11}
+K.~Koufos, K.~Ruttik, and R.~Jantti, ``Controlling the interference from
+  multiple secondary systems at the {TV} cell border,'' in \emph{Proc. of IEEE
+  PIMRC 2011}, Sep. 2011.
 
-\bibitem{802.22}
-``{IEEE} 802.22 wireless regional area networks,''
-  \url{http://www.ieee802.org/22/Technology/}.
-
-\bibitem{802.11af}
-A.~Flores, R.~Guerra, E.~Knightly, P.~Ecclesine, and S.~Pandey, ``{IEEE}
-  802.11af: a standard for {TV} white space spectrum sharing,''
-  \emph{Communications Magazine, IEEE}, vol.~51, no.~10, pp. 92--100, October
-  2013.
-
-\bibitem{802.15.4m}
-``{TV} white space amendment to 802.15.4,''
-  \url{http://www.ieee802.org/15/pub/TG4m.html}.
-
-\bibitem{802.19}
-``Wireless coexistence in the {TV} white space,''
-  \url{http://ieee802.org/19/pub/TG1.html}.
-
-\bibitem{hybridPricing_tvspace_2014}
-X.~Feng, Q.~Zhang, and J.~Zhang, ``A hybrid pricing framework for tv white
-  space database,'' \emph{IEEE Transactions on Wireless Communications},
-  vol.~13, no.~5, pp. 2626--2635, May 2014.
-
-\bibitem{uplink_power_tvws13}
-X.~Tao, Z.~Zhao, and H.~Zhang, ``Location information based interference
-  control for cognitive radio network in {TV} white spaces,'' in \emph{Proc. of
-  IEEE WCNC 2013}, pp. 3614--3619.
-
-\bibitem{withinTVcoverage_PIMRC13}
-L.~Zhang, L.~Yuan, Z.~Feng, and Z.~Feng, ``Mutual-interference-aware available
-  spectrum resource distribution in {TV} white space,'' in \emph{Proc. of IEEE
-  PIMRC 2013}, Sept 2013, pp. 2743--2747.
-
-\bibitem{game_CA_association_ICDCS12}
-X.~Chen and J.~Huang, ``Game theoretic analysis of distributed spectrum sharing
-  with database,'' in \emph{Proc. of 2012 IEEE 32nd International Conference on
-  Distributed Computing Systems (ICDCS)}, June 2012, pp. 255--264.
-
-\bibitem{SA_CA_TVWS_2012crowncom}
-B.~Ye, M.~Nekovee, A.~Pervez, and M.~Ghavami, ``{TV} white space channel
-  allocation with simulated annealing as meta algorithm,'' in \emph{Proc. of
-  2012 7th International ICST Conference on Cognitive Radio Oriented Wireless
-  Networks and Communications}, June 2012, pp. 175--179.
-
-\bibitem{802.22co-existence09}
-K.~Bian and J.-M. Park, ``A coexistence-aware spectrum sharing protocol for
-  802.22 {WRANs},'' in \emph{Proceedings of 18th Internatonal Conference on
-  Computer Communications and Networks}, Aug 2009, pp. 1--6.
-
-\bibitem{802.22game_08globecom}
-S.~Sengupta, R.~Chandramouli, S.~Brahma, and M.~Chatterjee, ``A game theoretic
-  framework for distributed self-coexistence among {IEEE} 802.22 networks,'' in
-  \emph{Proc. of IEEE GLOBECOM 2008}, 30 2008-dec. 4 2008, pp. 1 --6.
-
-\bibitem{self-coexistenceWRAN2010infocom}
-V.~Gardellin, S.~Das, and L.~Lenzini, ``A fully distributed game theoretic
-  approach to guarantee self-coexistence among wrans,'' in \emph{Proc. of IEEE
-  INFOCOM, Computer Communications Workshops}, march 2010, pp. 1 --6.
-
-\bibitem{tvws_vtc13}
-M.~Di~Felice, A.~Ghandhour, H.~Artail, and L.~Bononi, ``Integrating spectrum
-  database and cooperative sensing for cognitive vehicular networks,'' in
-  \emph{Proc. of IEEE VTC 2013 Fall}, Sept 2013, pp. 1--7.
-
-\bibitem{increaseTVWS12}
-B.~Ellingsaeter, H.~Bezabih, J.~Noll, and T.~Maseng, ``Using {TV} receiver
-  information to increase cognitive white space spectrum,'' in
-  \emph{Processings of 2012 IEEE International Symposium on Dynamic Spectrum
-  Access Networks (DySPAN)}, Oct 2012, pp. 131--141.
-
-\bibitem{maximum_power_TVWS_dyspan_2011}
-H.~Karimi, ``Geolocation databases for white space devices in the uhf tv bands:
-  Specification of maximum permitted emission levels,'' in \emph{New Frontiers
-  in Dynamic Spectrum Access Networks (DySPAN), 2011 IEEE Symposium on}, May
-  2011, pp. 443--454.
+\bibitem{aggregate_interference_shadow_fading_2010}
+K.~Ruttik, K.~Koufos, and R.~Jantti, ``Model for computing aggregate
+  interference from secondary cellular network in presence of correlated shadow
+  fading,'' in \emph{In Proceedings of IEEE PIMRC 2011}, Sept 2011, pp.
+  433--437.
 
 \bibitem{Hyacinth}
 A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an {IEEE}
@@ -180,6 +90,12 @@ A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an {IEEE}
 B.~Ko, V.~Misra, J.~Padhye, and D.~Rubenstein, ``Distributed channel assignment
   in multi-radio 802.11 mesh networks,'' in \emph{Proc. of IEEE WCNC 2007},
   Mar. 2007.
+
+\bibitem{SA_CA_TVWS_2012crowncom}
+B.~Ye, M.~Nekovee, A.~Pervez, and M.~Ghavami, ``{TV} white space channel
+  allocation with simulated annealing as meta algorithm,'' in \emph{Proc. of
+  2012 7th International ICST Conference on Cognitive Radio Oriented Wireless
+  Networks and Communications}, June 2012, pp. 175--179.
 
 \bibitem{qlearning_huang}
 J.~Huang, Q.~Zhu, V.~Krishnamurthy, and T.~Basar, ``Distributed correlated
@@ -207,19 +123,10 @@ S.~Hart and A.~Colell, ``{A simple adaptive procedure leading to correlated
   [Online]. Available: \url{http://dx.doi.org/10.2307/2999445}
 \BIBentrySTDinterwordspacing
 
-\bibitem{aggregate_interference_shadow_fading_2010}
-K.~Ruttik, K.~Koufos, and R.~Jantti, ``Model for computing aggregate
-  interference from secondary cellular network in presence of correlated shadow
-  fading,'' in \emph{In Proceedings of IEEE PIMRC 2011}, Sept 2011, pp.
-  433--437.
-
-\bibitem{infmitigate07mobicom}
-\BIBentryALTinterwordspacing
-N.~Ahmed, V.~Shrivastava, A.~Mishra, S.~Banerjee, S.~Keshav, and
-  K.~Papagiannaki, ``Interference mitigation in enterprise wlans through
-  speculative scheduling,'' in \emph{Proc. of ACM MobiCom 2007}, Sep. 2007.
-  [Online]. Available: \url{http://doi.acm.org/10.1145/1287853.1287900}
-\BIBentrySTDinterwordspacing
+\bibitem{Li2012DistributedTS}
+D.~Li and J.~Gross, ``Distributed tv spectrum allocation for cognitive cellular
+  network under game theoretical framework,'' \emph{2012 IEEE International
+  Symposium on Dynamic Spectrum Access Networks}, pp. 327--338, 2012.
 
 \bibitem{lindo}
 \BIBentryALTinterwordspacing
@@ -227,6 +134,11 @@ Y.~Lin and L.~Schrage, ``The global solver in the lindo api,''
   \emph{Optimization Methods Software}, vol.~24, no. 4-5, pp. 657--668, Aug.
   2009. [Online]. Available: \url{http://dx.doi.org/10.1080/10556780902753221}
 \BIBentrySTDinterwordspacing
+
+\bibitem{SenseLess2011}
+R.~Murty, R.~Chandra, T.~Moscibroda, and V.~Bahl, ``Senseless: A
+  database-driven white spaces network,'' in \emph{Proc. of IEEE DySpan 2011},
+  May 2011.
 
 \bibitem{allerton08_liu}
 M.~Liu and Y.~Wu, ``Spectum sharing as congestion games,'' in \emph{Proc. of
