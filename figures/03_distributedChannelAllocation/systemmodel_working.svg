@@ -15,8 +15,8 @@
    height="1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.3.1 r9886"
-   sodipodi:docname="systemmodel_working.eps">
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="systemmodel_working.svg">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,15 +25,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="234.2467"
+     inkscape:cx="397.05009"
      inkscape:cy="814.39556"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1855"
-     inkscape:window-height="1056"
-     inkscape:window-x="1665"
-     inkscape:window-y="24"
+     inkscape:window-width="1440"
+     inkscape:window-height="815"
+     inkscape:window-x="0"
+     inkscape:window-y="1"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -231,7 +231,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -359,7 +359,7 @@
          sodipodi:open="true"
          sodipodi:end="6.2755464"
          sodipodi:start="0"
-         d="m 114.14723,396.77319 c 0,59.41549 -54.723543,107.58126 -122.2284506,107.58126 -67.5049074,0 -122.2284494,-48.16577 -122.2284494,-107.58126 0,-59.41548 54.723542,-107.58125 122.2284494,-107.58125 67.1405656,0 121.7120006,47.66638 122.2248806,106.75946"
+         d="M 114.14723,396.77319 A 122.22845,107.58125 0 0 1 -7.8477978,504.35425 122.22845,107.58125 0 0 1 -130.30878,397.18409 122.22845,107.58125 0 0 1 -8.7814856,289.19371 122.22845,107.58125 0 0 1 114.14366,395.9514"
          sodipodi:ry="107.58125"
          sodipodi:rx="122.22845"
          sodipodi:cy="396.77319"
@@ -372,7 +372,7 @@
          sodipodi:open="true"
          sodipodi:end="6.2755464"
          sodipodi:start="0"
-         d="m -197.98989,276.56503 c 0,45.74714 -18.09043,82.83251 -40.40611,82.83251 -22.31567,0 -40.4061,-37.08537 -40.4061,-82.83251 0,-45.74713 18.09043,-82.83251 40.4061,-82.83251 22.19523,0 40.23538,36.70087 40.40493,82.19977"
+         d="m -197.98989,276.56503 a 40.406101,82.832512 0 0 1 -40.32894,82.83236 40.406101,82.832512 0 0 1 -40.48297,-82.51598 40.406101,82.832512 0 0 1 40.17431,-83.14753 40.406101,82.832512 0 0 1 40.63642,82.19841"
          sodipodi:ry="82.832512"
          sodipodi:rx="40.406101"
          sodipodi:cy="276.56503"
@@ -385,7 +385,7 @@
          sodipodi:open="true"
          sodipodi:end="6.2755464"
          sodipodi:start="0"
-         d="m 149.50258,494.75797 c 0,46.86291 -42.28638,84.85281 -94.449266,84.85281 -52.1628882,0 -94.449264,-37.9899 -94.449264,-84.85281 0,-46.86292 42.2863758,-84.85282 94.449264,-84.85282 51.881356,0 94.050196,37.59601 94.446506,84.20464"
+         d="M 149.50258,494.75797 A 94.449265,84.852814 0 0 1 55.233686,579.61062 94.449265,84.852814 0 0 1 -39.395261,495.08206 94.449265,84.852814 0 0 1 54.5122,409.90654 94.449265,84.852814 0 0 1 149.49982,494.10979"
          sodipodi:ry="84.852814"
          sodipodi:rx="94.449265"
          sodipodi:cy="494.75797"
@@ -398,7 +398,7 @@
          sodipodi:open="true"
          sodipodi:end="6.2755464"
          sodipodi:start="0"
-         d="m 55.053318,363.43814 c 0,25.66302 -47.6004397,46.46701 -106.318558,46.46701 -58.71812,0 -106.31856,-20.80399 -106.31856,-46.46701 0,-25.66302 47.60044,-46.46701 106.31856,-46.46701 58.4012014,0 105.869339,20.58829 106.315456,46.11206"
+         d="M 55.053318,363.43814 A 106.31856,46.46701 0 0 1 -51.0622,409.90507 106.31856,46.46701 0 0 1 -157.58302,363.61562 106.31856,46.46701 0 0 1 -51.874355,316.97189 106.31856,46.46701 0 0 1 55.050216,363.08319"
          sodipodi:ry="46.46701"
          sodipodi:rx="106.31856"
          sodipodi:cy="363.43814"
@@ -592,7 +592,7 @@
          sodipodi:open="true"
          sodipodi:end="3.1107398"
          sodipodi:start="0"
-         d="m 300,227.36218 c 0,2.76143 -2.23858,5 -5,5 -2.70137,0 -4.91429,-2.14567 -4.99762,-4.84576"
+         d="m 300,227.36218 a 5,5 0 0 1 -4.92287,4.99941 5,5 0 0 1 -5.07475,-4.84517"
          sodipodi:ry="5"
          sodipodi:rx="5"
          sodipodi:cy="227.36218"
@@ -626,7 +626,7 @@
          sodipodi:open="true"
          sodipodi:end="3.1107398"
          sodipodi:start="0"
-         d="m 300,227.36218 c 0,2.76143 -2.23858,5 -5,5 -2.70137,0 -4.91429,-2.14567 -4.99762,-4.84576"
+         d="m 300,227.36218 a 5,5 0 0 1 -4.92287,4.99941 5,5 0 0 1 -5.07475,-4.84517"
          sodipodi:ry="5"
          sodipodi:rx="5"
          sodipodi:cy="227.36218"
@@ -693,7 +693,7 @@
          sodipodi:open="true"
          sodipodi:end="3.1107398"
          sodipodi:start="0"
-         d="m 300,227.36218 c 0,2.76143 -2.23858,5 -5,5 -2.70137,0 -4.91429,-2.14567 -4.99762,-4.84576"
+         d="m 300,227.36218 a 5,5 0 0 1 -4.92287,4.99941 5,5 0 0 1 -5.07475,-4.84517"
          sodipodi:ry="5"
          sodipodi:rx="5"
          sodipodi:cy="227.36218"
@@ -763,7 +763,7 @@
            sodipodi:cy="227.36218"
            sodipodi:rx="5"
            sodipodi:ry="5"
-           d="m 300,227.36218 c 0,2.76143 -2.23858,5 -5,5 -2.70137,0 -4.91429,-2.14567 -4.99762,-4.84576"
+           d="m 300,227.36218 a 5,5 0 0 1 -4.92287,4.99941 5,5 0 0 1 -5.07475,-4.84517"
            sodipodi:start="0"
            sodipodi:end="3.1107398"
            sodipodi:open="true"
@@ -902,21 +902,16 @@
          style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;writing-mode:lr-tb;text-anchor:start;font-family:Sans;-inkscape-font-specification:Sans"
          id="flowPara6640-1" /></flowRoot>    <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans;-inkscape-font-specification:Sans"
-       x="242.87419"
-       y="314.59262"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:100%;font-family:Sans;-inkscape-font-specification:Sans;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+       x="189.87419"
+       y="345.59262"
        id="text3283"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
-         x="242.87419"
-         y="314.59262"
-         id="tspan4336"
-         style="font-size:14px">measurement</tspan><tspan
-         sodipodi:role="line"
-         x="242.87419"
-         y="328.59262"
-         style="font-size:14px"
-         id="tspan4340">device</tspan></text>
+         x="189.87419"
+         y="345.59262"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:100%;font-family:Sans;-inkscape-font-specification:'Sans, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start"
+         id="tspan4319">critical point</tspan></text>
     <g
        id="g6974-4-47-43-9"
        transform="matrix(2.0077921,0,0,1.7543615,-153.55958,-304.80616)">
@@ -1125,5 +1120,28 @@
        d="m 485.26608,467.82446 216.73392,0 0,-376.462277 -29,0"
        id="path3937"
        inkscape:connector-curvature="0" />
-  </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4323"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Helvetica;font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Helvetica, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr"><flowRegion
+         id="flowRegion4325"><rect
+           id="rect4327"
+           width="63.165955"
+           height="19.669525"
+           x="539.83405"
+           y="408.69266" /></flowRegion><flowPara
+         id="flowPara4329"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot4331"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:17.5px;line-height:125%;font-family:Helvetica;-inkscape-font-specification:'Helvetica, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(-13,1)"><flowRegion
+         id="flowRegion4333"><rect
+           id="rect4335"
+           width="137"
+           height="37"
+           x="566"
+           y="399.36218" /></flowRegion><flowPara
+         id="flowPara4337"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start">critical point</flowPara><flowPara
+         id="flowPara4339" /></flowRoot>  </g>
 </svg>
