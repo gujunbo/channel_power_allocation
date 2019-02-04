@@ -20,7 +20,7 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 \usepackage{times}
 %\usepackage{mathptmx}
-\usepackage{mathtools}
+\usepackage{mathtools, cuted}
 \usepackage[draft,nomargin,marginclue,footnote,silent]{fixme}
 \setcounter{tocdepth}{2} %table of contents
 
@@ -44,7 +44,6 @@ T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \usepackage{adjustbox}
 \usepackage{multirow}
 \usepackage{enumitem}
-\usepackage{lipsum}
 \setlist[itemize]{leftmargin=*}
 \setlist[enumerate]{wide=\parindent}
 \usepackage[referable]{threeparttablex}
@@ -772,7 +771,7 @@ The problem in Section~\ref{problemProposed} can be modeled via general purpose 
 		& \underset{}{\text{minimize}}
 		& & \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}\vec{P}_j^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{\vec{P}^TX_ih_iz_i}\\
 		& \text{subject to}
-		& & \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_{ik}\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
+		& & \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
 		\end{aligned}
 	\end{equation}
 Problem \ref{QLP} is a non-linear problem with binary variables, but it can be reformulated into a quadratic programming problem as,
@@ -807,9 +806,8 @@ WhiteCat is depicted by algorithm \ref{whitecatalgo}.
 u_i =\dfrac{\sum\limits_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}}{2\cdot \tilde{P_i}} + \dfrac{1}{2}\sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}\dfrac{f_{ij}}{\tilde{P_j}} + \sum_{\tiny\substack{\mathcal{S}:i,j\in \mathcal{S},\\ c(\sigma_j)=c(\sigma_i)}}\dfrac{N_0}{C\cdot \tilde{P_i}}\\
 \end{equation}
 
-where $f_{ij}= P_i\cdot h_{ij}\cdot z$ and $f_{ji}= P_j\cdot h_{ij}\cdot z$.
-%Note that $f_{ij}$ is the sum of interference on WBS $i$'s interference reference points.
-Overlooking the constant coefficient 2, the first item of $u_i$ is a part of the inverted QuasiSINR of station $i$. 
+where $\tilde{P_i} = P_i\cdot h_i\cdot z_i$, similarly $\tilde{P_j} = P_j\cdot h_j\cdot z_j$.
+Overlooking the constant coefficient 2, the first item of $u_i$ is the inverted QuasiSINR of station $i$. 
 To minimize the first item, WBS $i$ needs to choose a channel either permits higher transmission power or experiences less interference, whereas the higher power increases the second item which is a part of inverted QuasiSINR of other co-channel WBSs. 
 Hence, the cost function presents a reasonable comprise between the QuasiSINR of one WBS and others.
 
@@ -843,28 +841,29 @@ Notify database of its channel usage, which further notifies the other WBSs
 
 \end{algorithm}
 
+%Some parameters needed to calculate the utility are identical for all WBSs, such as quasi distance $e$, the total number of WBSs $N$, number of channels $C$, attenuation factor $\alpha$, standard deviation $\sigma_{WBS}$ in flat shadowing and noise $N_0$, albeit 
 
+%Similar with~\cite{SenseLess2011}, we let every WBS store the location information and maximal power map of all other WBSs, \ie $P_i^c, i\in\mathcal{N}, c\in\mathbb{C}$, and each WBS retrieves information about channel usage of other WBSs from centralized base station.
 
-%//废话
-%Imitating the player's behaviour in the congestion game, each base station tries to find the channel $c\in \mathbb{C}$ that brings the smallest $u_i$ based on the other stations' decisions, every channel update decreases the summation of utilities in the whole network and finally converges to a pure Nash equilibrium (proof is in section \ref{game}.
-
-
-Some parameters needed to calculate the utility are identical for all WBSs, such as quasi distance $e$, the total number of WBSs $N$, number of channels $C$, attenuation factor $\alpha$, standard deviation $\sigma_{WBS}$ in flat shadowing and noise $N_0$, albeit the following information is further needed to calculate $u_i$: 
-	\begin{itemize} %{labelitemi}{$\bullet$}
-	\item $\sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}^c, c\in \mathbb{C}$: the received interference on $i$' virtual measurement point from other WBSs $j$ working on the same channel for $\forall c\in \mathbb{C}$.
-	\item $ f_{ij}^c$: the interference caused by $i$ on $j$'s virtual measurement point when $i$ works on channel $\forall c\in \mathbb{C}$.
-	\item $P_j^c$: transmission power of $j$ for using $\forall c\in \mathbb{C}$.
-	\end{itemize}
-Unfortunately, it is difficult to measure the interference of interested, \ie for WBS $i$, it is not efficient to scan all channels and obtain the interference $f_{ji}$ on virtual measurement point for each channel, furthermore, it is impossible to split the interference $f_{ij}$ from the total interference received on WBS $j$' virtual measurement point. 
-
+WBSs calculate $u_i$ with the information retrieved from TVDB.
+After executing Algorithm \ref{whitecatalgo}, it reports to TVDB about its channel if its working channel is updated.
+As the location of WBSs and TV stations and the transmission channel and power of TV stations are usually static (entries of TV station change averagely once in 2 days\cite{SenseLess2011}), except for the channel usage in the network, the change of the other data stored in WBS is infrequent. 
 We refer \cite{CApotentialLearning_05dyspan} to decide WBSs' sequence to update their channels.
 \cite{CApotentialLearning_05dyspan} proposes a method which is akin to the random access mechanism of CSMA/DA, where the access for broadcast medium is changed to get access to the centralized center to retrieve the current channel usage and update its new channel. 
 All WBSs are able to access the database in one round (with random or predetermined sequence). As WBSs are connected with database, the control messages needed to decide the sequence will not become a burden. 
 Update of channels can happen in the boot phase, or when the quality of services (the SINR on its end users) of WBSs falls below a threshold, or a fixed time duration comes to end, or a new WBS joins in the network. 
 
-Similar with~\cite{SenseLess2011}, we let every WBS store the location information and maximal power map of all other WBSs, \ie $P_i^c, i\in\mathcal{N}, c\in\mathbb{C}$, and each WBS retrieves information about channel usage of other WBSs from centralized base station.
-After executing Algorithm \ref{whitecatalgo}, it reports to centralized database of its channel if it updates the working channel.
-As the location of WBSs and TV stations and the transmission channel and power of TV stations are usually static (entries of TV station change averagely once in 2 days\cite{SenseLess2011}), except for the channel usage in the network, the change of the other data stored in WBS is infrequent. 
+%The following information is needed to be calculate $u_i$: 
+%	\begin{itemize} %{labelitemi}{$\bullet$}
+%	\item $\sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}^c, c\in \mathbb{C}$: the received interference on $i$' virtual measurement point from other WBSs $j$ working on the same channel for $\forall c\in \mathbb{C}$.
+%	\item $ f_{ij}^c$: the interference caused by $i$ on $j$'s virtual measurement point when $i$ works on channel $\forall c\in \mathbb{C}$.
+%	\item $P_j^c$: transmission power of $j$ for using $\forall c\in \mathbb{C}$.
+%	\end{itemize}
+%Unfortunately, it is difficult to measure the interference of interested, \ie for WBS $i$, it is not efficient to scan all channels and obtain the interference $f_{ji}$ on virtual measurement point for each channel, furthermore, it is impossible to split the interference $f_{ij}$ from the total interference received on WBS $j$' virtual measurement point. 
+
+
+
+
 
 
 \subsubsection{Analysis in Game Theoretical Framework}
@@ -954,18 +953,18 @@ Hence, the cost is a function of the number of players using the resource, and t
 
 Now we substitute Formula \ref{costfuc4resrc} to Formula \ref{6}, the total cost for user $i$ under strategy profile $\sigma$ . 
 
+\begin{strip}
 \begin{equation}
 \label{cost1player}
 \begin{split}
 g^i(\sigma)
-%& = \sum_{\tiny\substack{j\in \mathcal{N}\setminus i,\\ c=c(\sigma_j)=c(\sigma_i)}} g_{(i,j,c)}(2) + \sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c=c(\sigma_j)=c(\sigma_i)}} g_{(j,i,c)}(2)\\
-& = \sum_{\tiny\substack{j\in \mathcal{N}\setminus i,\\ c=c(\sigma_j)=c(\sigma_i)}} (g_{(i,j,c)}(2) + g_{(j,i,c)}(2))\\
-%& = \sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}} (\dfrac{f_{ji}/2 + N_0/C}{\tilde{P_i}} + \dfrac{f_{ij}/2}{\tilde{P_j}})\\
-& = \sum_{\tiny\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}(\dfrac{f_{ji}}{\tilde{P_i}} + \dfrac{f_{ij}}{\tilde{P_j}}+ \dfrac{C\cdot N_0}{N}(\dfrac{1}{\tilde P_i}+\dfrac{1}{\tilde P_j})) \\
-& = \dfrac{\sum\limits_{\tiny\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}}{ \tilde{P_i}} + \sum_{\tiny\substack{j\in \mathcal{N}\setminus i, \\c(\sigma_j)=c(\sigma_i)}}\dfrac{f_{ij}}{\tilde{P_j}} + \dfrac{CN_0}{N}\sum_{\tiny\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}(\dfrac{1}{\tilde{P_i}}+\dfrac{1}{\tilde{P_j}})\\
-& = \dfrac{\sum\limits_{\tiny\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}}{ \tilde{P_i}} + \sum_{\tiny\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}\dfrac{f_{ij}}{\tilde{P_j}} + \dfrac{2CN_0}{N}\sum_{\tiny\substack{i\in\mathcal{S}\subset\mathcal{N},\\\mathcal{S}:\forall i\in \mathcal{S}\\ c(\sigma_i)=c}}\dfrac{1}{\tilde{P_i}}\\
+ &= \sum_{\substack{j\in \mathcal{N}\setminus i,\\ c=c(\sigma_j)=c(\sigma_i)}} (g_{(i,j,c)}(2) + g_{(j,i,c)}(2))
+= \sum_{\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}(\dfrac{f_{ji}}{\tilde{P_i}} + \dfrac{f_{ij}}{\tilde{P_j}}+ \dfrac{C\cdot N_0}{N}(\dfrac{1}{\tilde P_i}+\dfrac{1}{\tilde P_j})) \\
+& = \dfrac{\sum\limits_{\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}}{ \tilde{P_i}} + \sum_{\substack{j\in \mathcal{N}\setminus i, \\c(\sigma_j)=c(\sigma_i)}}\dfrac{f_{ij}}{\tilde{P_j}} + \dfrac{CN_0}{N}\sum_{\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}(\dfrac{1}{\tilde{P_i}}+\dfrac{1}{\tilde{P_j}})
+ = \dfrac{\sum\limits_{\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}}{ \tilde{P_i}} + \sum_{\substack{j\in \mathcal{N}\setminus i,\\ c(\sigma_j)=c(\sigma_i)}}\dfrac{f_{ij}}{\tilde{P_j}} + \dfrac{2CN_0}{N}\sum_{\substack{i\in\mathcal{S}\subset\mathcal{N},\\\mathcal{S}:\forall i\in \mathcal{S}\\ c(\sigma_i)=c}}\dfrac{1}{\tilde{P_i}}\\
 \end{split}
 \end{equation}
+\end{strip}
 
 where $\mathcal{S}$ denotes the set of WBSs whose working channel is the same with WBS $i$.
 
@@ -977,8 +976,8 @@ Then the total potential is,
 \begin{equation}
 \label{allPotential}
 \begin{split}	
-G(\sigma) 
-& =\sum\limits^{}_{r\in \mathcal{R}} \sum\limits^{n_r(\sigma)}_{i=1} g_r(i)  =\sum\limits_{i\in \mathcal{N}} \sum\limits^{}_{r\in \sigma_i} g_r(n_r^i(\sigma))\\
+&G(\sigma) 
+ =\sum\limits^{}_{r\in \mathcal{R}} \sum\limits^{n_r(\sigma)}_{i=1} g_r(i)  =\sum\limits_{i\in \mathcal{N}} \sum\limits^{}_{r\in \sigma_i} g_r(n_r^i(\sigma))\\
 %& = \sum\limits_{i\in \mathcal{N}}\dfrac{\sum\limits_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}\tilde{f_{ji}}}{\tilde{P_i}} + \sum\limits_{\tiny\substack{\mathcal{S}\backepsilon i, \mathcal{S}\subset \mathcal{N},\\ \forall j\in \mathcal{S}, j\neq i,\\ c(\sigma_j)=c(\sigma_i)}}  (\dfrac{\mid\mathcal{S}\setminus 1 \mid}{C} \frac{N_0}{\tilde{P_i}})
 & = \sum\limits_{i\in \mathcal{N}}\dfrac{\sum\limits_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}}{\tilde{P_i}} + \dfrac{CN_0}{N}\sum\limits_{\tiny\substack{\mathcal{S}\subset \mathcal{N},\\ \forall i\in \mathcal{S}, c(\sigma_i)=c}} \mid \mathcal{S}\mid   \sum\limits_{\tiny\substack{i\in \mathcal{S}}}\frac{1}{\tilde{P_i}}
 \end{split}
@@ -1279,9 +1278,10 @@ Some parameters are listed in Table~\ref{6}.
   Interference threshold on TV contour 		& $10^{-7}$W \\ % -67dbm
   Path loss factor 							& 2 \\
   Standard deviation in flat shadowing		& 8\\
-  Minimal WBS transmission power~\footnotemark{} 			& 4W \\
-  Maximal WBS transmission power 			& 40W \\
+  Minimal WBS transmission power~\footnotemark{} 			& 1W \\
+  Maximal WBS transmission power 			& 20W \\
   Number of end terminals in network 		& 800 \\
+  $P_{\mathtt{op}}$, Tx power according to FCC   & 10W\\
   \hline
 \end{tabular}
 \caption{Simulation parameters}
@@ -1512,8 +1512,8 @@ The variance of SINR in channel allocation process is shown in table \ref{costab
 \subsection{Schemes for FCC Regulations}
 \label{performance_FCC}
 
-Figure~\ref{sumOfUtility} shows the utilities obtained by optimization is larger than distributed scheme.
-Note the distributed scheme takes an advantage that some WBSs are allowed to be idle, in comparison, any WBS in optimization must operate with a power level.
+Figure~\ref{sumOfUtility} shows the utilities obtained by optimization is larger than the distributed scheme.
+Note the distributed scheme takes an advantage that some WBSs are allowed to be idle, in comparison, every WBS in optimization must operate with either $P_\mu$ or  $P_{\mathtt{op}}$.
 \begin{figure}[h!]
   \centering
       \includegraphics[width=0.8\linewidth]{FCC_10_3_e1-8_4000_1_20_10_2.pdf}
@@ -1553,28 +1553,18 @@ The distributed scheme also saves power as shown in Figure~\ref{FCCTxpower}, bec
 \label{FCCTxpower}
 \end{figure}
 
-
+The number of WBSs which operate with $P_{\mathtt{op}}$ is shown in Figure XXXX - TODO.
 
 
 
 
 \section{Conclusions}
-Congestion game is applied to analyse the channel allocation problem, where transmission power is not necessarily identical.
-The proposed algorithm which is derived from the best response of the congestion game converges quickly, and achieves better performance than other distributed schemes.
-Without consider the communication latency between WBSs and the database, this distributed scheme executes much faster than the centralized scheme.
+In this paper, we propose solutions for spectrum sharing among white space devices with respect to the regulations made by both ECC and FCC respectively.
+As to distributed solution, congestion game is applied to analyze the channel allocation problems, where transmission powers is identical according to FCC rules and unidentical accordingly to ECC rules.
+The proposed algorithm which is derived from the best response of the congestion game converges quickly, and achieves better performance than other distributed schemes and centralized scheme in some aspects.
+Centralized optimization formulations are also proposed for the two regulation scenarios.
+%Without consider the communication latency between WBSs and the database, this distributed scheme executes much faster than the centralized scheme.
 
-In particular, we investigate the channel allocation problem in the context of utilization of TV white space.
-Except for channel allocation, we also propose solutions for transmission power control for the cellular network which complies with IEEE 802.22 standard.
-%With the centralized database, a centralized method to obtain the maximum permitted transmission power which complies with IEEE 802.22 standard is proposed.
-%Then a distributed channel allocation algorithm is designed based on congestion game, where WBS can distributively choose the working channel which is associated with maximum permitted transmission power.
-%The distributed channel allocation scheme outperforms several other distributed solutions, and obtains worse performance only than the centralized solution, while.
-
-%A transmission power control procedure is conducted on the previous channel allocation.
-%We investigate the performance of applying the combination of channel allocation and the power control.
-%Our proposed channel allocation scheme together with power control achieve better performance than the other channel allocation scheme with the same power control scheme.
-%The centralized joint channel and power scheme performs the best, but the problem is very difficult to solve.
-
-%This solution makes full use of the infrastructure, the centralized database, and distributes the computation and decision making afterwards on channel and transmission power.
 
 
 
