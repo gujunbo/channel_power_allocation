@@ -165,7 +165,7 @@ The the distributed channel allocation and power control are conducted sequentia
 
 \maketitle
 \graphicspath{
-{../figures/03_distributedChannelAllocation/}{../figure/03_distributedChannelAllocation/1mar2016/}{../figure/03_distributedChannelAllocation/1mar2016/radius_6000_runtimes_50/}{../../channel-power-allocation-802.22/}
+{../figures/03_distributedChannelAllocation/}{../figure/03_distributedChannelAllocation/1mar2016/}{../figure/03_distributedChannelAllocation/1mar2016/radius_6000_runtimes_50/}{../../channel-power-allocation-802.22/}{../../channel-power-allocation-802.22/plots/}
 }
 
 \section{Introduction}
@@ -189,8 +189,9 @@ WSDB is proposed mainly due to the difficulty to implement spectrum sensing, whi
 
 WSDB lies in the middle of the utilization of TVWS, which has the global view of the WSDs in the network and protects the DTT receivers.
 The resource which is available for the WSDs is decided by the strategy of WSDB, which is regulated by the regulators.
-Ofcom and ECC allows TVDB to have different transmission power, so long as the insulted interference on the critical points, i.e., the location of the certain DTT receivers doesn’t exceed certain threshold.
-FCC initially regulated stringent restriction on the transmission power of WSDs, only relaxed later and allows the transmission power to be between 1w and 4w.
+Ofcom and ECC impose restrictions on the resulted aggregated interference caused by TVDBs on the DTT receivers, and implicitly allow TVDBs to have different transmission powers based on their locations.
+FCC employs stringent restriction on the universal transmission power for WBSs, but the DTT receivers are not protected from the aggregated interference caused by WBSs working on the same channel. 
+The stringent regulation on transmission power results in decreased TVWS as suggested in \cite{Harrison2012Dyspan}.
 %
 Nevertheless, as to the issue of spectrum sharing among the WSDs, the regulator institutes only provide suggestion instead of regulations.
 In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among among the WSDs.
@@ -535,10 +536,19 @@ In order to ensure the fairness among WBSs,  we minimize the sum of inverted qua
 
 \section{Related Works}
 \label{decomposition_relatedwork}
+
+%TODO new part here:
+
 %In related works, the protection on primary users is taken care in the same time when channel and power selection are conducted.
 %But according to the current regulations and standards, there exist no communication means between the secondary users and the primary users.
 %Besides, when assuming such communication media is available and preventing primary users from being interfered during secondary users' power and channel allocation, the communication overhead between primary users and second users is considerable.
+Hessar et al.~\cite{ReAlloTVWS14DySPAN} aim to maximize the Shannon capacity of the network which complies with FCC rules.
+The solution seeks the trade-off between the wide band and co-channel interference, both of which are brought by assigning multiple channels to WBSs.
+But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the DTTs.
+Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalICC16} propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
+Potential game is also adopted by Elias et al.~\cite{Elias17} to mitigates the adjacent interference.
 
+﻿
 \begin{comment}
 \subsection{Problem Decomposition}
 We obtain the maximal transmission power over each channel for every WBS before dealing with channel and power allocation, afterwards, the transmission power should not exceed this power mask.
@@ -1357,32 +1367,32 @@ Figure~\ref{qusaiSINR} shows the quasiSINR of WBSs.
 The centralized optimization scheme achieves the highest quasiSINR, because the optimization formulation~\ref{QLP} obtains the global optima.
  \begin{figure}[h!]
     \centering
-      \includegraphics[width=0.9\linewidth]{ECC_16_4_5e1-8_5000_1_20_10_TxPower.pdf}
-    \caption{Power consumed of WBSs by different distributed spectrum allocation schemes under different ways deciding the maximal transmission power map}
+      \includegraphics[width=0.9\linewidth]{aveageTxPOverChannels.pdf}
+    \caption{Average Transmission power of WBSs when different number of channels are available}
 \label{transPower}    
   \end{figure}
   
-   \begin{figure}[h!]
-       \centering
-       \includegraphics[width=0.9\linewidth]{ECC_16_4_5e1-8_5000_1_20_10_qusaiSINR.pdf}
-       \caption{QuasiSINR of WBSs achieved by different distributed spectrum allocation schemes under different ways deciding the maximal transmission power map}
-	\label{qusaiSINR}
-     \end{figure}
+%   \begin{figure}[h!]
+%       \centering
+%       \includegraphics[width=0.9\linewidth]{ECC_16_4_5e1-8_5000_1_20_10_qusaiSINR.pdf}
+%       \caption{QuasiSINR of WBSs achieved by different distributed spectrum allocation schemes under different ways deciding the maximal transmission power map}
+%	\label{qusaiSINR}
+%     \end{figure}
      
 The average SINR on the end terminals is depicted in Figure~\ref{6000_sinr}.
 When the given maximum permitted transmission power, whiteCat and the centralized optimization achieve similar and the best performance among the schemes.
 It is also noticed that, the maximum permitted transmission power decided by linear optimization helps the channel allocation schemes achieve better SINR.
      \begin{figure}[h!]
        \centering
-       \includegraphics[width=0.9\linewidth]{ECC_16_4_5e1-8_5000_1_20_10_SINREndTerminal.pdf}
-       \caption{SINR on end terminals achieved by different distributed spectrum allocation schemes under different ways deciding the maximal transmission power map}
+       \includegraphics[width=0.9\linewidth]{SINR_overChannels.pdf}
+       \caption{SINR on end terminals}
 	\label{6000_sinr}
      \end{figure}
 
   \begin{figure}[h!]
      \centering
-     \includegraphics[width=0.8\linewidth]{ECC_16_4_5e1-8_5000_1_20_10_SINRCdf.pdf}
-     \caption{CDF of SINR on end users obtained by different CA schemes under different methods to decide the maximal transmission power map}
+     \includegraphics[width=0.8\linewidth]{SINRCdf.pdf}
+     \caption{CDF of SINR on end users}
      \label{6000_sinr_cdf}
   \end{figure}
 

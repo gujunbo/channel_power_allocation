@@ -38,6 +38,11 @@ Ofcom, ``Implementing tv white spaces.'' [Online]. Available:
   \url{https://www.ofcom.org.uk/__data/assets/pdf_file/0034/68668/tvws-statement.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Harrison2012Dyspan}
+K.~{Harrison} and A.~{Sahai}, ``Seeing the bigger picture: Context-aware
+  regulations,'' in \emph{2012 IEEE International Symposium on Dynamic Spectrum
+  Access Networks}, Oct 2012, pp. 21--32.
+
 \bibitem{googleDatabase}
 \BIBentryALTinterwordspacing
 ``{Google spectrum database},'' visited Juni 2016. [Online]. Available:
@@ -80,6 +85,28 @@ K.~Ruttik, K.~Koufos, and R.~Jantti, ``Model for computing aggregate
   interference from secondary cellular network in presence of correlated shadow
   fading,'' in \emph{In Proceedings of IEEE PIMRC 2011}, Sept 2011, pp.
   433--437.
+
+\bibitem{ReAlloTVWS14DySPAN}
+F.~{Hessar} and S.~{Roy}, ``Resource allocation techniques for cellular
+  networks in tv white space spectrum,'' in \emph{2014 IEEE International
+  Symposium on Dynamic Spectrum Access Networks (DYSPAN)}, April 2014, pp.
+  72--81.
+
+\bibitem{yang2013WiFiWSTVCapacity}
+Y.~{Yang}, L.~{Shi}, and J.~{Zander}, ``On the capacity of wi-fi system in tv
+  white space with aggregate interference constraint,'' in \emph{8th
+  International Conference on Cognitive Radio Oriented Wireless Networks}, July
+  2013, pp. 123--128.
+
+\bibitem{gopalICC16}
+S.~{Gopal}, S.~K. {Kaul}, and S.~{Roy}, ``Optimizing outdoor white-fi networks
+  in tv white spaces,'' in \emph{2016 IEEE International Conference on
+  Communications (ICC)}, May 2016, pp. 1--6.
+
+\bibitem{Elias17}
+J.~{Elias}, F.~{Martignon}, L.~{Chen}, and M.~{Krunz}, ``Distributed spectrum
+  management in tv white space networks,'' \emph{IEEE Transactions on Vehicular
+  Technology}, vol.~66, no.~5, pp. 4161--4172, May 2017.
 
 \bibitem{Hyacinth}
 A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an {IEEE}
