@@ -86,6 +86,28 @@ K.~Ruttik, K.~Koufos, and R.~Jantti, ``Model for computing aggregate
   fading,'' in \emph{In Proceedings of IEEE PIMRC 2011}, Sept 2011, pp.
   433--437.
 
+\bibitem{DySpAN10MeasuringWhitespaceCapacity}
+K.~Harrison, S.~Mishra, and A.~Sahai, ``How much white-space capacity is
+  there?'' in \emph{Proc. of DySPAN 2010}, Apr. 2010, pp. 1 --10.
+
+\bibitem{HessarTMC15}
+F.~{Hessar} and S.~{Roy}, ``Capacity considerations for secondary networks in
+  tv white space,'' \emph{IEEE Transactions on Mobile Computing}, vol.~14,
+  no.~9, pp. 1780--1793, Sep. 2015.
+
+\bibitem{Deshmukh2015}
+\BIBentryALTinterwordspacing
+M.~Deshmukh, F.~B. Frederiksen, and R.~Prasad, ``A closed form estimate of tvws
+  capacity under the impact of an aggregate interference,'' \emph{Wireless
+  Personal Communications}, vol.~82, no.~1, pp. 551--568, May 2015. [Online].
+  Available: \url{https://doi.org/10.1007/s11277-014-2240-y}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Achtzehn12}
+A.~{Achtzehn}, M.~{Petrova}, and P.~{Mähönen}, ``On the performance of
+  cellular network deployments in tv whitespaces,'' in \emph{2012 IEEE
+  International Conference on Communications (ICC)}, June 2012, pp. 1789--1794.
+
 \bibitem{ReAlloTVWS14DySPAN}
 F.~{Hessar} and S.~{Roy}, ``Resource allocation techniques for cellular
   networks in tv white space spectrum,'' in \emph{2014 IEEE International
@@ -98,10 +120,15 @@ Y.~{Yang}, L.~{Shi}, and J.~{Zander}, ``On the capacity of wi-fi system in tv
   International Conference on Cognitive Radio Oriented Wireless Networks}, July
   2013, pp. 123--128.
 
-\bibitem{gopalICC16}
-S.~{Gopal}, S.~K. {Kaul}, and S.~{Roy}, ``Optimizing outdoor white-fi networks
-  in tv white spaces,'' in \emph{2016 IEEE International Conference on
-  Communications (ICC)}, May 2016, pp. 1--6.
+\bibitem{gopalTCCN16}
+S.~{Gopal}, S.~K. {Kaul}, and S.~{Roy}, ``Optimizing city-wide white-fi
+  networks in tv white spaces,'' \emph{IEEE Transactions on Cognitive
+  Communications and Networking}, vol.~4, no.~4, pp. 749--763, Dec 2018.
+
+\bibitem{pimrc_2012}
+N.~Omidvar and B.~Khalaj, ``A game-theoretic approach for joint channel and
+  power allocation in downlink of cellular cognitive radio networks,'' in
+  \emph{Proc. of IEEE PIMRC 2012}, Sept 2012, pp. 1198--1202.
 
 \bibitem{Elias17}
 J.~{Elias}, F.~{Martignon}, L.~{Chen}, and M.~{Krunz}, ``Distributed spectrum
@@ -180,10 +207,5 @@ B.~Babadi and V.~Tarokh, ``Distributed dynamic frequency allocation in wireless
 A.~Mitsos, B.~Chachuat, and P.~I. Barton, ``Mccormick-based relaxations of
   algorithms,'' \emph{SIAM Journal on Optimization}, vol.~20, pp. 573--601,
   2009.
-
-\bibitem{pimrc_2012}
-N.~Omidvar and B.~Khalaj, ``A game-theoretic approach for joint channel and
-  power allocation in downlink of cellular cognitive radio networks,'' in
-  \emph{Proc. of IEEE PIMRC 2012}, Sept 2012, pp. 1198--1202.
 
 \end{thebibliography}
