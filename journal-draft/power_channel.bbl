@@ -38,6 +38,12 @@ Ofcom, ``Implementing tv white spaces.'' [Online]. Available:
   \url{https://www.ofcom.org.uk/__data/assets/pdf_file/0034/68668/tvws-statement.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Mwangoka2011DySPAN}
+J.~W. {Mwangoka}, P.~{Marques}, and J.~{Rodriguez}, ``Exploiting tv white
+  spaces in europe: The cogeu approach,'' in \emph{2011 IEEE International
+  Symposium on Dynamic Spectrum Access Networks (DySPAN)}, May 2011, pp.
+  608--612.
+
 \bibitem{Harrison2012Dyspan}
 K.~{Harrison} and A.~{Sahai}, ``Seeing the bigger picture: Context-aware
   regulations,'' in \emph{2012 IEEE International Symposium on Dynamic Spectrum
@@ -135,27 +141,6 @@ J.~{Elias}, F.~{Martignon}, L.~{Chen}, and M.~{Krunz}, ``Distributed spectrum
   management in tv white space networks,'' \emph{IEEE Transactions on Vehicular
   Technology}, vol.~66, no.~5, pp. 4161--4172, May 2017.
 
-\bibitem{Hyacinth}
-A.~Raniwala and T.~Chiueh, ``Architecture and algorithms for an {IEEE}
-  802.11-based multi-channel wireless mesh network,'' in \emph{Proc. of IEEE
-  INFOCOM 2005}, Mar. 2005.
-
-\bibitem{Ko_DistributedCA}
-B.~Ko, V.~Misra, J.~Padhye, and D.~Rubenstein, ``Distributed channel assignment
-  in multi-radio 802.11 mesh networks,'' in \emph{Proc. of IEEE WCNC 2007},
-  Mar. 2007.
-
-\bibitem{SA_CA_TVWS_2012crowncom}
-B.~Ye, M.~Nekovee, A.~Pervez, and M.~Ghavami, ``{TV} white space channel
-  allocation with simulated annealing as meta algorithm,'' in \emph{Proc. of
-  2012 7th International ICST Conference on Cognitive Radio Oriented Wireless
-  Networks and Communications}, June 2012, pp. 175--179.
-
-\bibitem{qlearning_huang}
-J.~Huang, Q.~Zhu, V.~Krishnamurthy, and T.~Basar, ``Distributed correlated
-  q-learning for dynamic transmission control of sensor networks,'' in
-  \emph{Proc. of IEEE ICASSP 2010}, Mar. 2010.
-
 \bibitem{CApotentialLearning_05dyspan}
 N.~Nie and C.~Comaniciu, ``Adaptive channel allocation spectrum etiquette for
   cognitive radio networks,'' in \emph{Proc. of IEEE DySpan 2005}, Nov. 2005.
@@ -170,6 +155,17 @@ F.~Wu, S.~Zhong, and C.~Qiao, ``Globally optimal channel assignment for
   non-cooperative wireless networks,'' in \emph{Proc. of IEEE INFOCOM 2008},
   Apr. 2008.
 
+\bibitem{SA_CA_TVWS_2012crowncom}
+B.~Ye, M.~Nekovee, A.~Pervez, and M.~Ghavami, ``{TV} white space channel
+  allocation with simulated annealing as meta algorithm,'' in \emph{Proc. of
+  2012 7th International ICST Conference on Cognitive Radio Oriented Wireless
+  Networks and Communications}, June 2012, pp. 175--179.
+
+\bibitem{qlearning_huang}
+J.~Huang, Q.~Zhu, V.~Krishnamurthy, and T.~Basar, ``Distributed correlated
+  q-learning for dynamic transmission control of sensor networks,'' in
+  \emph{Proc. of IEEE ICASSP 2010}, Mar. 2010.
+
 \bibitem{hart00correlatedeq}
 \BIBentryALTinterwordspacing
 S.~Hart and A.~Colell, ``{A simple adaptive procedure leading to correlated
@@ -182,11 +178,10 @@ D.~Li and J.~Gross, ``Distributed tv spectrum allocation for cognitive cellular
   network under game theoretical framework,'' \emph{2012 IEEE International
   Symposium on Dynamic Spectrum Access Networks}, pp. 327--338, 2012.
 
-\bibitem{lindo}
+\bibitem{gurobi}
 \BIBentryALTinterwordspacing
-Y.~Lin and L.~Schrage, ``The global solver in the lindo api,''
-  \emph{Optimization Methods Software}, vol.~24, no. 4-5, pp. 657--668, Aug.
-  2009. [Online]. Available: \url{http://dx.doi.org/10.1080/10556780902753221}
+L.~Gurobi~Optimization, ``Gurobi optimizer reference manual,'' 2018. [Online].
+  Available: \url{http://www.gurobi.com}
 \BIBentrySTDinterwordspacing
 
 \bibitem{SenseLess2011}
@@ -202,6 +197,11 @@ M.~Liu and Y.~Wu, ``Spectum sharing as congestion games,'' in \emph{Proc. of
 B.~Babadi and V.~Tarokh, ``Distributed dynamic frequency allocation in wireless
   networks under time-varying user activities,'' in \emph{In Proceedings of
   IEEE Sarnoff Symposium 2008}, April 2008, pp. 1--5.
+
+\bibitem{Ko_DistributedCA}
+B.~Ko, V.~Misra, J.~Padhye, and D.~Rubenstein, ``Distributed channel assignment
+  in multi-radio 802.11 mesh networks,'' in \emph{Proc. of IEEE WCNC 2007},
+  Mar. 2007.
 
 \bibitem{Mitsos2009McCormickBasedRO}
 A.~Mitsos, B.~Chachuat, and P.~I. Barton, ``Mccormick-based relaxations of

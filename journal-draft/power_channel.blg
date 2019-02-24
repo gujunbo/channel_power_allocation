@@ -8,157 +8,157 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: ../backmatter/myrefs.bib
-You're missing a field name---line 213 of file ../backmatter/myrefs.bib
+You're missing a field name---line 241 of file ../backmatter/myrefs.bib
  :    
  :    #eprint = {1704.04828},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 250 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 278 of file ../backmatter/myrefs.bib
  : //    
  :       year={2015},
 I'm skipping whatever remains of this entry
-You're missing a field name---line 599 of file ../backmatter/myrefs.bib
+You're missing a field name---line 627 of file ../backmatter/myrefs.bib
  : 
  : %year={2007},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 751 of file ../backmatter/myrefs.bib
+You're missing a field name---line 779 of file ../backmatter/myrefs.bib
  :    
  :    #url = {http://dx.doi.org/10.1007/BF01737559},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 772 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 800 of file ../backmatter/myrefs.bib
  : 
  : comments_DI ="a survey of routing in CRN."
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 865 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 893 of file ../backmatter/myrefs.bib
  : 
  : keywords={Nash equilibrium;base stations-access points;congestion game theory;designing protocols;frequency reuse;frequency-space blocks;model pair-wise interference;multiuser frequency adaptation;signaling assumptions;spectrum sharing;wireless channels;wireless networking;game theory;protocols;radio networks;wireless channels;},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 923 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 951 of file ../backmatter/myrefs.bib
  : //    
  :       pages = {9-20},\n
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1022 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 1050 of file ../backmatter/myrefs.bib
  : month=30 
  :          2008-dec. 4,
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1046 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1074 of file ../backmatter/myrefs.bib
  :  // 
  :     year  = {2011},
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1136 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1164 of file ../backmatter/myrefs.bib
  : 
  : keywords={asynchronous algorithm;cognitive radio network;duality theory;end-to-end rate control algorithm;interference temperature limits;optimal resource allocation;power control;cognitive radio;power control;telecommunication control;telecommunication network management;},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1149 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1177 of file ../backmatter/myrefs.bib
  : 
  : keywords={bi-directional nature;cognitive user access;distributed power control algorithms;higher spectrum usage;listen-before-talk strategy;primary link control feedback;primary user communications;secondary users communications;cognitive radio;distributed control;feedback;power control;radio links;telecommunication control;},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1162 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1190 of file ../backmatter/myrefs.bib
  : 
  : keywords={Lagrangian dual decomposition;Nash equilibrium;cochannel interference;cognitive radio;distributed power allocation;non-cooperative game;quality of service;spectrum sharing;cochannel interference;cognitive radio;game theory;quality of service;resource allocation;},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1277 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1305 of file ../backmatter/myrefs.bib
  : 
  : keywords={Euclidean distance;connectivity properties;multihop network;transmission range;wireless ad hoc networks;wireless multihop networks;wireless sensor networks;ad hoc networks;wireless sensor networks;},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1297 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 1325 of file ../backmatter/myrefs.bib
  : }
  :  ;
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1463 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1491 of file ../backmatter/myrefs.bib
  : 
  : keywords={Nash equilibrium point;cognitive radio network;distributed adaptive channel allocation;information exchange;network performance;noncooperative learning;spectrum etiquette;spectrum sharing game;channel allocation;cooperative systems;game theory;learning (artificial intelligence);radio networks;radio spectrum management;},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1499 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1527 of file ../backmatter/myrefs.bib
  : 
  : abstract={This paper considers a Markovian dynamical game theoretic setting for distributed transmission control in a wireless sensor network. The available spectrum bandwidth is modeled as a Markov chain. A distributed algorithm named correlated Q-learning algorithm is proposed to obtain the correlated equilibrium policies of the system. This algorithm has the decentralized feature and is easily implementable in a real system. Numerical example is also provided to verify the performances of the proposed algorithms.},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 1625 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 1653 of file ../backmatter/myrefs.bib
  : // 
  :    publisher = {ACM},\n
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1982 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 2010 of file ../backmatter/myrefs.bib
  :   
  :   note="Visited July 2010"
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 2002 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 2030 of file ../backmatter/myrefs.bib
  : note: 
  :       1. one channel
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 2021 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 2049 of file ../backmatter/myrefs.bib
  : 
  : deal with interaction among terminals
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 2401 of file ../backmatter/myrefs.bib
+You're missing a field name---line 2429 of file ../backmatter/myrefs.bib
  : 
  : %year={2012},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 2460 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 2488 of file ../backmatter/myrefs.bib
  : 
  : ISSN={1930-529X},}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 2605 of file ../backmatter/myrefs.bib
+You're missing a field name---line 2633 of file ../backmatter/myrefs.bib
  :  
  :  {notes=
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 2720 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 2748 of file ../backmatter/myrefs.bib
  :     
  :     notse = {bigger transmission power decreases the number of hops, but causes interference when transmission power exceeds a certain level. This can be used to argue that transmission can not be done with high power.
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 2738 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 2766 of file ../backmatter/myrefs.bib
  : 
  : ISSN={0743-166X},}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 2994 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 3022 of file ../backmatter/myrefs.bib
  : 
  : keywords={cognitive radio;mobile ad hoc networks;protocols;radio networks;telecommunication network routing;CAODV protocol;ad-hoc on-demand distance vector;channel selection;cognitive mobile ad hoc networks;mobile ad hoc cognitive radio networks;packet discovery;route cost;route formation;Ad hoc networks;Cognitive radio;Copper;Mobile communication;Routing;Routing protocols;ad hoc;cognitive;manet;routing},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 3660 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 3688 of file ../backmatter/myrefs.bib
  : note = channel 
  :                allocation papers need reading, what other benefits can be brought except for interference mitigation.
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 3749 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 3777 of file ../backmatter/myrefs.bib
  : //    
  :       url = {http://web.it.kth.se/\~{}maguire/jmitola/Mitola\_Dissertation8\_Integrated.pdf},
 I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 3944 of file ../backmatter/myrefs.bib
+I was expecting a `,' or a `}'---line 3972 of file ../backmatter/myrefs.bib
  :   
  :   archivePrefix = "arXiv",
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 4098 of file ../backmatter/myrefs.bib
+You're missing a field name---line 4126 of file ../backmatter/myrefs.bib
  : 
  : %author={Shah, V. and Mandayam, N.B. and Goodman, D.},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 4179 of file ../backmatter/myrefs.bib
+You're missing a field name---line 4207 of file ../backmatter/myrefs.bib
  : 
  : #url = {http://dx.doi.org/10.1016/j.comnet.2010.04.004},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-I was expecting an "="---line 4445 of file ../backmatter/myrefs.bib
+I was expecting an "="---line 4473 of file ../backmatter/myrefs.bib
  : // 
  :    location = {Boston, Massachusetts, USA},
 I'm skipping whatever remains of this entry
-You're missing a field name---line 4848 of file ../backmatter/myrefs.bib
+You're missing a field name---line 4876 of file ../backmatter/myrefs.bib
  : 
  : %note= game and utility
 (Error may have been on previous line)
@@ -175,43 +175,43 @@ Warning--empty year in ECMA392
 Done.
 You've used 35 entries,
             4087 wiz_defined-function locations,
-            1037 strings with 13992 characters,
-and the built_in function-call counts, 24069 in all, are:
-= -- 1842
-> -- 504
-< -- 171
+            1032 strings with 13945 characters,
+and the built_in function-call counts, 23903 in all, are:
+= -- 1818
+> -- 502
+< -- 168
 + -- 283
 - -- 84
-* -- 1147
-:= -- 3529
+* -- 1131
+:= -- 3494
 add.period$ -- 68
 call.type$ -- 35
 change.case$ -- 35
-chr.to.int$ -- 411
+chr.to.int$ -- 408
 cite$ -- 40
-duplicate$ -- 1800
-empty$ -- 2191
-format.name$ -- 113
-if$ -- 5681
+duplicate$ -- 1788
+empty$ -- 2188
+format.name$ -- 112
+if$ -- 5647
 int.to.chr$ -- 0
 int.to.str$ -- 35
 missing$ -- 325
 newline$ -- 140
 num.names$ -- 33
-pop$ -- 829
+pop$ -- 841
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1859
+skip$ -- 1844
 stack$ -- 0
-substring$ -- 996
-swap$ -- 1359
-text.length$ -- 34
+substring$ -- 989
+swap$ -- 1342
+text.length$ -- 32
 text.prefix$ -- 0
 top$ -- 5
 type$ -- 35
 warning$ -- 5
-while$ -- 94
+while$ -- 93
 width$ -- 37
-write$ -- 346
+write$ -- 343
 (There were 33 error messages)

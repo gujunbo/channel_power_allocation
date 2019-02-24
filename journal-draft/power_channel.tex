@@ -176,25 +176,25 @@ The the distributed channel allocation and power control are conducted sequentia
 With the transition from analog TV to digital terrestrial TV (DTT), a considerable amount of frequency bands, as shown in Figure~\ref{variability_TVWS}, become vacant.
 The spectrum that is left over by digital TV and other incumbent users is referred to as TV white spaces (TVWSs).
 TVWS can be used for telemedicine, precision agriculture, smart energy and so on by new devices as long as DTT reception is not interfered~\cite{FCC_2010_sedond_memorandumm}. 
-These unlicensed devices are called white space devices (WSDs) and their operation should be restricted in terms of location, channel and transmission power, so that no harmful interfering is generated to the incumbents.
+These unlicensed devices are called white space devices (WSDs) and their operation should be restricted in terms of location, channel and transmission power, so that no harmful interference is disturbing the incumbents.
 The utilization of TVWS by the WSDs are regulated by national regulatory authorities and relevant committees, \ie in the US, the Federal Communications Commission (FCC) has regulated the utilization of TVWS since 2010~\cite{FCC_2010_sedond_memorandumm}. 
 The Electronic Communications Committee (ECC) and Ofcom have released guidelines in EU and UK respectively in terms of the operation of WSDs~\cite{ECC236, ofcom15}.
 Although many regulation details from the three institutes are different, white space data base (WSDB) is adopted by all the three institutes.
 
-TV White Space database was first brought as a way to overcome the technical hurdles faced by spectrum sensing techniques to precisely detect very weak primary signals.
+TV White Space database was first introduced as a way to overcome the technical hurdles faced by spectrum sensing techniques to precisely detect very weak primary signals~\cite{Mwangoka2011DySPAN}.
 WSD should contact a white space data base and provide its location and technical characteristics.
 The TVDB translates the information on incumbent services and the technical characteristics and location of the WSDs into a list of allowed frequencies and associated transmit powers for devices.~\cite{ECC236}.
 WSD needs to access the WSDB to get the available channels and powers before starting transmission.
-WSDB is proposed mainly due to the difficulty to implement spectrum sensing, which is suggested by the regulators.
+%WSDB is proposed mainly due to the difficulty to implement spectrum sensing, which is suggested by the regulators.%DEBUG
 
-WSDB lies in the middle of the utilization of TVWS, which has the global view of the WSDs in the network and protects the DTT receivers.
-The resource which is available for the WSDs is decided by the strategy of WSDB, which is regulated by the regulators.
-Ofcom and ECC impose restrictions on the resulted aggregated interference caused by TVDBs on the DTT receivers, and implicitly allow TVDBs to have different transmission powers based on their locations.
+WSDB plays the key role in the utilization of TVWS, which has the global view of the WSDs in the network and protects the DTT receivers.
+The resource which is available for the WSDs is decided by the strategy of WSDB, which is as per the regulators.
+Ofcom and ECC impose restrictions on the aggregated interference caused by TVDBs on the DTT receivers, and implicitly allow TVDBs to have different transmission powers based on their locations.
 FCC employs stringent restriction on the universal transmission power for WBSs, but the DTT receivers are not protected from the aggregated interference caused by WBSs working on the same channel. 
-The stringent regulation on transmission power results in decreased TVWS as suggested in \cite{Harrison2012Dyspan}.
+FCC's stringent regulation on transmission power results in decreased TVWS as suggested in \cite{Harrison2012Dyspan}.
 %
 Nevertheless, as to the issue of spectrum sharing among the WSDs, the regulator institutes only provide suggestion instead of regulations.
-In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among among the WSDs.
+In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among the WSDs.
 
 
 
@@ -215,20 +215,21 @@ In this paper, we will follow the most prevalent regulations on the usage of TVW
 \label{variability_TVWS}
 \end{figure}
 
-The WSDs are classified into two functional categories: 1) higher power ‘‘fixed’’ devices , 2) lower power personal/portable devices, such as Wi-Fi like cards in laptop computers.
+The WSDs are classified into two functional categories: 1) High power, stationary stations such a base stations , 2) lower power personal/portable devices, such as Wi-Fi network interface cards in laptops etc..
 The fixed devices and some portable devices should access the TVDB to obtain the available spectrum and permitted transmission.
 %
 The fixed WSDs work as base stations and provides a backhaul for broadband client access.
 They are the base stations in the IEEE 802.22 standard which is designed for wireless regional area networks.
-As the fixed WSDs work with high transmission power, they are the major thread to the DTT receivers so that their transmission characteristics should be carefully decided by the TWDB.
+As the fixed WSDs work with high transmission power, they are the major potential source of interference to the DTT receivers so that their transmission characteristics should be carefully decided by the TWDB.
 IEEE 802.22 regulates the MAC layer protocol, but it doesn't prevent the co-channel interference caused by the co-channel WSDs which work as base stations.
-In this paper, we investigate the efficient way to exploit the TV spectrum among the fixed WSDs which work as base station in a IEEE 802.22 network.
+In this paper, we investigate efficient schemes to exploit the TV spectrum among the fixed WSDs which work as base station in IEEE 802.22 network.
 
 Given all the other WBSs' selection on channel and transmission power, a WBS is interested in choosing the channel which brings it the best performance, \ie the data rate of its end users.
-A WBS prefers to choose the channel which experiences the minimum interference, and the transmission power allowed on that channel is higher, so as to obtain better SINR on its terminals and meanwhile maximize their coverage \cite{wuinfocom09, HoangPowerChannel2010}. 
+A WBS prefers to choose the channel which experiences the minimum interference, while simultaneously the transmission power can be set as high as possible, so as to obtain better SINR at associated terminals and and generally increase coverage. \cite{wuinfocom09, HoangPowerChannel2010}. 
 Nevertheless, high transmission power causes significant co-channel interference to other secondary users operating on the same channel. 
-Hence, a secondary cell has to balance its transmission power and the caused interference on other cells, meanwhile to choose working channel to decrease the experienced interference on its terminals. 
-The existence of WSDB makes it a natural choice to adopt centralized decision and the calculation happens only in the WSDB, but considering the provision of WSDB services is still under discussion, we will also provide distributed solutions, which will distribute the work load of the WSDB.
+Hence, a secondary cell has to balance its transmission power and the caused interference on other cells while simultaneously choosing a working channel that decreases the interference its terminals are exposed to.
+The existence of WSDB makes it a natural choice to adopt centralized solution for the channel allocation problem, \ie the WSDB not only provide the WBSs with the available channels and corresponding maximum powers, but also the channels to work on at a given time.
+But where to make the channel allocation decision is not regulated, thus we will also provide distributed solutions.
 %The goal of this paper is to find a strategy for WBSs to choose channel and power level in the in order to acquire good SINR on end terminals.
 
 
@@ -273,23 +274,24 @@ Finally, we conclude our work and point out directions of future research in Sec
 %The secondary users are IEEE 802.22 Wireless Regional Area Network base stations utilizing the TV spectrum with senseless mode~\cite{SenseLess2011}. 
 %DTV's service should not be interfered by secondary systems. 
 
-We look in to a IEEE 802.22 compliant cellular network where the fixed WSDs work as base station and provide broadband access to their terminals.
+We consider an IEEE 802.22 compliant cellular network where the fixed WSDs work as base station and provide broadband access to their terminals.
 The network is illustrated in Figure~\ref{sysmodel}.
-We name the fixed WSDs working as base stations as White space Base Stations (WBSs), they locate in one area which is surrounded by DTV stations and receivers.
-There are several critical points in the vicinity of the DTV receivers and the interference cause by the WSDs should below a certain threshold.
-In our model, we only see the WBSs, which work with high transmission power, as the possible interfering unlicensed devices to the DTV service.
+We call the fixed WSDs which work as base stations as White space Base Stations (WBSs), they are located in one area which is surrounded by DTV stations and receivers.
+Several critical points are deployed in the vicinity of the DTV receivers which are the most venerable to the interference caused by the WSDs.
+WBSs work in underlay manner and coexist with the DTV stations and receivers, the aggregate interference generated by WBSs should not exceed the threshold on each channel at each critical point.
+%The aggregated interference on these critical points should below a certain threshold on all of the TVWS channels.
 %
-As to the WBSs, the out-of-band emission is regard as trivial and we only consider co-channel interference among the WBSs.
-To simplify the analysis, we assume that each DTV station as well as each WBS utilizes exactly one channel.\footnote{The assumption that one WBS only utilizes one channel is for convenience of analysis. In reality multiple channel usage (channel bonding) is requisite as one single TV channel's bandwidth is 6 MHz which is not adequate for a WBS to fulfil system requirement. 
+As to the WBSs, the out-of-band emission is regard as trivial, therefore, we only consider co-channel interference among the WBSs.
+To simplify the analysis, we assume that each DTV station as well as each WBS utilizes exactly one channel.\footnote{The assumption that one WBS only utilizes one channel is for convenience of analysis. In reality multiple channel usage (channel bonding) is requirement as one single TV channel's bandwidth is 6 MHz which is not adequate for a WBS to fulfill terminal demands. 
 %We will relax this single channel usage assumption without hammering our scheme in the end of section \ref{sec_CA}.
 }
 %
 
-As to the notations, the set of critical points is denoted as $\mathcal{K}$ and the collection of WBSs is denoted as $\mathcal{N}$ where $|\mathcal{N}|=N$. 
+As to the notations, the set of critical points is denoted as $\mathcal{K}$ and the set of WBSs is denoted as $\mathcal{N}$ where $|\mathcal{N}|=N$. 
 The TVWS spectrum bands are denoted as set $\mathbb{C}$.
-The channels in $\mathcal{C}$ are assumed to be identical in terms of attenuation and shadowing on the same path.
-We represent the usage of channel for WBS $i$ with a binary vector $X_i^{|\mathbb{C}|\times 1}=\{\cdots, x_{ik}, \cdots\}\in \{0,1\}^{|\mathbb{C}|}$, where $k\in \mathbb{C}$ and binary variable $x_{ik}$ denotes whether channel $k$ is used by user $i$. 
-As each node can only uses one channel, for $X_i$, there is $\sum_{k=1}^{|\mathbb{C}|}x_{ik}=1$. 
+We represent the usage of channel for WBS $i$ with a binary vector $X_i^{|\mathbb{C}|\times 1}=\{x_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathbb{C}|}\}\in \{0,1\}^{|\mathbb{C}|}$, where $k\in \mathbb{C}$ and binary variable $x_i^k$ denotes whether channel $k$ is used by user $i$. 
+All the WBSs work with the channels approved by the TVDB, they operate with a channel from the approved ones after choosing it, thus we omit the time index in the channel usage.
+As each node can only uses one channel, for $X_i$, there is $\sum_{k=1}^{|\mathbb{C}|}x_i^k=1$. 
 The transmission power of WBS $i$ on channel $c$ is $P_i^c$.
 $c(i)$ denotes the channel used by a WBS $i\in \mathcal{N}$. 
 
@@ -309,14 +311,12 @@ $c(i)$ denotes the channel used by a WBS $i\in \mathcal{N}$.
 %We assume the secondary base stations are not under the same operators, thus there is no scheduling mechanism available among WBSs.
 
 
-
-WBSs are interested in providing broad band access to the their associated terminals. 
-As to performance metric for the QoS provisioning, we choose the signal to noise and interference ratio (SINR) on the terminals.
 For a terminal $m$ which is associated to WBS $i$, the attenuation between WBS $i$ and $m$ is denoted as $h_{im}$.
-The path loss is dependent on the distance between the corresponding equipments, e.g. $h_{im}=K \cdot d_{im}^{-\alpha}$, where $\alpha$ is the path loss exponent, $d_{im}$ is the distance between $i$ and $m$, $K$ is a constant which models the reference loss over a single unit of distance.  
-$N_0$ denotes the thermal noise power.
+For the attenuation, we only take path loss and shadowing into account in the following.
+The path loss is dependent on the distance between the corresponding equipment, e.g. $h_{im}=K \cdot d_{im}^{-\alpha}$, where $\alpha$ is the path loss exponent, $d_{im}$ is the distance between $i$ and $m$, while $K$ is a constant which models the reference loss over a single unit of distance.
 Shadowing without fading is considered in our model.
-$z_{im}$ models the zero-mean log-normally distributed shadow fading between $i$ and $m$, and the standard deviation is $\sigma_{\text{SH}}$.
+$z_{im}$ models the zero-mean log-normally distributed shadow fading between $i$ and $m$, with the standard deviation $\sigma_{\text{SH}}$.
+$N_0$ denotes the thermal noise power.
 %
 %The sum of all disturbing radio frequency effects (including interference) on terminal $m$ (we assume the working channel is $c$) is as following,
 %\begin{equation}
@@ -340,12 +340,16 @@ where $P_{j}^c$ denotes the transmission power of interfering WBS $j$.
 
 
 %\subsection{Problem Statement}
-%Our goal is to design distributed solution for WBSs to choose channel and transmission power, so as to improve the SINR of their associated end terminals.
+In our model, we only assume the WBSs, which work with high transmission power, as the potential interfering unlicensed devices to the DTV service, meanwhile, WBSs are interested in providing broadband access to their associated terminals.
+Our goal in this paper is to assign TVWS channel to each WBS so as to improve the signal to noise and interference ratio (SINR) of their associated end terminals, meanwhile complying with the prominent regulations \ie ECC and FCC.
+The channels in $\mathbb{C}$ are assumed to be identical in terms of attenuation and shadowing on the same path.
+%As to performance metric for the QoS provisioning, we choose the signal to noise and interference ratio (SINR) on the terminals.
 A WBS's utility is a function of the SINR on all its end terminals, \ie the average SINR at all its terminals.
-But as the terminals are mobile and they are influenced by many factors, \ie the type of service provided to the terminals, the utility may diverge from the real performance of the terminals.
-%Thus, due to the mobility of terminals, it is non realistic to adopt a function of SINR on all terminals.
-Meanwhile, it is not appropriate only to choose one~\cite{spectrum_sharing_tvspace_2012} or more fixed terminals, and use their SINRs to represent the SINR for all the other terminals in that cell, because their location could diverge greatly with the locations of the other terminals.
+
+\subsection{QuasiSINR of WBS}
+As to WBS's utility, it is not appropriate only to choose one terminal, as done in~\cite{spectrum_sharing_tvspace_2012}, or even multiple fixed terminals to represent the all the terminals in the same cell, because their locations could diverge greatly with the locations of the other terminals.
 Thus, we propose a metric \textit{QuasiSINR} to represent WBS's performance in terms of SINR on its end terminals, which is independent on the actual locations of end terminals.
+
 
 %We are interested in improving the SINR on the terminals of each cell by rendering WBSes to decide their channel and transmission power.
 %The distribution of mobile terminals is varying and influenced by many factors, \ie the type of services provided to the terminals, the type of area and mobility of terminals.
@@ -354,7 +358,7 @@ Thus, we propose a metric \textit{QuasiSINR} to represent WBS's performance in t
 %Thus, we propose a simplified metric \textit{quasiSINR} for each WBS, which is independent on any terminals, and is able to  reflects the SINR on a circle around the WBS in a conservative manner.
 %QuasiSINR can be easily adjusted by changing the radius of the circle so that the the circle goes through the majority of the terminal users.
 
-\subsection{QuasiSINR of WBS}
+
 
 %Instead of improving the SINR on each end users of WBSs, we propose a metric QuasiSINR to represent the services provided by WBSs to its end users.
 %Then the utility of WBS becomes a function of the  and try to improve this metric.
@@ -471,7 +475,7 @@ $\text{cp}$ & Critical point\\
 
 
 In our model, WBSs access the TVDB and obtain the transmission parameters, \ie working channel, transmission power of the other WBSs, the attenuation characteristics between itself and all the other WBSs, and vice visa. 
-With these information, WBSs calculate their QuasiSINRs respectively.
+WBSs calculate their QuasiSINRs with these information respectively.
 %To obtain quasiSINR, one WBS doesn't need to measure the signal strength on the reference points which is needed in Formula~\ref{quasiSINR}, instead, it can can make use of the propagation model~\cite{Jaentti11} along with the operating parameters of all the other WBSs, which are stored in the central database to calculate the quasiSINR of any specific WBS.
 %Besides, the channel usage of each WBS is also recorded in the data center.
 %$h_{ij}$ and $z_{\bar{i}j}$, and also the transmission power of the interfering WBSs. 
@@ -481,13 +485,13 @@ With these information, WBSs calculate their QuasiSINRs respectively.
 
 \subsection{Permitted Transmission Power for WBSs}
 %According to regulations, WBSs rely on database queries to assign resources, \ie frequencies and transmission powers.
-According to regulations, the calculation engine within the TVDB translates the information on incumbent services and the technical characteristics and location of the WSDs into a list of allowed frequencies and associated transmit powers for the WSDs~\cite{ECC236}.
-ECC and Ofcom propose guidance~\cite{ECC186, ECMA392} and focus on the protection of the critical points from the harmful interference, and don't regulate the power limitation. 
-FCC initially restricts the maximum transmission power to under 1 W and some time later relaxes the limitation to 4 W.
-As a results, TVDB's decisions on the transmission power are different with respect to different regulations.
-%In this paper, we will investigate the spectrum sharing strategy with respect to ECC and FCC regulations respectively.
+According to regulations, the calculation engine within the TVDB translates the information of incumbent services and technical characteristics and location of the WSDs into a list of allowed frequencies and associated transmit powers for the WSDs~\cite{ECC236}.
+TVDB's decisions on the transmission power are different with respect to different regulations.
 
-\subsubsection{ECC Regulations of Permitted Tx Power}
+
+
+\subsubsection{ECC Regulations on Permitted Tx Power}
+ECC and Ofcom propose guidance~\cite{ECC186, ECMA392} and focus on the protection of the critical points from the harmful interference, and don't regulate the power limitation. 
 As to decision on the transmission power per ECC, as WBSs work in underlay manner and coexist with DTT receivers, the aggregate generated interference caused on the critical points on each channel should not exceed a threshold.
 We adopt the interference model and the optimization methodology from the work of \cite{multipleIntf_pimrc11} to plan the maximum transmission power on each channel for WBSs.
 %
@@ -507,9 +511,9 @@ To address this fairness issue, we maximize the sum of the logarithmic value of 
 This optimization is conducted in TVDB for each channel $c\in \mathbb{C}$, and the calculated maximum permitted transmission powers are used by the WBSs afterwards.
 
 \subsubsection{FCC Regulations of Permitted Tx Power}
-
-As to the decision made on the transmission power per FCC, all WBSs work with 4 W transmission power.
-Obviously there needs a limit on the number of WBSs which operation.
+FCC initially restricts the maximum transmission power of the fixed devices to be 1 Watt and now relaxes the limitation to 4 Watt.
+%As to the decision made on the transmission power per FCC, all WBSs work with 4 Watts transmission power.
+FCC doesn't impose restriction on the aggregated interference caused on primary TV receivers, hence there should be a limit on the number of operating WBSs when the WBSs in the IEEE 802.22 network is dense.
 
 \subsection{Problem Formulation}
 \label{problemProposed}
@@ -722,35 +726,27 @@ For the same purpose, no-regret learning~\cite{qlearning_huang, hart00correlated
 
 \section{Channel and Power Allocation Scheme complying with ECC Rules}
 
-In this section we will discuss the channel and power allocation problem complies with the rules regulated by ECC.
-According to the ECC regulations, the transmission power of the WBSs are strictly regulated, so that the TV receivers are not affected even when all the WBSs operate on the same channel.
-In the following subsections, we firstly present the decision on the maximum permitted transmission power on each channel for each WBS, then present how do the WBS make use of these powers in centralized and distributed manner respectively.
+In this section we will discuss the channel and power allocation problem complying with the rules regulated by ECC.
+%According to the ECC regulations, the transmission power of the WBSs are strictly regulated, so that the TV receivers are not affected even when all the WBSs operate on the same channel.
+In the following subsections, we firstly present the decision on the maximum permitted transmission power on each channel for each WBS, then present how do the WBSs make use of these powers in both centralized and distributed manner respectively.
 \subsection{The Maximum Permitted Transmission Power}
 \label{powermap}
-The WBSs work in underlay manner and coexist with primary TV stations and receivers, the aggregate interference generated by WBSs should not exceed the threshold at each critical point and on each channel .
+
 We adopt the interference model and the optimization methodology from the work of \cite{multipleIntf_pimrc11} to plan the maximum transmission power on each channel for WBSs.
-Having a global view of the propagation parameters, geolocations of WBSs and interference threshold at interference measuring devices which locate on the contour of TV service area, linear programming is implied in the database to calculate the maximum permitted power over each channel.
-
-
-
-
-
-
-By solving \ref{cvx}, the WSDB obtains the maximum permitted transmission power for every WBS over each channel.
-The interference threshold on the critic points will not be exceeded even when all the WBSs work on the same channel.
+Having a global view of the propagation parameters, geolocations of WBSs and interference threshold at the critical points of the DTV receivers, an optimization is implied in the database.
+By solving the optimization formulation~\ref{cvx}, the WSDB obtains the maximum permitted transmission power for every WBS and over every channel.
+The interference threshold on the critical points will not be exceeded even when all the WBSs work on one same channel.
 %there are multiple channels available and WBSs are free to choose their preferred channels, the aggregate interference on one channel will be smaller than that when all WBSs work on that channel. 
 %When the WBSs work on different channels, there will be a margin for network dynamics such as new WBS starting to work or increased interference on TV contour due to the variance of broadcast path condition. 
 %XXX As mentioned above, it is not clear which impact the relationship between maximum transmit power planning and channel selection has XXX.
 
 
-
-
 \subsection{Centralized Optimization for Channel Allocation}
 \label{03_centralized_ca}
 
-We formulate the channel allocation problem into a binary quadratic programming problem which can be solved in a centralized way.  
-Let $X_i = \{x_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathbb{C}|}\}$ denote the vector of channel usage, there is $|X_i| = |\mathbb{C}|$ and binary element $x_i^k$ represent whether WBS $i$ occupies channel $k$.
-Given two WBSs $i$ and $j$, there is,
+%We formulate the channel allocation problem into a binary quadratic programming problem.  
+%Let $X_i = \{x_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathbb{C}|}\}$ denote the vector of channel usage, there is $|X_i| = |\mathbb{C}|$ and binary element $x_i^k$ represent whether WBS $i$ occupies channel $k$.
+Given two WBSs $i$ and $j$, the co-channel interfering relationship is decided as,
 \begin{equation}
 \begin{split}
 X_i^TX_j = \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k\cdot x_j^k = 
@@ -762,14 +758,14 @@ X_i^TX_j = \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k\cdot x_j^k =
 \end{split}
 \end{equation}
 
-$c(i)$ means the working channel which is chosen by WBS $i$.
-The transmission power levels on all channels for WBS $i$ are denoted by a constant vector $\vec{P}_i = \{P_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathbb{C}|}\}$. 
+%$c(i)$ means the working channel which is chosen by WBS $i$.
+The transmission power levels on all channels for WBS $i$ are denoted by a constant vector $\vec{P}_i = \{P_i^1,\cdots, P_i^k,\cdots, P_i^{|\mathbb{C}|}\}$. 
 The transmission power adopted by WBS $i$ is $\vec{P}_i^TX_i = \sum\limits_{k=1}^{|\mathbb{C}|}P_{i}^k\cdot x_i^k$.
 
 
-The problem in Section~\ref{problemProposed} can be modeled via general purpose nonlinear optimization:
+The problem in Section~\ref{problemProposed} is formulated as a general purpose nonlinear optimization,
 	\begin{equation}
-\label{QLP}
+\label{03_centralized_ca_Optimization}
 		\begin{aligned}
 		& \underset{}{\text{minimize}}
 		& & \sum\limits^{n}_{i=1} \frac{\sum\limits_{j\in\mathcal{N}, j\neq i}\vec{P}_j^TX_j(X_j^TX_i)h_{ji}z_{ji} + N_0}{\vec{P}^TX_ih_iz_i}\\
@@ -777,7 +773,7 @@ The problem in Section~\ref{problemProposed} can be modeled via general purpose 
 		& & \sum\limits_{k=1}^{|\mathbb{C}|}x_i^k=1, x_i^k\in X_i\in \{0,1\}^{|\mathbb{C}|}\\
 		\end{aligned}
 	\end{equation}
-Problem \ref{QLP} is a non-linear problem with binary variables, but it can be reformulated into a quadratic programming problem as,
+Problem \ref{03_centralized_ca_Optimization} is a non-linear problem with binary variables, but it can be transformed into a quadratic programming problem as follows,
 	\begin{equation}
 \label{QLP_2}
 			\begin{aligned}
@@ -789,9 +785,9 @@ Problem \ref{QLP} is a non-linear problem with binary variables, but it can be r
 			\end{aligned}
 		\end{equation}
 
-The reformulation is available in Appendix in \cite{Li2012DistributedTS}.
-We use LINDO~\cite{lindo} which is a state of art non-linear problem solver to solve the problem, which employs Branch-And-Reduce method to get the global optimum for the problem. % We use the results obtained by solving this QLP problem as one reference in the coming section. 
-The result of this centralized channel assignment will be evaluated in the simulation section with other schemes. 
+The reformulation is available in Appendix in our previous work \cite{Li2012DistributedTS}.
+We use GUROBI~\cite{gurobi} which is a state of art non-linear problem solver to solve the problem, which employs Branch-And-Reduce method to get the global optimum for the problem. % We use the results obtained by solving this QLP problem as one reference in the coming section. 
+%The result of this centralized channel assignment will be evaluated in the simulation section with other schemes. 
 
 
 
