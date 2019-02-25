@@ -464,9 +464,11 @@ $p_i^c$		& The Tx power of WBS $i$ on channel $c$ on channel $c$\\
 $P_i^c$		& The maximal permitted Tx power of WBS $i$ on channel $c$ (ECC solution)\\
 $P_\mu, P_{\mathtt{op}}$		& The minimum and maximal permitted Tx power of WBS $i$ (FCC solution)\\
 $h_{ij}$ & The attenuation between WBS $i$ to the auxiliary circle of WBS $j$.\\
+$h_{i}$ & The attenuation between WBS $i$ to its won auxiliary circle.\\
 $z_{ij}$ & The shadowing from WBS $i$ to the auxiliary circle of WBS $j$.\\
+$z_{i}$ & in Section~\ref{whitecat}, the shadowing from WBS $i$ to its own auxiliary circle.\\
 $\alpha_{ij}^k,\beta_{ij}^k$ & Binary auxiliary variables in the\\
-$y_i, z_i$ & optimization in Section~\ref{schemeII}.\\
+$y_i, z_i$ & in Section~\ref{WhiteSussa}, optimization parameters.\\
 $\text{cp}$ & Critical point\\
 \bottomrule
 \end{tabular}
@@ -551,14 +553,13 @@ To exploit TVWS, authors in \cite{DySpAN10MeasuringWhitespaceCapacity, HessarTMC
 Hessar et al.~\cite{ReAlloTVWS14DySPAN} aim to maximize the Shannon capacity of the network which complies with FCC rules.
 The solution seeks the trade-off between the wide band and co-channel interference, both of which are brought by assigning multiple channels to WBSs.
 But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the DTTs.
-Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
+Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} follow the rules of FCC, and propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
 
 %TODO-to modify
 Omidvar et al. ~\cite{pimrc_2012} use potential game to propose a distributed joint power and channel allocation in cognitive radio network.
 Although the scheme is not tailored for TVWS, protection on the primary users are also considered.
-Potential game is adopted in work~\cite{Elias17} to mitigate the adjacent interference.
-Chen et al. ~\cite{spectrum_sharing_tvspace_2012} investigate the channel allocation problem in the scenario of TV white space.
-The channel allocation problem is formulated into a potential game, individual WBS's utility is to maximize the capacity of one single static terminal.
+Potential game is adopted in work~\cite{Elias17} to mitigate the adjacent interference meanwhile bonding multiple channels.
+In ~\cite{spectrum_sharing_tvspace_2012}, Chen et al. formulate the channel allocation problem TV white space into a potential game where individual WBS's utility is to maximize the capacity of one static terminal.
 %TODO: read the commented part.
 %The execution of this scheme is formulated into an exact potential game. 
 %For each base station, after several rounds of best responses in terms of channel and power level, Nash equilibrium is achieved.
@@ -698,6 +699,8 @@ But we think a brief review in terms of the channel allocation techniques in CRN
 With identical transmission power and symetric path attenuation, Nie et al.~\cite{CApotentialLearning_05dyspan} formulate channel assignment problem in ad-hoc cognitive radio network into a potential game which leads to pure NE, the authors~\cite{CA_Felegyhazi_07infocom, Wu_GOP_CA_08infocom} propose algorithms which converge to pure Nash equilibrium (NE) and strongly dominate strategy equilibrium respectively. 
 Simulated annealing is applied to mitigate co-channel interferences in~\cite{SA_CA_TVWS_2012crowncom}.
 For the same purpose, no-regret learning~\cite{qlearning_huang, hart00correlatedeq} is exploit to optimize the choice on channel.
+in~\cite{hart00correlatedeq}, each WBS maps the probability of choosing each strategy to a certain proportion of the regret which the WBS may have if it doesn't choose that strategy, and the WBS choose the strategy with the biggest probability.  
+WBSs update such mapping dynamically and this approach converges to correlated equilibrium. 
 
 %As to our knowledge, there is no work dealing with channel allocation problem where transmission power is different.
 %XXX So here we have the same problem as above: Only for the first two papers you say explicitly what problems come up with them - for the rest you simply mention them and their approach. Here we really need a much more clearer formulation of the shortcomings - why are they failing to be a solution to our problem ? Furthermore, there seem to be quite a lot of work in game theory and power control in secondary networks - how do they relate to our work? XXX
@@ -793,12 +796,12 @@ We use GUROBI~\cite{gurobi} which is a state of art non-linear problem solver to
 
 \subsection{Distributed White Space Channel Allocation (WhiteCat)}
 \label{whitecat}
-In this section a distributed scheme for WBSs to allocate channels is proposed, which is named as \underline{white} space \underline{c}hannel \underline{a}llocation \underline{t}echnology (WhiteCat). 
+In this section a distributed scheme for WBSs to allocate channels meanwhile complying with ECC regulation is proposed, which is named as \underline{white} space \underline{c}hannel \underline{a}llocation \underline{t}echnology (WhiteCat). 
 
 \subsubsection{Algorithm and Protocol}
-WhiteCat adopts the best response process, where each WBS (referred as $i$) chooses the channel which brings the largest utility $u_i$ as the response of other WBSs' choices on channels.
+WhiteCat adopts the best response process, where each WBS (referred as $i$) chooses the channel which brings the largest utility $u_i$, as shown in Formula~\ref{utility}, as the response of other WBSs' choices on channels.
 %and the sum of all WBSs' utilities is minimized after finite times of updates even the interaction between WBSs are asymmetric. The utility is as follows,
-WhiteCat is depicted by algorithm \ref{whitecatalgo}.
+WhiteCat is depicted by Algorithm \ref{whitecatalgo}.
 
 \begin{equation}
 \label{utility}
@@ -808,10 +811,9 @@ u_i =\dfrac{\sum\limits_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=
 where $\tilde{P_i} = P_i\cdot h_i\cdot z_i$, similarly $\tilde{P_j} = P_j\cdot h_j\cdot z_j$.
 Overlooking the constant coefficient 2, the first item of $u_i$ is the inverted QuasiSINR of station $i$. 
 To minimize the first item, WBS $i$ needs to choose a channel either permits higher transmission power or experiences less interference, whereas the higher power increases the second item which is a part of inverted QuasiSINR of other co-channel WBSs. 
-Hence, the cost function presents a reasonable comprise between the QuasiSINR of one WBS and others.
+Hence, the cost function presents a reasonable compromise between the QuasiSINR of one WBS and others.
 
-When WBS only emphasizes on its own utility (e.g. the first part of Formula~\ref{utility}), the best response process doesn't converge.
-We have following theorem:
+When WBS only emphasizes on its own utility (e.g. the first part of Formula~\ref{utility}), the best response process doesn't always converge and we have following theorem:
 \begin{theorem}
 \label{noconvergence}
 \emph{With non-identical transmission power, if every WBS updates its channel based on Algorithm \ref{whitecatalgo} with utility based on its own interests, \ie the first part of Formula~\ref{utility}, the process doesn't always converge.}
@@ -845,24 +847,13 @@ Notify database of its channel usage, which further notifies the other WBSs
 %Similar with~\cite{SenseLess2011}, we let every WBS store the location information and maximal power map of all other WBSs, \ie $P_i^c, i\in\mathcal{N}, c\in\mathbb{C}$, and each WBS retrieves information about channel usage of other WBSs from centralized base station.
 
 WBSs calculate $u_i$ with the information retrieved from TVDB.
-After executing Algorithm \ref{whitecatalgo}, it reports to TVDB about its channel if its working channel is updated.
-As the location of WBSs and TV stations and the transmission channel and power of TV stations are usually static (entries of TV station change averagely once in 2 days\cite{SenseLess2011}), except for the channel usage in the network, the change of the other data stored in WBS is infrequent. 
+After executing Algorithm \ref{whitecatalgo}, WBSs report to TVDB about their chosen channels if they are updated.
+As the locations of WBSs and TV stations, along with the transmission channel and power of TV stations are usually static (entries of TV station change averagely once in 2 days\cite{SenseLess2011}), except for the channel usage in the network, the change of the other data stored in WBS is infrequent. 
 We refer \cite{CApotentialLearning_05dyspan} to decide WBSs' sequence to update their channels.
 \cite{CApotentialLearning_05dyspan} proposes a method which is akin to the random access mechanism of CSMA/DA, where the access for broadcast medium is changed to get access to the centralized center to retrieve the current channel usage and update its new channel. 
-All WBSs are able to access the database in one round (with random or predetermined sequence). As WBSs are connected with database, the control messages needed to decide the sequence will not become a burden. 
-Update of channels can happen in the boot phase, or when the quality of services (the SINR on its end users) of WBSs falls below a threshold, or a fixed time duration comes to end, or a new WBS joins in the network. 
-
-%The following information is needed to be calculate $u_i$: 
-%	\begin{itemize} %{labelitemi}{$\bullet$}
-%	\item $\sum_{\tiny\substack{j\in \mathcal{N}, j\ne i,\\ c(\sigma_j)=c(\sigma_i)}}f_{ji}^c, c\in \mathbb{C}$: the received interference on $i$' virtual measurement point from other WBSs $j$ working on the same channel for $\forall c\in \mathbb{C}$.
-%	\item $ f_{ij}^c$: the interference caused by $i$ on $j$'s virtual measurement point when $i$ works on channel $\forall c\in \mathbb{C}$.
-%	\item $P_j^c$: transmission power of $j$ for using $\forall c\in \mathbb{C}$.
-%	\end{itemize}
-%Unfortunately, it is difficult to measure the interference of interested, \ie for WBS $i$, it is not efficient to scan all channels and obtain the interference $f_{ji}$ on virtual measurement point for each channel, furthermore, it is impossible to split the interference $f_{ij}$ from the total interference received on WBS $j$' virtual measurement point. 
-
-
-
-
+All WBSs are able to access the database in one round (with random or predetermined sequence). 
+%As WBSs are connected with database, the control messages needed to decide the sequence will not become a burden. 
+Update of channels can happen in several scenarios, \ie in boot phase, or when the SINR on end users falling below a threshold, or a fixed time duration coming to end, or new WBSs joining in the network. 
 
 
 \subsubsection{Analysis in Game Theoretical Framework}
@@ -971,6 +962,7 @@ Now we are going to have a look at the \textit{potential} of the network.
 According to the expression of Rosenthal's potential in Formula~\ref{2:Rosenthal_potential_newdelay}, the potential is accumulated by adding the players' cost sequentially, in particular, the value which is added is the cost that player experiences when it starts to use the relevant resource, and the value is not changed when other players come to use that resource.
 Back to our problem, for two WBSs $i,j\in \mathcal{S}$, we assume WBS $i$'s index is smaller than $j$'s index, then the potential increased by $i$ using the resource $\{i,j,c\}$ is 0 according to Formula~\ref{6}, and the increase brought in by $j$ using the resource $\{i,j,c\}$ is $g_{(i,j,c)}(2)+g_{(j,i,c)}(2)$. 
 In other words, for each interfering pair of WBSs, only the WBS with bigger index contributes to the potential. 
+Note that the summation of one WBS's congestion is related to its index. 
 Then the total potential is, 
 \begin{equation}
 \label{allPotential}
@@ -982,19 +974,15 @@ Then the total potential is,
 \end{split}
 \end{equation}
 
- note that the summation of one WBS's congestion is related to its index. 
 
-%Question:
-%
-%When power is variable, is it still a congestion game, or potential game?
-
-When players minimize their utilities (cost or potential) illustrated by Formula \ref{cost1player}, the total congestion in the secondary network given by Formula \ref{allPotential} decreases monotonically before reaching one Nash equilibrium. Players' greedy update in the game to minimize its cost Function\ref{cost1player}, which ceases finally in pure Nash Equilibrium. The strategy and cost function of players in the game is transplanted as Algorithm \ref{whitecatalgo} and utility Function \ref{utility} respectively.
+When players minimize their utilities (cost or potential)~\ref{cost1player}, the total potential~\ref{allPotential} in the secondary network sdecreases monotonically before reaching a Nash equilibrium. 
+Players' greedy update in the game to minimize its cost Function~\ref{cost1player}, which ceases finally in pure Nash Equilibrium. The strategy and cost function of players in the game is transplanted as Algorithm \ref{whitecatalgo} and utility Function \ref{utility} respectively.
 
 
-\subsubsection{Comparison between the Potential in the Congestion Game and the Objective of WhiteCat}
-It is natural to raise the question, is the sum of the final utilities of all WBSs exactly the same with the value of potential when the game converges to a Nash equilibrium, which is represented by \ref{allPotential}.
-The answer is, they are identical when $N_0$ is zero, and there will be a little difference when $N_0$ is not zero.
-Recall the target objective we want to minimize in Problem \ref{problem} is,
+\subsubsection{Potential in the Congestion Game and the sum of Utilities}
+It is interesting to know, whether the sum of the final utilities of all WBSs is exactly the same with the potential~\ref{allPotential} during the convergence process.
+The answer is, they are identical when $N_0$ is zero, and there will be a minor difference when $N_0$ is not zero.
+Recall the target objective we want to minimize is,
 \begin{equation}
 \label{compare}
 \begin{split}	
@@ -1011,8 +999,7 @@ In both cases, the sum of utilities \ref{compare} decreases monotonically with e
 When $N_0\neq 0$ and Formula~\ref{compare} and \ref{allPotential} are thus different, the monotonicity on the decrease of sum of utilities \ref{compare} is not perceived, whereas the system will still cease to NE.
 
 Based on above analysis, we can see the assumption that each WBS only occupies one channel can be easily removed.
-If we regard one WBS as multiple ones which locate at the same place, and each WBS works on one distinct channel, then the proof on convergence of whiteCat can be applied directly to this case.
-
+By assuming multiple WBSs are allocated at one WBS's location while each WBS works on one distinct channel, then the proof on convergence of whiteCat can be applied directly to this case.
 Note that the convergence of the game is independent on the the concrete form of the cost function. 
 We adopt the function \ref{cost1player} to let the potential of the game be the same with the total utility of all WBSs, so that by executing Algorithm~\ref{whitecatalgo}, the system objective experiences a monotonic decreasing process before the system reaching NE.
 The algorithm has potential to solve many other problems, where one user's decision affects others.
@@ -1180,7 +1167,8 @@ Inequalities~\ref{beta_opt_1} - \ref{beta_opt_4} are equivalent to Formula~\ref{
 Inequalities~\ref{p_to_binary_rex_1} - \ref{p_to_binary_rex_4} are relaxation of the equality quadratic~\ref{q_opt}.
 The objective function is quadratic and there is only linear and quadratic inequality constraints, so we use GUROBI Mixed-Integer Programming solver to solve it get the lower bound of the objective function.
 
-\subsection{Distributed White Space Channel Allocation (WhiteSussa)}
+\subsection{Distributed White Space Channel Allocation}
+\label{WhiteSussa}
 Being aware of the accumulated interference on the interference measurement devices for the primary users, each WBS can decide whether to switch from idle state to operation state and work on a channel which brings it with the highest utility, or to change its operating channel to get higher utility value.
 The operation of the WBSs should not result in harmful interference onto the primary system.
 
@@ -1245,16 +1233,16 @@ As the convergence is guaranteed as shown in lemma~\ref{scheme2Lemma} and there 
 
 \section{Performance Evaluation}
 \label{simulation}
-In this section, we will investigate the centralized and distributed schemes which are proposed to comply with ECC and FCC regulations respectively.
+In this section, we will investigate the centralized and distributed schemes proposed to comply with ECC and FCC regulations respectively.
 The evaluation setting is as follows.
 A square area which is 60km x 60km is divided evenly into 16 square blocks.
-There is one WBS locating in the middle of each block.
-Same amount of end terminals are distributed in each block, where the end terminals don't necessarily choose the WBS which is nearest to them to obtain service, in stead they choose the WBS which provides them with the strongest RSSI.
-There is a 20km wide rim area around the square area, where the interference measurement devices for the TV receivers are randomly located.
-As to each channel there is one interference measurement device.
+There is one WBS which is located in the middle of each block.
+Same amount of end terminals are distributed in each block, whereas the end terminals don't necessarily choose the WBS which is nearest to them to obtain service, in stead they choose the WBS which provides them with the strongest RSSI.
+There is a 20km wide rim area around the square area, where the critical points for the DTV receivers are randomly located.
+One critical point measures the aggregated interference on each channel.
 The locations of WBSs and TV contours are illustrated in Fig.~\ref{sim:layout}.
 WBSs' locations are fixed, but the locations of interference measurement devices for the TV receivers, the end terminals, and the sequence for WBS to update are randomly decided in each run.
-Simulations are conducted for 50 times.
+Simulations are conducted for 20 times.
 
 \begin{figure}[h!]
   \centering
@@ -1277,10 +1265,11 @@ Some parameters are listed in Table~\ref{6}.
   Interference threshold on TV contour 		& $10^{-7}$W \\ % -67dbm
   Path loss factor 							& 2 \\
   Standard deviation in flat shadowing		& 8\\
-  Minimal WBS transmission power~\footnotemark{} 			& 1W \\
-  Maximal WBS transmission power 			& 20W \\
   Number of end terminals in network 		& 800 \\
-  $P_{\mathtt{op}}$, Tx power according to FCC   & 10W\\
+  Min. WBS Tx power~\footnotemark{} complying with ECC 			& 1W \\
+  Max. WBS Tx power complying with ECC			& 20W \\
+  $P_{\mathtt{op}}$, Tx power complying with FCC   & 4W\\
+
   \hline
 \end{tabular}
 \caption{Simulation parameters}
@@ -1288,8 +1277,7 @@ Some parameters are listed in Table~\ref{6}.
 \end{table}
 \footnotetext{minimal and maximal power here denote the power level restricted by the specification of hardware.}
 
-\subsection{Schemes for ECC Regulations}
-\subsubsection{Maximal Permitted Power Decision and the Distributed Channel Allocation Schemes}
+\subsection{Schemes Complying with ECC Regulations}
 \label{MaxPower_whitecat}
 
 %In this section, we will firstly evaluate the convex optimization and linear optimization proposed in Section~\ref{powermap} to see which is the better choice to decide the maximum permitted transmission power, the adopted metrics are average power consumption, and SINR on end users where channel allocation is executed.
@@ -1298,12 +1286,14 @@ We compare \textit{whiteCat} with centralized scheme and three other distributed
 \begin{itemize}
 \item \textit{Optimization}: centralized quadratic optimization introduced in Section~\ref{03_centralized_ca}.
 
-\item \textit{WhiteCase}:  \underline{White}space \underline{c}hannel \underline{a}llocation \underline{se}lfish, where WBSs minimize the first part of Formula~\ref{utility}
+\item \textit{WhiteCase}:  \underline{White}space \underline{c}hannel \underline{a}llocation \underline{se}lfish, where WBSs minimize only the first item of Formula~\ref{utility}
 
-\item \textit{No-Regret Learning}: Each WBS maps the probability of choosing each strategy to a certain proportion of the regret which the WBS may have if it doesn't choose that strategy, and the WBS choose the strategy with the biggest probability.  
-WBSs update such mapping dynamically and this approach converges to correlated equilibrium. 
-Please refer the original paper \cite{hart00correlatedeq} for details.
-		
+\item \textit{Potential Game}: A potential game based distributed scheme which is introduced in~\cite{spectrum_sharing_tvspace_2012}.
+
+\item \textit{No-Regret Learning}: A distributed scheme introduced in \cite{hart00correlatedeq}.
+
+\item \textit{Random Scheme}: WBS choose channel randomly.
+
 
 \end{itemize}
 
@@ -1331,29 +1321,12 @@ Subfigure~\ref{qusaiSINR_with_radius} shows WBSs' quasiSINR decreases when the r
 Subfigure~\ref{sinr_on_endusers_with_radius} illustrates the choice on radius of auxiliary circle don't influence the performance of whiteCat.
 In the following simulation, we fixed the radius at 6000 m.
 
-     
-
-
-\subsubsection{Performance of Channel Allocation Schemes}
-In Section~\ref{powermap}, two different optimization formulations are introduced to obtain the maximum permitted transmission power for WBSs, \ie convex optimization and linear optimization respectively.
-In Figure~\ref{lpcvx}, we have seen that the convex optimization generates power levels which distribute evenly between the minimum and maximum transmission power levels configured by the hardware, while, the majority of the power levels generated by linear optimization are either the minimum or maximum transmission power.
-In this section we run the channel allocation schemes with the maximum permitted power levels obtained from convex and linear optimization respectively.
-The simulation in this subsection carries twofold meanings.
-The first is to see which maximum permitted power decision method outperforms the other, the second is to evaluate the performance of the channel allocation schemes.
-The adopted metrics are the SINR at end terminals and transmission power consumption.
-
-
-%we apply convex programming and linear programming to decide the maximal transmission power, and then the 4 distributed schemes are executed.
-
-\subsubsection{Comparison of the Methods for Maximum Permitted Transmission Power}
-%We simulate the 4 distributed spectrum allocation schemes with the  map obtained from , and then tell which maximal power map generation outperforms based on the performances of the 4 spectrum allocation schemes.
+\subsubsection{Comparison of Schemes Complying with ECC Regulations}
  
-Figure~\ref{transPower} depicts the power consumption of the channel allocation schemes which work with the two groups of maximum permitted transmission power decided by linear and convex problems respectively.
-When given maximum permitted transmission power, whiteCat and the centralized optimization scheme consume the least energy.
-The schemes utilize less transmission power with the maximum permitted transmission power decided by convex optimization.
-%
-Figure~\ref{qusaiSINR} shows the quasiSINR of WBSs.
-The centralized optimization scheme achieves the highest quasiSINR, because the optimization formulation~\ref{QLP} obtains the global optima.
+Figure~\ref{transPower} depicts the transmission power consumption of the schemes.
+whiteCat and the optimization method consume the less energy than the potential game scheme and random scheme.
+whiteCat and the optimization method consume more energy than No-Regret learning scheme and WhiteCase, but meanwhile the former two schemes output the latter two in terms of SINR which will be shown in Figure~\ref{6000_sinr}.
+
  \begin{figure}[h!]
     \centering
       \includegraphics[width=0.9\linewidth]{ECC_aveageTxPOverChannels.pdf}
@@ -1361,6 +1334,9 @@ The centralized optimization scheme achieves the highest quasiSINR, because the 
 \label{transPower}    
   \end{figure}
   
+ %Figure~\ref{qusaiSINR} shows the quasiSINR of WBSs.
+%The centralized optimization scheme achieves the highest quasiSINR, because the optimization formulation~\ref{QLP} obtains the global optima.
+
 %   \begin{figure}[h!]
 %       \centering
 %       \includegraphics[width=0.9\linewidth]{ECC_16_4_5e1-8_5000_1_20_10_qusaiSINR.pdf}
@@ -1369,8 +1345,9 @@ The centralized optimization scheme achieves the highest quasiSINR, because the 
 %     \end{figure}
      
 The average SINR on the end terminals is depicted in Figure~\ref{6000_sinr}.
-When the given maximum permitted transmission power, whiteCat and the centralized optimization achieve similar and the best performance among the schemes.
-It is also noticed that, the maximum permitted transmission power decided by linear optimization helps the channel allocation schemes achieve better SINR.
+whiteCat and the centralized optimization achieve similar and the best performance among the schemes.
+The potential game based scheme and random scheme achieve good SINR with the cost of hight transmission power.
+WhiteCase and No-Regret learning are at the bottom.
      \begin{figure}[h!]
        \centering
        \includegraphics[width=0.9\linewidth]{ECC_SINR_overChannels.pdf}
@@ -1378,42 +1355,20 @@ It is also noticed that, the maximum permitted transmission power decided by lin
 	\label{6000_sinr}
      \end{figure}
 
-  \begin{figure}[h!]
-     \centering
-     \includegraphics[width=0.8\linewidth]{ECC_SINRCdf.pdf}
-     \caption{CDF of SINR on end users}
-     \label{6000_sinr_cdf}
-  \end{figure}
-
-The empirical cumulative distribution function curve of SINR on end terminals is drawn in Figure \ref{6000_sinr_cdf}.
-%where the X axis represents SINR level, and the Y axis shows the cumulative proportion of end terminals whose SINR equals or smaller than that level. 
-The SINR achieved by WhiteCat and the centralized optimization is stably higher than that obtained from other schemes.
-For example, the 20\% and 80\% percentile of the SINR achieved by WhiteCat and the centralized optimization are 0.5 to 1 dB higher than the other channel allocation schemes.
-%The curves show that except for the random method, all three other distributed schemes perform better in low SINR area (SINR $<10 dB$) with convex formulation, while worse in the high SINR area. 
-%Hence we adopt convex formulation to decide the maximum transmission power in the following simulation.
+%  \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.8\linewidth]{ECC_SINRCdf.pdf}
+%     \caption{CDF of SINR on end users}
+%     \label{6000_sinr_cdf}
+%  \end{figure}
+%The empirical cumulative distribution function curve of SINR on end terminals is drawn in Figure \ref{6000_sinr_cdf}.
+%The SINR achieved by WhiteCat and the centralized optimization is stably higher than that obtained from other schemes.
+%For example, the 20\% and 80\% percentile of the SINR achieved by WhiteCat and the centralized optimization are 0.5 to 1 dB higher than the other channel allocation schemes.
 
 
 
-%\subsubsection*{Comparison of Channel Allocation Schemes }
-%After deciding the maximum permitted transmission power on each channel for each WBS, the data center distributes this maximum power map to all WBSs, and trigger the procedure of distributed channel allocation. 
-%
-%
-%
-%The performance of the five spectrum allocation approaches working with the maximum transmission power map calculated from convex formulation is elucidated in the right part of both Fig.~\ref{sim:group1_power} and \ref{transPower}. 
-%We can see that whiteCat consumes 12\% less transmission power than WhiteCase and No-regret learning schemes, whereas better QuasiSINR is obtained. 
-%The cumulative distribution function curve of SINR on end terminals with convex programming is presented in Fig.~\ref{group1_sinr} with solid curves.
-%It can be seen that for any cumulative proportion under 90\%, the corresponding SINR level caused by whitecat on end terminals is slightly (around 0.5-1 dB) but stably higher than that obtained by WhiteCase and No-regret schemes, and 3 dB higher than that in random scheme.
-%
-%In each run of simulation, average value of the 20 \% end terminals with the worst SINR is recorded, and the averaged such value over 100 simulations is illustrated in Figure \ref{group1_worst20sinr} which shows whiteCat achieves better performance for the worst suffered end terminals than WhiteCase and No-regret approaches.
-%
-%\begin{figure}[h]
-%  \centering
-%  \includegraphics[width=0.8\linewidth]{1.pdf}
-%  \caption{The average SINR of the 20\% worst end terminals}
-%\label{group1_worst20sinr}
-%\end{figure}
-%
-%
+
+
 
 \subsubsection{Convergence Speed}
 
@@ -1477,34 +1432,34 @@ Whereas, noregret learning scheme takes 120 steps before convergence, and whiteC
 
 
 
-\subsubsection{Stability of SINR in Convergence Process}
-WBS provides service to end users in the process of channel allocation. 
-A certain SINR corresponds to certain transmission configurations like modulation type and data rate. 
-The oscillation of SINR resulted from WBS changing the working channel during the convergence process may cause reconfiguration, reduced throughput or delay variance, which is not preferred.
-We propose a metric \textit{Cost of Oscillation} (COS) to represent the stability of SINR in the converging process.
-Assuming each update of channel takes 1 time unit, the variance of SINR of end user $i$ at time $t+1$ is \[\varDelta  \gamma_i(t+1)=\mid\frac{\gamma_i(t+1)-\gamma_i(t)}{\gamma_i(t)} \mid\]. 
-
-The COS value for one network applied with a certain channel allocation scheme is,
-\begin{equation}
-\label{cos}
-			COS = \sum\limits_{t=1}^T   \sum\limits_{i\in \mathcal{N}} \varDelta  \gamma_i(t)
-			\end{equation}
-$\gamma_i(0)$ is the SINR for $i$ before starting channel allocation.
-The variance of SINR in channel allocation process is shown in table \ref{costable} from which we can see WhiteCat achieves only 6\% of oscillation on SINR compared with No-regret approach.
-\begin{table}[!h]
-\centering
-\begin{tabular}{|l|c|c|}
-  \hline
-  Scheme			 						& COS 					& 95\% confidence interval\\
-    \hhline{|=|=|=|}
-  WhiteCat									& 8850					& 2984\\\hline
-  No-Regret Learning									& 145460				& 1541\\\hline
-  WhiteCase 								& 246790 				& 168050\\ 
-  \hline
-\end{tabular}
-\caption{Variance of SINR during the convergence process}
-\label{costable}
-\end{table}
+%\subsubsection{Stability of SINR in Convergence Process}
+%WBS provides service to end users in the process of channel allocation. 
+%A certain SINR corresponds to certain transmission configurations like modulation type and data rate. 
+%The oscillation of SINR resulted from WBS changing the working channel during the convergence process may cause reconfiguration, reduced throughput or delay variance, which is not preferred.
+%We propose a metric \textit{Cost of Oscillation} (COS) to represent the stability of SINR in the converging process.
+%Assuming each update of channel takes 1 time unit, the variance of SINR of end user $i$ at time $t+1$ is \[\varDelta  \gamma_i(t+1)=\mid\frac{\gamma_i(t+1)-\gamma_i(t)}{\gamma_i(t)} \mid\]. 
+%
+%The COS value for one network applied with a certain channel allocation scheme is,
+%\begin{equation}
+%\label{cos}
+%			COS = \sum\limits_{t=1}^T   \sum\limits_{i\in \mathcal{N}} \varDelta  \gamma_i(t)
+%			\end{equation}
+%$\gamma_i(0)$ is the SINR for $i$ before starting channel allocation.
+%The variance of SINR in channel allocation process is shown in table \ref{costable} from which we can see WhiteCat achieves only 6\% of oscillation on SINR compared with No-regret approach.
+%\begin{table}[!h]
+%\centering
+%\begin{tabular}{|l|c|c|}
+%  \hline
+%  Scheme			 						& COS 					& 95\% confidence interval\\
+%    \hhline{|=|=|=|}
+%  WhiteCat									& 8850					& 2984\\\hline
+%  No-Regret Learning									& 145460				& 1541\\\hline
+%  WhiteCase 								& 246790 				& 168050\\ 
+%  \hline
+%\end{tabular}
+%\caption{Variance of SINR during the convergence process}
+%\label{costable}
+%\end{table}
 
 
 
@@ -1512,7 +1467,7 @@ The variance of SINR in channel allocation process is shown in table \ref{costab
 \label{performance_FCC}
 
 Figure~\ref{sumOfUtility} shows the utilities obtained by optimization is larger than the distributed scheme.
-Note the distributed scheme takes an advantage that some WBSs are allowed to be idle, in comparison, every WBS in optimization must operate with either $P_\mu$ or  $P_{\mathtt{op}}$.
+The major reason is for the distributed scheme, some WBSs are allowed to be idle, in comparison, every WBS in optimization must operate with either $P_\mu$ or  $P_{\mathtt{op}}$ and the utility becomes large when the transmission power is $P_\mu$.
 \begin{figure}[h!]
   \centering
       \includegraphics[width=0.8\linewidth]{FCC_sumUtility.pdf}
@@ -1520,8 +1475,10 @@ Note the distributed scheme takes an advantage that some WBSs are allowed to be 
      \label{sumOfUtility}
 \end{figure}
 
-Figure~\ref{FCCSINREndUsers} shows the distributed scheme outperforms the centralized scheme in terms of SINR on end users.
+Figure~\ref{FCCSINREndUsers} illustrates the average SINR on end users, where the distributed scheme outperforms the centralized scheme.
 Figure~\ref{FCCSINRCdf} provides another perspective for the SINR on the end users.
+From the figure we can see, 95\% percent of end terminals have SINR between 1 to 80 dB, and more than 90\% have SINR which is higher than 4 dB.
+In particular, with the centralized scheme 97\% of end terminals have SINR which is lower than 20 dB, in comparison, with the distributed scheme, this percentage is 87\% and the rest of end terminals have SINR which is higher than 20 dB.
 %\begin{figure}[h!]
 %  \centering
 %  \includegraphics[width=0.8\linewidth]{FCC_qusaiSINR.pdf}
@@ -1544,7 +1501,7 @@ Figure~\ref{FCCSINRCdf} provides another perspective for the SINR on the end use
      \label{FCCSINRCdf}
 \end{figure}
 
-In terms of transmission power, the distributed scheme consumes 76\% of the centralized optimization, which is shown in Figure~\ref{FCCTxpower}.
+In terms of power consumption as shown in Figure~\ref{FCCTxpower}, the distributed scheme consumes only 76\% of the centralized optimization.
 The reason is explained in Figure~\ref{FCC_N_operatingWBSs} \ie by executing the former scheme, more WBSs are allowed to be idle than the latter.
 
 \begin{figure}[h!]
