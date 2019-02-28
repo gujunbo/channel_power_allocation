@@ -173,28 +173,28 @@ The the distributed channel allocation and power control are conducted sequentia
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-With the transition from analog TV to digital terrestrial TV (DTT), a considerable amount of frequency bands, as shown in Figure~\ref{variability_TVWS}, become vacant.
+With the transition from analog TV to digital terrestrial TV, a considerable amount of frequency bands, as shown in Figure~\ref{variability_TVWS}, become vacant.
 The spectrum that is left over by digital TV and other incumbent users is referred to as TV white spaces (TVWSs).
-TVWS can be used for telemedicine, precision agriculture, smart energy and so on by new devices as long as DTT reception is not interfered~\cite{FCC_2010_sedond_memorandumm}. 
-These unlicensed devices are called white space devices (WSDs) and their operation should be restricted in terms of location, channel and transmission power, so that no harmful interference is disturbing the incumbents.
-The utilization of TVWS by the WSDs are regulated by national regulatory authorities and relevant committees, \ie in the US, the Federal Communications Commission (FCC) has regulated the utilization of TVWS since 2010~\cite{FCC_2010_sedond_memorandumm}. 
-The Electronic Communications Committee (ECC) and Ofcom have released guidelines in EU and UK respectively in terms of the operation of WSDs~\cite{ECC236, ofcom15}.
+TVWS can be used for telemedicine, precision agriculture, smart energy and so on by new devices as long as digital terrestrial TV reception is not interfered~\cite{FCC_2010_sedond_memorandumm}. 
+These unlicensed devices are called white space devices and their operation should be restricted in terms of location, channel and transmission power, so that no harmful interference is disturbing the incumbents.
+The utilization of TVWS by the white space devices are regulated by national regulatory authorities and relevant committees, \ie in the US, the Federal Communications Commission (FCC) has regulated the utilization of TVWS since 2010~\cite{FCC_2010_sedond_memorandumm}. 
+The Electronic Communications Committee (ECC) and Ofcom have released guidelines in EU and UK respectively in terms of the operation of white space devices~\cite{ECC236, ofcom15}.
 Although many regulation details from the three institutes are different, white space data base (WSDB) is adopted by all the three institutes.
 
 TV White Space database was first introduced as a way to overcome the technical hurdles faced by spectrum sensing techniques to precisely detect very weak primary signals~\cite{Mwangoka2011DySPAN}.
-WSD should contact a white space data base and provide its location and technical characteristics.
-The TVDB translates the information on incumbent services and the technical characteristics and location of the WSDs into a list of allowed frequencies and associated transmit powers for devices.~\cite{ECC236}.
-WSD needs to access the WSDB to get the available channels and powers before starting transmission.
+white space device should contact a white space data base and provide its location and technical characteristics.
+The WSDB translates the information on incumbent services and the technical characteristics and location of the white space devices into a list of allowed frequencies and associated transmit powers for devices.~\cite{ECC236}.
+white space device needs to access the WSDB to get the available channels and powers before starting transmission.
 %WSDB is proposed mainly due to the difficulty to implement spectrum sensing, which is suggested by the regulators.%DEBUG
 
-WSDB plays the key role in the utilization of TVWS, which has the global view of the WSDs in the network and protects the DTT receivers.
-The resource which is available for the WSDs is decided by the strategy of WSDB, which is as per the regulators.
-Ofcom and ECC impose restrictions on the aggregated interference caused by TVDBs on the DTT receivers, and implicitly allow TVDBs to have different transmission powers based on their locations.
-FCC employs stringent restriction on the universal transmission power for WBSs, but the DTT receivers are not protected from the aggregated interference caused by WBSs working on the same channel. 
+white space deviceB plays the key role in the utilization of TVWS, which has the global view of the white space devices in the network and protects the digital terrestrial TV receivers.
+The resource which is available for the white space devices is decided by the strategy of WSDB, which is as per the regulators.
+Ofcom and ECC impose restrictions on the aggregated interference caused by white space devices on the digital terrestrial TV receivers, and implicitly allow white space devices to have different transmission powers based on their locations.
+FCC employs stringent restriction on the universal transmission power for white space devices, but the digital terrestrial TV receivers are not protected from the aggregated interference caused by white space devices which work on the same channel. 
 FCC's stringent regulation on transmission power results in decreased TVWS as suggested in \cite{Harrison2012Dyspan}.
 %
-Nevertheless, as to the issue of spectrum sharing among the WSDs, the regulator institutes only provide suggestion instead of regulations.
-In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among the WSDs.
+Nevertheless, as to the issue of spectrum sharing among the white space devices, the regulator institutes only provide suggestion instead of regulations.
+In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among the white space devices.
 
 
 
@@ -215,14 +215,14 @@ In this paper, we will follow the most prevalent regulations on the usage of TVW
 \label{variability_TVWS}
 \end{figure}
 
-The WSDs are classified into two functional categories: 1) High power, stationary stations such a base stations , 2) lower power personal/portable devices, such as Wi-Fi network interface cards in laptops etc..
-The fixed devices and some portable devices should access the TVDB to obtain the available spectrum and permitted transmission.
+The white space devices are classified into two functional categories: 1) High power, stationary stations such a base stations , 2) lower power personal/portable devices, such as Wi-Fi network interface cards in laptops etc..
+The fixed devices and some portable devices should access the WSDB to obtain the available spectrum and permitted transmission.
 %
-The fixed WSDs work as base stations and provides a backhaul for broadband client access.
+The fixed white space devices work as base stations and provides a backhaul for broadband client access.
 They are the base stations in the IEEE 802.22 standard which is designed for wireless regional area networks.
-As the fixed WSDs work with high transmission power, they are the major potential source of interference to the DTT receivers so that their transmission characteristics should be carefully decided by the TWDB.
-IEEE 802.22 regulates the MAC layer protocol, but it doesn't prevent the co-channel interference caused by the co-channel WSDs which work as base stations.
-In this paper, we investigate efficient schemes to exploit the TV spectrum among the fixed WSDs which work as base station in IEEE 802.22 network.
+As the fixed white space devices work with high transmission power, they are the major potential source of interference to the digital terrestrial TV receivers so that their transmission characteristics should be carefully decided by the TWDB.
+IEEE 802.22 regulates the MAC layer protocol, but it doesn't prevent the co-channel interference caused by the co-channel white space devices which work as white space base stations (WBSs).
+In this paper, we investigate efficient schemes to exploit the TV spectrum among the fixed white space devices which work as base station in IEEE 802.22 network.
 
 Given all the other WBSs' selection on channel and transmission power, a WBS is interested in choosing the channel which brings it the best performance, \ie the data rate of its end users.
 A WBS prefers to choose the channel which experiences the minimum interference, while simultaneously the transmission power can be set as high as possible, so as to obtain better SINR at associated terminals and and generally increase coverage. \cite{wuinfocom09, HoangPowerChannel2010}. 
@@ -274,10 +274,10 @@ Finally, we conclude our work and point out directions of future research in Sec
 %The secondary users are IEEE 802.22 Wireless Regional Area Network base stations utilizing the TV spectrum with senseless mode~\cite{SenseLess2011}. 
 %DTV's service should not be interfered by secondary systems. 
 
-We consider an IEEE 802.22 compliant cellular network where the fixed WSDs work as base station and provide broadband access to their terminals.
+We consider an IEEE 802.22 compliant cellular network where the fixed white space devices work as base station and provide broadband access to their terminals.
 The network is illustrated in Figure~\ref{sysmodel}.
-We call the fixed WSDs which work as base stations as White space Base Stations (WBSs), they are located in one area which is surrounded by DTV stations and receivers.
-Several critical points are deployed in the vicinity of the DTV receivers which are the most venerable to the interference caused by the WSDs.
+We call the fixed white space devices which work as base stations as White space Base Stations (WBSs), they are located in one area which is surrounded by DTV stations and receivers.
+Several critical points are deployed in the vicinity of the DTV receivers which are the most venerable to the interference caused by the white space devices.
 WBSs work in underlay manner and coexist with the DTV stations and receivers, the aggregate interference generated by WBSs should not exceed the threshold on each channel at each critical point.
 %The aggregated interference on these critical points should below a certain threshold on all of the TVWS channels.
 %
@@ -290,7 +290,7 @@ To simplify the analysis, we assume that each DTV station as well as each WBS ut
 As to the notations, the set of critical points is denoted as $\mathcal{K}$ and the set of WBSs is denoted as $\mathcal{N}$ where $|\mathcal{N}|=N$. 
 The TVWS spectrum bands are denoted as set $\mathbb{C}$.
 We represent the usage of channel for WBS $i$ with a binary vector $X_i^{|\mathbb{C}|\times 1}=\{x_i^1,\cdots, x_i^k,\cdots, x_i^{|\mathbb{C}|}\}\in \{0,1\}^{|\mathbb{C}|}$, where $k\in \mathbb{C}$ and binary variable $x_i^k$ denotes whether channel $k$ is used by user $i$. 
-All the WBSs work with the channels approved by the TVDB, they operate with a channel from the approved ones after choosing it, thus we omit the time index in the channel usage.
+All the WBSs work with the channels approved by the WSDB, they operate with a channel from the approved ones after choosing it, thus we omit the time index in the channel usage.
 As each node can only uses one channel, for $X_i$, there is $\sum_{k=1}^{|\mathbb{C}|}x_i^k=1$. 
 The transmission power of WBS $i$ on channel $c$ is $P_i^c$.
 $c(i)$ denotes the channel used by a WBS $i\in \mathcal{N}$. 
@@ -436,7 +436,7 @@ Then $\gamma_i$ becomes,
   \frac{P_{i}^c \cdot h_i\cdot z_i} {\sum\limits_{\tiny\substack{j\neq i, j\in \mathcal{N}\\c(j)=c(i)}} (P_j^c \cdot h_{ji} \cdot z_{ji}) + N_0}
 \end{aligned}
 \end{equation}
-The notations are summarized in Table~\ref{tab1}.
+The abbreviations and notations used in this paper are summarized in Table~\ref{tab1}.
 %
 With auxiliary circle, the decision made by WBSs is independent on the distribution of the end terminals.
 On the other hand, the radius of the auxiliary circle $\delta$ can be adapted to foster better service to the terminals in certain area, \ie a larger radius $\delta$ will take care of the SINR on the terminals reside far away and vice visa.
@@ -455,8 +455,12 @@ On the other hand, the radius of the auxiliary circle $\delta$ can be adapted to
 \centering
 \begin{tabular}{l p{5.5cm}}
 \toprule
-Symbol & Description \\
+Abbr. & Description \\
+Symbol & \\
 \midrule
+TVWS & TV white spaces\\
+WSDB & white space data base\\
+WBS & white space base stations\\
 $\gamma$ & QuasiSINR\\
 $f_{ji}^c$  & The co-channel interference caused by WBS $j$ on the auxiliary circle of WBS $i$, $c$ is the working channel for both\\
 $f_i^c$ & The sum of interference caused on the auxiliary circle of WBS $i$ \\
@@ -476,7 +480,7 @@ $\text{cp}$ & Critical point\\
 
 
 
-In our model, WBSs access the TVDB and obtain the transmission parameters, \ie working channel, transmission power of the other WBSs, the attenuation characteristics between itself and all the other WBSs, and vice visa. 
+In our model, WBSs access the WSDB and obtain the transmission parameters, \ie working channel, transmission power of the other WBSs, the attenuation characteristics between itself and all the other WBSs, and vice visa. 
 WBSs calculate their QuasiSINRs with these information respectively.
 %To obtain quasiSINR, one WBS doesn't need to measure the signal strength on the reference points which is needed in Formula~\ref{quasiSINR}, instead, it can can make use of the propagation model~\cite{Jaentti11} along with the operating parameters of all the other WBSs, which are stored in the central database to calculate the quasiSINR of any specific WBS.
 %Besides, the channel usage of each WBS is also recorded in the data center.
@@ -487,14 +491,14 @@ WBSs calculate their QuasiSINRs with these information respectively.
 
 \subsection{Permitted Transmission Power for WBSs}
 %According to regulations, WBSs rely on database queries to assign resources, \ie frequencies and transmission powers.
-According to regulations, the calculation engine within the TVDB translates the information of incumbent services and technical characteristics and location of the WSDs into a list of allowed frequencies and associated transmit powers for the WSDs~\cite{ECC236}.
-TVDB's decisions on the transmission power are different with respect to different regulations.
+According to regulations, the calculation engine within the WSDB translates the information of incumbent services and technical characteristics and location of the white space devices into a list of allowed frequencies and associated transmit powers for the white space devices~\cite{ECC236}.
+WSDB's decisions on the transmission power are different with respect to different regulations.
 
 
 
 \subsubsection{ECC Regulations on Permitted Tx Power}
 ECC and Ofcom propose guidance~\cite{ECC186, ECMA392} and focus on the protection of the critical points from the harmful interference, and don't regulate the power limitation. 
-As to decision on the transmission power per ECC, as WBSs work in underlay manner and coexist with DTT receivers, the aggregate generated interference caused on the critical points on each channel should not exceed a threshold.
+As to decision on the transmission power per ECC, as WBSs work in underlay manner and coexist with digital terrestrial TV receivers, the aggregate generated interference caused on the critical points on each channel should not exceed a threshold.
 We adopt the interference model and the optimization methodology from the work of \cite{multipleIntf_pimrc11} to plan the maximum transmission power on each channel for WBSs.
 %
 For WBS $i\in \mathcal{N}$, the maximum transmission power allowed on channel $c\in \mathbb{C}$ is denoted as $P_i^c$. 
@@ -510,7 +514,7 @@ To address this fairness issue, we maximize the sum of the logarithmic value of 
 		& & \sum_{i\in \mathcal{N}} (P^c_i \cdot h_{i,\text{cp}}\cdot z) < I, \forall\text{cp} \in \mathcal{K}
 		\end{aligned}
 	\end{equation}
-This optimization is conducted in TVDB for each channel $c\in \mathbb{C}$, and the calculated maximum permitted transmission powers are used by the WBSs afterwards.
+This optimization is conducted in WSDB for each channel $c\in \mathbb{C}$, and the calculated maximum permitted transmission powers are used by the WBSs afterwards.
 
 \subsubsection{FCC Regulations of Permitted Tx Power}
 FCC initially restricts the maximum transmission power of the fixed devices to be 1 Watt and now relaxes the limitation to 4 Watt.
@@ -552,7 +556,7 @@ In order to ensure the fairness among WBSs,  we minimize the sum of inverted qua
 To exploit TVWS, authors in \cite{DySpAN10MeasuringWhitespaceCapacity, HessarTMC15, Deshmukh2015, Achtzehn12} have proposed different approaches for assessment of TVWS capacity under FCC and ECC regulations respectively.
 Hessar et al.~\cite{ReAlloTVWS14DySPAN} aim to maximize the Shannon capacity of the network which complies with FCC rules.
 The solution seeks the trade-off between the wide band and co-channel interference, both of which are brought by assigning multiple channels to WBSs.
-But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the DTTs.
+But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the digital terrestrial TV receivers.
 Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} follow the rules of FCC, and propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
 
 %TODO-to modify
@@ -669,7 +673,7 @@ The guarantee that TV receivers should not be affected by the aggregate interfer
 The objective can be maximizing TVBD's downlink transmission power~\cite{multipleIntf_pimrc11}, uplink transmission power~\cite{uplink_power_tvws13}, or best geographic distribution of TVBDs~\cite{withinTVcoverage_PIMRC13}.
 A series of works~\cite{game_CA_association_ICDCS12,SA_CA_TVWS_2012crowncom, 802.22co-existence09, 802.22game_08globecom,self-coexistenceWRAN2010infocom} emphasise on interference mitigation among TVBDs via spectrum allocation.
 Vehicular networks operating with TVWS assisted by TV database and cooperative sensing is discussed in~\cite{tvws_vtc13}.
-Work~\cite{increaseTVWS12} steps further from the database paradigm and makes efforts to utilize the \textit{grey space}, where TVDB is allowed to operate even within the TV service area.
+Work~\cite{increaseTVWS12} steps further from the database paradigm and makes efforts to utilize the \textit{grey space}, where white space device is allowed to operate even within the TV service area.
 
 %After each update, WBS needs to access the data base to retrieve the current channel usage, then they can calculate xxx.
 
@@ -681,7 +685,7 @@ Work~\cite{increaseTVWS12} steps further from the database paradigm and makes ef
 %Solving the joint problem of power and channel allocation in a distributed manner is challenging.
   
 To protect the TV receivers from harmful interference, the aggregate interference caused by WBSs at the contours of TV receivers should not exceed the interference margin.
-Work \cite{maximum_power_TVWS_dyspan_2011} proposes detailed calculations which a geolocation database performs in order to derive location-specific maximum permitted EIRP levels for white-space devices (WSDs) which operate in digital terrestrial TV bands.
+Work \cite{maximum_power_TVWS_dyspan_2011} proposes detailed calculations which a geolocation database performs in order to derive location-specific maximum permitted EIRP levels for white space devices which operate in digital terrestrial TV bands.
 \cite{multipleIntf_pimrc11} considers the maximum permitted transmission power for the network which complies with IEEE 802.22 standard. 
 The standard requires a centralized database to store the available channels for each secondary base station, thus centralized scheme can be conducted there after trivial modification.
 The sufficient condition for the TV receivers not be interfered in the context of TV white space is formulated into a centralized linear programming program (LP) in~\cite{multipleIntf_pimrc11}.
@@ -846,8 +850,8 @@ Notify database of its channel usage, which further notifies the other WBSs
 
 %Similar with~\cite{SenseLess2011}, we let every WBS store the location information and maximal power map of all other WBSs, \ie $P_i^c, i\in\mathcal{N}, c\in\mathbb{C}$, and each WBS retrieves information about channel usage of other WBSs from centralized base station.
 
-WBSs calculate $u_i$ with the information retrieved from TVDB.
-After executing Algorithm \ref{whitecatalgo}, WBSs report to TVDB about their chosen channels if they are updated.
+WBSs calculate $u_i$ with the information retrieved from WSDB.
+After executing Algorithm \ref{whitecatalgo}, WBSs report to WSDB about their chosen channels if they are updated.
 As the locations of WBSs and TV stations, along with the transmission channel and power of TV stations are usually static (entries of TV station change averagely once in 2 days\cite{SenseLess2011}), except for the channel usage in the network, the change of the other data stored in WBS is infrequent. 
 We refer \cite{CApotentialLearning_05dyspan} to decide WBSs' sequence to update their channels.
 \cite{CApotentialLearning_05dyspan} proposes a method which is akin to the random access mechanism of CSMA/DA, where the access for broadcast medium is changed to get access to the centralized center to retrieve the current channel usage and update its new channel. 
@@ -1032,10 +1036,11 @@ The upper bound of total update steps is $2n^2$, thus averagely, the upper bound
 
 \section{Channel Allocation Scheme complying with FCC Rules}
 \label{schemeII}
-The second scheme is in line with the FCC proposals in terms of transmission power, \ie WBSs operate with the same transmission power $P_{\mathtt{op}}$.
-When the number of transmitters increases, the accumulated interference may cause interference to TV receivers.
-In this scenario, the number of WBSs operating need to be restricted.
-This being said, when the number of WBSs is large, some of them need to stop transmitting.
+FCC allows the WBSs to use the channels which are approved by the WSDB, and operate with the same transmission power $P_{\mathtt{op}}$.
+This regulation doesn't consider the harmful interference caused by aggregated interference, \ie when the number of transmitters increases.
+Authors of \cite{yang2013WiFiWSTVCapacity, gopalTCCN16} proposed solutions to cope this problem, while they focus on the improvement of network throughput.
+In this Section we look into the problem of channel allocation in order to improve the SINR on end users under the FCC regulations.
+In this scenario, the number of WBSs operating need to be restricted, and when the number of WBSs is large, some of them will not be allowed to transmit.
 
 
 \subsection{Centralized Optimization for Channel Allocation}
@@ -1288,7 +1293,7 @@ We compare \textit{whiteCat} with centralized scheme and three other distributed
 
 \item \textit{WhiteCase}:  \underline{White}space \underline{c}hannel \underline{a}llocation \underline{se}lfish, where WBSs minimize only the first item of Formula~\ref{utility}
 
-\item \textit{Potential Game}: A potential game based distributed scheme which is introduced in~\cite{spectrum_sharing_tvspace_2012}.
+\item \textit{Potential Game}: A potential game based distributed scheme which is introduced in~\cite{pimrc_2012}.
 
 \item \textit{No-Regret Learning}: A distributed scheme introduced in \cite{hart00correlatedeq}.
 
@@ -1523,11 +1528,13 @@ The reason is explained in Figure~\ref{FCC_N_operatingWBSs} \ie by executing the
 
 
 \section{Conclusions}
-In this paper, we propose solutions for spectrum sharing among white space devices with respect to the regulations made by both ECC and FCC respectively.
-As to distributed solution, congestion game is applied to analyze the channel allocation problems, where transmission powers is identical according to FCC rules and unidentical accordingly to ECC rules.
-The proposed algorithm which is derived from the best response of the congestion game converges quickly, and achieves better performance than other distributed schemes and centralized scheme in some aspects.
-Centralized optimization formulations are also proposed for the two regulation scenarios.
-%Without consider the communication latency between WBSs and the database, this distributed scheme executes much faster than the centralized scheme.
+In this paper, we look into the problem that how to exploit the TV white space in a IEEE 802.22 like cellular network.
+Both centralized and distributed solutions for channel allocation problem, with respect to both ECC and FCC regulations, are proposed.
+In particular, we improve the SINR on the end terminals in the cells.
+Under the ECC rules, the proposed centralized scheme obtains the global optimal.
+In comparison, the congestion game based distributed scheme achieves comparable performance in terms of end user SINR and power consumption, but it outperforms other distributed schemes in terms of end user SINR and algorithm execution speed.
+With respect to the TV spectrum usage under FCC rules, we for the first time investigate the problem of channel allocation in order to improve the SINR on end users, where the TV systems could be interfered by the aggregated interference.
+Proposed centralized scheme achieves the global optimal after linear relaxizaiton, and the proposed distributed scheme is proved to converge by congestion game theory, and the simulation shows the distributed scheme outperforms the centralized scheme in terms of power consumption and SINR on end users.
 
 
 
