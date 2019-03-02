@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  28 FEB 2019 20:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  28 FEB 2019 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1275,6 +1275,9 @@ Package pdftex.def Info: ../figures/03_distributedChannelAllocation/systemmodel
 _working.pdf used on input line 300.
 (pdftex.def)             Requested size: 188.99872pt x 149.02982pt.
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 <../figures/03_distributedChannelAllocation/quasiSINR2_2.pdf, id=142, 138.52359
 pt x 74.56874pt>
 File: ../figures/03_distributedChannelAllocation/quasiSINR2_2.pdf Graphic file 
@@ -1302,9 +1305,6 @@ pdfTeX warning: /usr/local/texlive/2017/bin/x86_64-darwin/pdflatex (file ../fig
 ures/03_distributedChannelAllocation/quasiSINR2_2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >] [4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 769--771
 \OT1/ptm/m/n/9 for WBS $\OML/cmm/m/it/9 i$ \OT1/ptm/m/n/9 are denoted by a con-
 stant vec-tor
@@ -1448,66 +1448,67 @@ Package pdftex.def Info: ../figures/03_distributedChannelAllocation/convergence
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<../../channel-power-allocation-802.22/plots/FCC_sumUtility.pdf, id=637, 467.74
-75pt x 369.38pt>
+<../../channel-power-allocation-802.22/plots/FCC_sumUtility.pdf, id=637, 470.75
+874pt x 375.4025pt>
 File: ../../channel-power-allocation-802.22/plots/FCC_sumUtility.pdf Graphic fi
 le (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/FCC_sumUtility.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/FCC_sumUti
 lity.pdf used on input line 1478.
-(pdftex.def)             Requested size: 168.00064pt x 132.67233pt.
+(pdftex.def)             Requested size: 168.00064pt x 133.97052pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<../../channel-power-allocation-802.22/plots/FCC_SINR_endUsers.pdf, id=640, 474
-.77374pt x 369.38pt>
+<../../channel-power-allocation-802.22/plots/FCC_SINR_endUsers.pdf, id=640, 479
+.7925pt x 375.4025pt>
 File: ../../channel-power-allocation-802.22/plots/FCC_SINR_endUsers.pdf Graphic
  file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/FCC_SINR_endUsers.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/FCC_SINR_e
 ndUsers.pdf used on input line 1496.
-(pdftex.def)             Requested size: 168.00064pt x 130.70528pt.
+(pdftex.def)             Requested size: 168.00064pt x 131.45012pt.
 
-<../../channel-power-allocation-802.22/plots/FCC_SINRCdf.pdf, id=641, 481.8pt x
- 403.5075pt>
+<../../channel-power-allocation-802.22/plots/FCC_SINRCdf.pdf, id=641, 494.84875
+pt x 412.54124pt>
 File: ../../channel-power-allocation-802.22/plots/FCC_SINRCdf.pdf Graphic file 
 (type pdf)
- <use ../../channel-power-allocation-802.22/plots/FCC_SINRCdf.pdf>
+
+<use ../../channel-power-allocation-802.22/plots/FCC_SINRCdf.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/FCC_SINRCd
 f.pdf used on input line 1504.
-(pdftex.def)             Requested size: 168.00064pt x 140.70023pt.
+(pdftex.def)             Requested size: 168.00064pt x 140.05443pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<../../channel-power-allocation-802.22/plots/FCC_aveageTxP.pdf, id=644, 477.785
-pt x 369.38pt>
+<../../channel-power-allocation-802.22/plots/FCC_aveageTxP.pdf, id=644, 484.811
+25pt x 375.4025pt>
 File: ../../channel-power-allocation-802.22/plots/FCC_aveageTxP.pdf Graphic fil
 e (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/FCC_aveageTxP.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/FCC_aveage
 TxP.pdf used on input line 1514.
-(pdftex.def)             Requested size: 168.00064pt x 129.88237pt.
+(pdftex.def)             Requested size: 168.00064pt x 130.0868pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 <../../channel-power-allocation-802.22/plots/FCC_N_operatingWBSs.pdf, id=645, 4
-74.77374pt x 369.38pt>
+79.7925pt x 375.4025pt>
 File: ../../channel-power-allocation-802.22/plots/FCC_N_operatingWBSs.pdf Graph
 ic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/FCC_N_operatingWBSs.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/FCC_N_oper
 atingWBSs.pdf used on input line 1521.
-(pdftex.def)             Requested size: 168.00064pt x 130.70528pt.
+(pdftex.def)             Requested size: 168.00064pt x 131.45012pt.
 LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <7.5> not available
 (Font)              size <7> substituted on input line 1522.
 LaTeX Font Warning: Font shape `OT1/cmtt/m/n' in size <5.24997> not available
@@ -1571,7 +1572,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1544.
 Here is how much of TeX's memory you used:
  22763 strings out of 492995
  399664 string characters out of 6132704
- 805469 words of memory out of 5000000
+ 805492 words of memory out of 5000000
  25749 multiletter control sequences out of 15000+600000
  58684 words of font info for 129 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -1602,10 +1603,10 @@ urw/helvetic/uhvro8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/ti
 mes/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmbi8
 a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></us
 r/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on power_channel.pdf (14 pages, 630898 bytes).
+Output written on power_channel.pdf (14 pages, 629894 bytes).
 PDF statistics:
- 855 PDF objects out of 1000 (max. 8388607)
- 721 compressed objects within 8 object streams
+ 853 PDF objects out of 1000 (max. 8388607)
+ 720 compressed objects within 8 object streams
  178 named destinations out of 1000 (max. 500000)
  207 words of extra memory for PDF output out of 10000 (max. 10000000)
 
