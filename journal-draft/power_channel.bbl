@@ -131,6 +131,12 @@ S.~{Gopal}, S.~K. {Kaul}, and S.~{Roy}, ``Optimizing city-wide white-fi
   networks in tv white spaces,'' \emph{IEEE Transactions on Cognitive
   Communications and Networking}, vol.~4, no.~4, pp. 749--763, Dec 2018.
 
+\bibitem{Ying2018DySPAN}
+X.~{Ying}, M.~M. {Buddhikot}, and S.~{Roy}, ``Coexistence-aware dynamic channel
+  allocation for 3.5 ghz shared spectrum systems,'' in \emph{2017 IEEE
+  International Symposium on Dynamic Spectrum Access Networks (DySPAN)}, March
+  2017, pp. 1--2.
+
 \bibitem{pimrc_2012}
 N.~Omidvar and B.~Khalaj, ``A game-theoretic approach for joint channel and
   power allocation in downlink of cellular cognitive radio networks,'' in

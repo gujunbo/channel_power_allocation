@@ -151,11 +151,11 @@ The the distributed channel allocation and power control are conducted sequentia
 % Distributed Channel and Power Allocation in IEEE 802.22 Networks
 \begin{abstract}
 
-In this paper, we look into the problem of how to exploit the TV white space in a IEEE 802.22 like cellular network.
-The dominant ECC and FCC regulations impose additional restrictions on the problem of channel allocation in TV white space.
-Complying with each regulation, we focus on improving the SINR on the end terminals in the cells and formulate the channel allocation problem into an optimization problem, in addition, we use congestion game to design the distributed scheme.
-The optimization problems are solved in centralized manner and the global optimization is obtained after relaxations.
-The game theory based distributed schemes achieves comparable performance in terms of SINR on end users, which is proved through simulation.
+In this paper, we look into the problem of how to exploit the TV white space in an IEEE 802.22 like cellular network.
+The dominant Electronic Communications Committee (ECC) and Federal Communications Commission (FCC) regulations impose additional restrictions on the problem of channel allocation in TV white space.
+Complying with each regulation, we focus on improving the SINR on the end terminals in the cells and formulate the channel allocation problem into an optimization problem, in addition, distributed scheme is designed on the basis of congestion game.
+The optimization problems are solved in centralized manner and the global optimization is obtained after reformulations and relaxations.
+The game theory based distributed schemes achieve comparable performance in terms of SINR on end users, which is proved through simulation.
 
 \end{abstract}
 
@@ -543,7 +543,7 @@ In order to ensure the fairness among WBSs,  we minimize the sum of inverted qua
 \section{Related Works}
 \label{decomposition_relatedwork}
 
-%TODO new part here:
+
 
 %In related works, the protection on primary users is taken care in the same time when channel and power selection are conducted.
 %But according to the current regulations and standards, there exist no communication means between the secondary users and the primary users.
@@ -554,12 +554,15 @@ Hessar et al.~\cite{ReAlloTVWS14DySPAN} aim to maximize the Shannon capacity of 
 The solution seeks the trade-off between the wide band and co-channel interference, both of which are brought by assigning multiple channels to WBSs.
 But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the digital terrestrial TV receivers.
 Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} follow the rules of FCC, and propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
+Ying et al.~\cite{Ying2018DySPAN} look for the maximal set of white space devices which could access the spectrum, a heuristic scheme is proposed based on maximum weighted independent set in the graph which representing the secondary network.
+This work doesn't consider the aggregate interference caused to the digital TV receivers.
+
 
 %TODO-to modify
 Omidvar et al. ~\cite{pimrc_2012} use potential game to propose a distributed joint power and channel allocation in cognitive radio network.
 Although the scheme is not tailored for TVWS, protection on the primary users are also considered.
 Potential game is adopted in work~\cite{Elias17} to mitigate the adjacent interference meanwhile bonding multiple channels.
-In ~\cite{spectrum_sharing_tvspace_2012}, Chen et al. formulate the channel allocation problem TV white space into a potential game where individual WBS's utility is to maximize the capacity of one static terminal.
+In ~\cite{spectrum_sharing_tvspace_2012}, Chen et al. formulate the channel allocation problem in TV white space into a potential game where individual WBS's utility is to maximize the capacity of one static terminal.
 %TODO: read the commented part.
 %The execution of this scheme is formulated into an exact potential game. 
 %For each base station, after several rounds of best responses in terms of channel and power level, Nash equilibrium is achieved.
@@ -609,7 +612,6 @@ Centralized solutions usually solve the formulated constrained optimization prob
 In \cite{downlink-centralized-08-TWC}, the objective is to increase the number of supported terminals whose SINRs are above a threshold, and the constrains are to refrain the interference at the primary users within a certain margin.
 Work \cite{joint_power_channel_linkpair_08ICT} minimizes the transmission power and meanwhile makes sure the SINR of terminal is above a threshold, but this work fails to consider the protection of primary users.
 A heuristic algorithm is proposed in \cite{centralized_80222_sharing_ifip2011}, which considers the channel availability and transmission demand of each WBS.
-%Spectrum allocation is solved after being formulated into a colouring problem.
 The aforementioned two schemes don't consider varying the transmission power.
 % xxxx important paper
 %A centralized scheme is proposed in \cite{nashbargaining_2012jsac} for joint channel and power allocation among end terminals in OFDM cognitive radio network. 
