@@ -183,8 +183,8 @@ The WSDB translates the information on incumbent services and the technical char
 white space device needs to access the WSDB to get the available channels and powers before starting transmission.
 %WSDB is proposed mainly due to the difficulty to implement spectrum sensing, which is suggested by the regulators.%DEBUG
 
-white space deviceB plays the key role in the utilization of TVWS, which has the global view of the white space devices in the network and protects the digital terrestrial TV receivers.
-The resource which is available for the white space devices is decided by the strategy of WSDB, which is as per the regulators.
+White space data base plays the key role in the utilization of TVWS, which has the global view of the white space devices in the network and protects the digital terrestrial TV receivers.
+The resource which is available for the white space devices is calculated by the strategy of WSDB, which is as per the regulators.
 Ofcom and ECC impose restrictions on the aggregated interference caused by white space devices on the digital terrestrial TV receivers, and implicitly allow white space devices to have different transmission powers based on their locations.
 FCC employs stringent restriction on the universal transmission power for white space devices, but the digital terrestrial TV receivers are not protected from the aggregated interference caused by white space devices which work on the same channel. 
 FCC's stringent regulation on transmission power results in decreased TVWS as suggested in \cite{Harrison2012Dyspan}.
@@ -215,18 +215,30 @@ The white space devices are classified into two functional categories: 1) High p
 The fixed devices and some portable devices should access the WSDB to obtain the available spectrum and permitted transmission.
 %
 The fixed white space devices work as base stations and provides a backhaul for broadband client access.
-They are the base stations in the IEEE 802.22 standard which is designed for wireless regional area networks.
+These white space base stations (WBS) are the base stations in the IEEE 802.22 standard which is designed for wireless regional area networks.
 As the fixed white space devices work with high transmission power, they are the major potential source of interference to the digital terrestrial TV receivers so that their transmission characteristics should be carefully decided by the TWDB.
-IEEE 802.22 regulates the MAC layer protocol, but it doesn't prevent the co-channel interference caused by the co-channel white space devices which work as white space base stations (WBSs).
-In this paper, we investigate efficient schemes to exploit the TV spectrum among the fixed white space devices which work as base station in IEEE 802.22 network.
-
-Given all the other WBSs' selection on channel and transmission power, a WBS is interested in choosing the channel which brings it the best performance, \ie the data rate of its end users.
-A WBS prefers to choose the channel which experiences the minimum interference, while simultaneously the transmission power can be set as high as possible, so as to obtain better SINR at associated terminals and and generally increase coverage. \cite{wuinfocom09, HoangPowerChannel2010}. 
-Nevertheless, high transmission power causes significant co-channel interference to other secondary users operating on the same channel. 
-Hence, a secondary cell has to balance its transmission power and the caused interference on other cells while simultaneously choosing a working channel that decreases the interference its terminals are exposed to.
+According to regulations, the calculation engine within the WSDB translates the information of incumbent services and technical characteristics and location of the white space devices into a list of allowed frequencies and associated transmit powers for the white space devices~\cite{ECC236}.
+WSDB's decisions on the transmission power are different with respect to different regulations.
+ECC and Ofcom~\cite{ECC186, ECMA392} focus on the protection of the critical points from the harmful interference, and don't regulate the transmission power limitation. 
+As to decision on the transmission power per ECC, as WBSs work in underlay manner and coexist with digital terrestrial TV receivers, the aggregate generated interference caused on the critical points on each channel should not exceed a threshold.
+FCC initially restricts the maximum transmission power of the fixed devices to be 1 Watt and now relaxes the limitation to 4 Watt.
+FCC doesn't impose restriction on the aggregated interference caused on primary TV receivers, hence there should be a limit on the number of operating WBSs when the WBSs in the IEEE 802.22 network are dense.
+%
 The existence of WSDB makes it a natural choice to adopt centralized solution for the channel allocation problem, \ie the WSDB not only provide the WBSs with the available channels and corresponding maximum powers, but also the channels to work on at a given time.
 But where to make the channel allocation decision is not regulated, thus we will also provide distributed solutions.
-%The goal of this paper is to find a strategy for WBSs to choose channel and power level in the in order to acquire good SINR on end terminals.
+
+In this paper, we focus on the co-existence issue of the WBSs and look into the channel allocation problem in TV white space with respect to ECC and FCC regulations respectively.
+The main contributions of this work can be summarized as follows:
+\begin{itemize} 
+\item We devise both centralized and distributed schemes to make use of TVWS and improve the SINR on end users with respect to ECC and FCC rules respectively. To our knowledge, we are the first to focus on improving the SINR on the end users. 
+\item We devise tailored distributed algorithms with respect to ECC and FCC regulations respectively. 
+We formulate the channel allocation problem with different transmission power (ECC regulation) and the one with identical transmission power (FCC regulation) into congestion game respectively, and derive the distributed algorithms which converge to Nash Equilibrium. 
+\item We solve the two centralized optimization problems and obtain the global optimal, both of them are binary and the optimization with respect to the FCC regulation is non-linear.
+\item We outperform state of art in ECC regulation scenario.
+
+\end{itemize}
+
+
 
 
 
@@ -485,41 +497,19 @@ WBSs calculate their QuasiSINRs with these information respectively.
 %A WBS also knows the interference it causes on the auxiliary circles of other co-channel WBSs via accessing the database.
 
 
-\subsection{Permitted Transmission Power for WBSs}
-%According to regulations, WBSs rely on database queries to assign resources, \ie frequencies and transmission powers.
-According to regulations, the calculation engine within the WSDB translates the information of incumbent services and technical characteristics and location of the white space devices into a list of allowed frequencies and associated transmit powers for the white space devices~\cite{ECC236}.
-WSDB's decisions on the transmission power are different with respect to different regulations.
 
 
 
-\subsubsection{ECC Regulations on Permitted Tx Power}
-ECC and Ofcom propose guidance~\cite{ECC186, ECMA392} and focus on the protection of the critical points from the harmful interference, and don't regulate the power limitation. 
-As to decision on the transmission power per ECC, as WBSs work in underlay manner and coexist with digital terrestrial TV receivers, the aggregate generated interference caused on the critical points on each channel should not exceed a threshold.
-We adopt the interference model and the optimization methodology from the work of \cite{multipleIntf_pimrc11} to plan the maximum transmission power on each channel for WBSs.
-%
-For WBS $i\in \mathcal{N}$, the maximum transmission power allowed on channel $c\in \mathbb{C}$ is denoted as $P_i^c$. 
-As to each channel $c$, the generated interference on each interference measuring device should be within a predefined interference margin $I$.
-The interference margin in a slow fading environment is decided according to~\cite{aggregate_interference_shadow_fading_2010}.
-To address this fairness issue, we maximize the sum of the logarithmic value of every WBS's transmission power, and formulate the problem into a convex optimization problem.
-	\begin{equation}
-		\label{cvx}
-		\begin{aligned}
-		& {\text{Maximize}}
-		& & \sum_{i\in \mathcal{N}} \log P^c_i \\
-		& \text{subject to}
-		& & \sum_{i\in \mathcal{N}} (P^c_i \cdot h_{i,\text{cp}}\cdot z) < I, \forall\text{cp} \in \mathcal{K}
-		\end{aligned}
-	\end{equation}
-This optimization is conducted in WSDB for each channel $c\in \mathbb{C}$, and the calculated maximum permitted transmission powers are used by the WBSs afterwards.
 
-\subsubsection{FCC Regulations of Permitted Tx Power}
-FCC initially restricts the maximum transmission power of the fixed devices to be 1 Watt and now relaxes the limitation to 4 Watt.
-%As to the decision made on the transmission power per FCC, all WBSs work with 4 Watts transmission power.
-FCC doesn't impose restriction on the aggregated interference caused on primary TV receivers, hence there should be a limit on the number of operating WBSs when the WBSs in the IEEE 802.22 network is dense.
+
+
+
+
+
 
 \subsection{Problem Formulation}
 \label{problemProposed}
-Our goal is to minimize the sum of inverted quasiSINR $\sum_{i\in \mathcal{N}}1/{\gamma_{i}}$ with the WSDB's decisions on WBSs' transmission powers.
+Our goal is to minimize the sum of inverted quasiSINR $\sum_{i\in \mathcal{N}}\frac{1}{\gamma_{i}}$ with the WSDB's decisions on WBSs' transmission powers.
 In order to ensure the fairness among WBSs,  we minimize the sum of inverted quasiSINR instead of maximizing the sum of quasiSINR of all WBSs.
 %	\begin{equation}
 %\label{problem}
@@ -732,15 +722,32 @@ WBSs update such mapping dynamically and this approach converges to correlated e
 \section{Channel and Power Allocation Scheme complying with ECC Rules}
 
 In this section we will discuss the channel and power allocation problem complying with the rules regulated by ECC.
-%According to the ECC regulations, the transmission power of the WBSs are strictly regulated, so that the TV receivers are not affected even when all the WBSs operate on the same channel.
+Given all the other WBSs' selection on channel and transmission power, a WBS is interested in choosing the channel which brings it the best performance, \ie the data rate of its end users.
+A WBS prefers to choose the channel which experiences the minimum interference, while simultaneously the transmission power can be set as high as possible, so as to obtain better SINR at associated terminals and and generally increase coverage. \cite{wuinfocom09, HoangPowerChannel2010}. 
+Nevertheless, high transmission power causes significant co-channel interference to other secondary users operating on the same channel. 
+Hence, a secondary cell has to balance its transmission power and the caused interference on other cells while simultaneously choosing a working channel that decreases the interference its terminals are exposed to.
 In the following subsections, we firstly present the decision on the maximum permitted transmission power on each channel for each WBS, then present how do the WBSs make use of these powers in both centralized and distributed manner respectively.
 \subsection{The Maximum Permitted Transmission Power}
 \label{powermap}
 
 We adopt the interference model and the optimization methodology from the work of \cite{multipleIntf_pimrc11} to plan the maximum transmission power on each channel for WBSs.
-Having a global view of the propagation parameters, geolocations of WBSs and interference threshold at the critical points of the DTV receivers, an optimization is implied in the database.
-By solving the optimization formulation~\ref{cvx}, the WSDB obtains the maximum permitted transmission power for every WBS and over every channel.
+%
+For WBS $i\in \mathcal{N}$, the maximum transmission power allowed on channel $c\in \mathbb{C}$ is denoted as $P_i^c$. 
+As to each channel $c$, the generated interference on each interference measuring device should be within a predefined interference margin $I$.
+The interference margin in a slow fading environment is decided according to~\cite{aggregate_interference_shadow_fading_2010}.
+To address this fairness issue, we maximize the sum of the logarithmic value of every WBS's transmission power, and formulate the problem into a convex optimization problem.
+	\begin{equation}
+		\label{cvx}
+		\begin{aligned}
+		& {\text{Maximize}}
+		& & \sum_{i\in \mathcal{N}} \log P^c_i \\
+		& \text{subject to}
+		& & \sum_{i\in \mathcal{N}} (P^c_i \cdot h_{i,\text{cp}}\cdot z) < I, \forall\text{cp} \in \mathcal{K}
+		\end{aligned}
+	\end{equation}
+This optimization is conducted in WSDB for each channel $c\in \mathbb{C}$, and the calculated maximum permitted transmission powers are used by the WBSs afterwards.
 The interference threshold on the critical points will not be exceeded even when all the WBSs work on one same channel.
+
 %there are multiple channels available and WBSs are free to choose their preferred channels, the aggregate interference on one channel will be smaller than that when all WBSs work on that channel. 
 %When the WBSs work on different channels, there will be a margin for network dynamics such as new WBS starting to work or increased interference on TV contour due to the variance of broadcast path condition. 
 %XXX As mentioned above, it is not clear which impact the relationship between maximum transmit power planning and channel selection has XXX.
@@ -1046,7 +1053,7 @@ Due to the existence of certain WBSs which don't transmit, we can not adopt the 
 In order to solve this problem, we allow the idle WBSs to work with a very low transmission power.
 That being said, the power used by user $i$ can be presented as $\vec{P}_i^T X_i = \sum\limits_{k=1}^{|\mathbb{C}|}p_i^k\cdot x_{ik}$.
 There is $p_i^k\in \{P_\mu, P_{\mathtt{op}}\}$, where $P_\mu$ represents the very weak transmission power.
-The transmission power levels are the same as for all the WBSs, so we omit the superscript when we refer the transmission power.
+The transmission power levels are the same for all WBSs, so we omit the superscript when we refer the transmission power.
 
 	\begin{equation}
 \label{QLP}
