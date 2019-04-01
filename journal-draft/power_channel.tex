@@ -175,20 +175,21 @@ The utilization of TVWS by the white space devices are regulated by national reg
 The Electronic Communications Committee (ECC) and Ofcom have released guidelines in EU and UK respectively in terms of the operation of white space devices~\cite{ECC236, ofcom15}.
 Although many regulation details from the three institutes are different, white space data base (WSDB) is adopted by all the three institutes.
 
-TV White Space database was first introduced as a way to overcome the technical hurdles faced by spectrum sensing techniques to precisely detect very weak primary signals~\cite{Mwangoka2011DySPAN}.
-white space device should contact a white space data base and provide its location and technical characteristics.
+TV White Space database was first introduced as a way to overcome the technical hurdles which prevent the spectrum sensing techniques from precisely detecting very weak primary signals~\cite{Mwangoka2011DySPAN}.
+White space device should contact a white space data base and provide its location and technical characteristics.
 The WSDB translates the information on incumbent services and the technical characteristics and location of the white space devices into a list of allowed frequencies and associated transmit powers for devices.~\cite{ECC236}.
-white space device needs to access the WSDB to get the available channels and powers before starting transmission.
+White space device needs to access the WSDB to get the available channels and powers before starting transmission.
 %WSDB is proposed mainly due to the difficulty to implement spectrum sensing, which is suggested by the regulators.%DEBUG
 
-White space data base plays the key role in the utilization of TVWS, which has the global view of the white space devices in the network and protects the digital terrestrial TV receivers.
+White space data base plays a key role in the utilization of TVWS.
+It has the global view of the white space devices in the network and protects the digital terrestrial TV receivers.
 The resource which is available for the white space devices is calculated by the strategy of WSDB, which is as per the regulators.
 Ofcom and ECC impose restrictions on the aggregated interference caused by white space devices on the digital terrestrial TV receivers, and implicitly allow white space devices to have different transmission powers based on their locations.
-FCC employs stringent restriction on the universal transmission power for white space devices, but the digital terrestrial TV receivers are not protected from the aggregated interference caused by white space devices which work on the same channel. 
+FCC employs stringent restriction on the identical transmission power for white space devices, but the digital terrestrial TV receivers are not protected from the aggregated interference caused by the white space devices which work on the same channel. 
 FCC's stringent regulation on transmission power results in decreased TVWS as suggested in \cite{Harrison2012Dyspan}.
 %
-Nevertheless, as to the issue of spectrum sharing among the white space devices, the regulator institutes only provide suggestion instead of regulations.
-In this paper, we will follow the most prevalent regulations on the usage of TVWS and investigate the spectrum sharing issue among the white space devices.
+%Nevertheless, as to the issue of spectrum sharing among the white space devices, the regulator institutes only provide suggestion instead of regulations.
+In this paper, we will follow regulations issued by ECC on the usage of TVWS and investigate the spectrum sharing issue among the white space devices.
 
 
 
@@ -213,11 +214,11 @@ The white space devices are classified into two functional categories: 1) High p
 The fixed devices and some portable devices should access the WSDB to obtain the available spectrum and permitted transmission.
 %
 The fixed white space devices work as base stations and provides a backhaul for broadband client access.
-These white space base stations (WBS) are the base stations in the IEEE 802.22 standard which is designed for wireless regional area networks.
-As the fixed white space devices work with high transmission power, they are the major potential source of interference to the digital terrestrial TV receivers so that their transmission characteristics should be carefully decided by the TWDB.
-According to regulations, the calculation engine within the WSDB translates the information of incumbent services and technical characteristics and location of the white space devices into a list of allowed frequencies and associated transmit powers for the white space devices~\cite{ECC236}.
+These white space base stations (WBS) are the base stations in the IEEE 802.22 standard which are designed for wireless regional area networks.
+As the fixed white space devices work with high transmission power, they are the major potential source of interference to the digital terrestrial TV receivers so that their transmission characteristics should be carefully decided by the WSDB.
+%According to regulations, the calculation engine within the WSDB translates the information of incumbent services and technical characteristics and location of the white space devices into a list of allowed frequencies and associated transmit powers for the white space devices~\cite{ECC236}.
 WSDB's decisions on the transmission power are different with respect to different regulations.
-ECC and Ofcom~\cite{ECC186, ECMA392} focus on the protection of the critical points from the harmful interference, and don't regulate the transmission power limitation. 
+ECC and Ofcom~\cite{ECC186, ECMA392} emphasize on the protection of the critical points from the harmful interference, and don't regulate the transmission power limitation. 
 As to decision on the transmission power per ECC, as WBSs work in underlay manner and coexist with digital terrestrial TV receivers, the aggregate generated interference caused on the critical points on each channel should not exceed a threshold.
 FCC initially restricts the maximum transmission power of the fixed devices to be 1 Watt and now relaxes the limitation to 4 Watt.
 FCC doesn't impose restriction on the aggregated interference caused on primary TV receivers, hence there should be a limit on the number of operating WBSs when the WBSs in the IEEE 802.22 network are dense.
@@ -225,12 +226,12 @@ FCC doesn't impose restriction on the aggregated interference caused on primary 
 The existence of WSDB makes it a natural choice to adopt centralized solution for the channel allocation problem, \ie the WSDB not only provide the WBSs with the available channels and corresponding maximum powers, but also the channels to work on at a given time.
 But where to make the channel allocation decision is not regulated, thus we will also provide distributed solutions.
 
-In this paper, we focus on the co-existence issue of the WBSs and look into the multiple channel allocation problem in TV white space with respect to ECC and FCC regulations respectively.
+In this paper, we focus on the co-existence issue of the WBSs and look into the multiple channel allocation problem in TV white space with respect to ECC.
 The main contributions of this work can be summarized as follows:
 \begin{itemize} 
-\item We devise both centralized and distributed schemes to make use of TVWS and improve the Shannon capacity on end users with respect to ECC rules. 
-To our knowledge, this is the first effort made to utilize multiple channels with ECC restrictions. 
-\item We formulate the channel allocation problem with different transmission power into congestion game, and derive the distributed algorithms which converge to Nash Equilibrium. 
+\item Complying with ECC rules, we devise both centralized and distributed schemes to make use of TVWS in cellular networks and improve the Shannon capacity on end users.
+To our knowledge, this is the first effort made to utilize multiple TVWS channels under the ECC regulations. 
+\item We formulate the channel allocation problem, where the the transmission powers are different as to different WBS and channels, into a congestion game, then derive the distributed algorithms which converge to Nash Equilibrium. 
 \item We solve the centralized optimization problems and obtain the global optimal.
 Simulation shows the distributed scheme achieves similar average capacity on end users but consumes considerably more energy.
 
@@ -450,8 +451,10 @@ WBSs calculate their QuasiSINRs with these information respectively.
 
 To exploit TVWS, authors in \cite{DySpAN10MeasuringWhitespaceCapacity, HessarTMC15, Deshmukh2015, Achtzehn12} have proposed different approaches for assessment of TVWS capacity under FCC and ECC regulations respectively.
 Hessar et al.~\cite{ReAlloTVWS14DySPAN} aim to maximize the Shannon capacity of the network which complies with FCC rules.
-The solution seeks the trade-off between the wide band and co-channel interference, both of which are brought by assigning multiple channels to WBSs.
-But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the digital terrestrial TV receivers.
+The solution seeks the trade-off between the benefits brought in by wide band and co-channel interference which is resulted on the wide band.
+Centralized schemes are proposed to increase the throughput of the secondary work, but they only focus on the capacities on the location of the secondary base stations.
+% This statement is wrong: But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the digital terrestrial TV receivers.
+This scheme only 
 Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} follow the rules of FCC, and propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
 Ying et al.~\cite{Ying2018DySPAN} look for the maximal set of white space devices which could access the spectrum, a heuristic scheme is proposed based on maximum weighted independent set in the graph which representing the secondary network.
 This work doesn't consider the aggregate interference caused to the digital TV receivers.
@@ -938,7 +941,7 @@ As to one WBS, the number of such inquiries is the number of steps before conver
 
 In our formulated congestion game, a player $i$ is allowed to access up to $(N-1)$ resources in the same time, \ie $\{i, j_1, c(i)\}, \{i, j_2, c(i)\} \cdots \{i, j_{N-1}, c(i)\}$, thus the upper bound of converge steps can not be obtained from the conclusion~\ref{2:Rosenthal_potential_newdelay} for singleton congestion game.
 But our problem is special because for each resource, the possible number of players allowed to use each resource is either 2 or 0.
-Thus we can refer the method used in Section~\ref{singleton_congestion_game} to analyse the update times for our problem.
+Thus we can refer the method used in Section~\ref{game} to analyse the times of updates for our problem.
 Firstly, we sort the cost values in increasing order.
 Although a WBS 
 \begin{equation}
@@ -955,6 +958,9 @@ The upper bound of total update steps is $2n^2$, thus averagely, the upper bound
 \section{Performance Evaluation}
 \label{simulation}
 In this section, we will investigate the centralized optimization and distributed schemes with different amount of channels.
+As comparison, we implement the centralized scheme proposed in~\cite{ReAlloTVWS14DySPAN}, which is designed complying with FCC regulations.
+Some adaptions are made to comply with the ECC rules, 1) When a channel is chosen, the WBS transmits with the maximal permitted transmission power permitted on that channel instead of an identical power for all the WBSs; 2) Auxiliary circle is introduced into the scheme, and the SINR is not the quotient of the transmission power and the interference on the WBSs' locations, but the power of signal and interference on the auxiliary circles.
+
 The evaluation setting is as follows.
 A square area which is 60km x 60km is divided evenly into 16 square blocks.
 There is one WBS sitting in the middle of each block,  where its end terminals are distributed within the same block.
@@ -997,15 +1003,16 @@ Some parameters are listed in Table~\ref{6}.
 
 
 
- 
+The first group of simulation is conducted with 9 WBSs which randomly secure the 16 available locations for WBSs, there are 4 TVWS channels.
 Figure~\ref{transPower} depicts the average transmission power of WBSs when working with different amount of channels.
 The two schemes consume the same energy working with single channel, while the distributed scheme consumes two times more than the centralized optimization.
+The greedy scheme consumes as less power as our proposed schemes when single channel is used, because many WBSs are in idle state. 
 
 
  \begin{figure}[h!]
     \centering
-      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_Tx.pdf}
-    \caption{Average transmission power of WBSs}
+      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Tx_1000.pdf}
+    \caption{Average transmission power of WBSs, 9 WBSs, 4 channels.}
 \label{transPower}    
   \end{figure}
   
@@ -1016,15 +1023,31 @@ The distributed and centralized optimization schemes achieve similar performance
 With the increase of the amount of channels in use, the capacity of the two schemes increases linearly.
      \begin{figure}[h!]
        \centering
-       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_Capacity.pdf}
-       \caption{Average capacity on end terminals}
+       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Capacity_1000.pdf}
+       \caption{Average capacity on end terminals,  9 WBSs, 4 channels.}
 	\label{ECC_multiChannel_Capacity}
      \end{figure}
 
 
+The proposed schemes achieve a balance between the achieved throughput and transmis
+In contrary, the greedy scheme is sensitive to the radius of the auxiliary circle.
 
+The second group of simulation is done with 16 WBSs, which creates a denser scenario than group 1. 
+There are 5 TVWS channels.
 
-
+ \begin{figure}[h!]
+    \centering
+      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Tx_1000_16WBS.pdf}
+    \caption{Average transmission power of WBSs,  16 WBSs, 5 channels.}
+\label{transPower2}    
+  \end{figure}
+  
+       \begin{figure}[h!]
+       \centering
+       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Capacity_1000_16WBS.pdf}
+       \caption{Average capacity on end terminals,  16 WBSs, 5 channels.}
+	\label{ECC_multiChannel_Capacity2}
+     \end{figure}
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  19 MAR 2019 08:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  1 APR 2019 08:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1171,7 +1171,7 @@ phic file (type pdf)
 
 <use ../figures/03_distributedChannelAllocation/TWWS_availability_east.pdf>
 Package pdftex.def Info: ../figures/03_distributedChannelAllocation/TWWS_availa
-bility_east.pdf used on input line 207.
+bility_east.pdf used on input line 208.
 (pdftex.def)             Requested size: 188.99872pt x 125.1356pt.
 
 
@@ -1181,21 +1181,21 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <7.5> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 227.
-LaTeX Font Info:    Try loading font information for OMS+phv on input line 227.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 228.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 228.
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/psnfss/omsphv.fd
 File: omsphv.fd 
 )
 LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <6.5> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 227.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 228.
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 227.
+(Font)              size <6> substituted on input line 228.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <8> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 227.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 228.
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <6.5> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 227.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 228.
  [1{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
@@ -1203,94 +1203,93 @@ Non-PDF special ignored!
 
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 291.
-LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 293.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 292.
+LaTeX Font Info:    Calculating math sizes for size <6.5> on input line 294.
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6.5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 293.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 294.
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <6.5> not available
-(Font)              size <6> substituted on input line 293.
+(Font)              size <6> substituted on input line 294.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <4.54997> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 293.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 294.
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <4.54997> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <3.25> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 293.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 294.
 LaTeX Font Warning: Font shape `U/lasy/m/n' in size <3.25> not available
-(Font)              size <5> substituted on input line 293.
+(Font)              size <5> substituted on input line 294.
 LaTeX Font Info:    Font shape `OT1/phv/bx/n' in size <6.5> not available
-(Font)              Font shape `OT1/phv/b/n' tried instead on input line 296.
+(Font)              Font shape `OT1/phv/b/n' tried instead on input line 304.
  [2 <../figures/03_distributedChannelAllocation/TWWS_availability_east.pdf>]
-<../figures/03_distributedChannelAllocation/systemmodel_working.pdf, id=105, 45
+<../figures/03_distributedChannelAllocation/systemmodel_working.pdf, id=108, 45
 0.03922pt x 354.8611pt>
 File: ../figures/03_distributedChannelAllocation/systemmodel_working.pdf Graphi
 c file (type pdf)
 
 <use ../figures/03_distributedChannelAllocation/systemmodel_working.pdf>
 Package pdftex.def Info: ../figures/03_distributedChannelAllocation/systemmodel
-_working.pdf used on input line 306.
+_working.pdf used on input line 307.
 (pdftex.def)             Requested size: 188.99872pt x 149.02982pt.
 
-<../figures/03_distributedChannelAllocation/quasiSINR2_2.pdf, id=108, 138.52359
+<../figures/03_distributedChannelAllocation/quasiSINR2_2.pdf, id=111, 138.52359
 pt x 74.56874pt>
 File: ../figures/03_distributedChannelAllocation/quasiSINR2_2.pdf Graphic file 
 (type pdf)
 
 <use ../figures/03_distributedChannelAllocation/quasiSINR2_2.pdf>
 Package pdftex.def Info: ../figures/03_distributedChannelAllocation/quasiSINR2_
-2.pdf used on input line 370.
+2.pdf used on input line 371.
 (pdftex.def)             Requested size: 126.00128pt x 67.83147pt.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 382.
 LaTeX Font Warning: Command \tiny invalid in math mode on input line 383.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 384.
 
-Overfull \hbox (12.33656pt too wide) detected at line 385
+Overfull \hbox (12.33656pt too wide) detected at line 386
 [][][][]
  []
 
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 395.
 [3 <../figures/03_distributedChannelAllocation/systemmodel_working.pdf> <../fig
 ures/03_distributedChannelAllocation/quasiSINR2_2.pdf
 
@@ -1298,133 +1297,199 @@ pdfTeX warning: /usr/local/texlive/2017/bin/x86_64-darwin/pdflatex (file ../fig
 ures/03_distributedChannelAllocation/quasiSINR2_2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
 >]
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 394.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 426.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 427.
 
 
-LaTeX Warning: Reference `WhiteSussa' on page 4 undefined on input line 426.
+LaTeX Warning: Reference `WhiteSussa' on page 4 undefined on input line 427.
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 683--685
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 686--688
 \OT1/ptm/m/n/9 for WBS $\OML/cmm/m/it/9 i$ \OT1/ptm/m/n/9 are denoted by a con-
 stant vec-tor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 683--685
+Underfull \hbox (badness 10000) in paragraph at lines 686--688
 \OT1/cmr/bx/n/9 P[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 f\OML/cmm/m/it/9 P[]; []  
 ; P[]; []  ; P[]\OMS/cmsy/m/n/9 g$\OT1/ptm/m/n/9 . The trans-mis-sion
  []
 
-[5]
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 729.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 729.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 729.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 732.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 732.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 732.
 
-Overfull \hbox (11.56255pt too wide) detected at line 730
+Overfull \hbox (11.56255pt too wide) detected at line 733
 [][]\OML/cmm/m/it/9 u[] \OT1/cmr/m/n/9 = [] + [] [] [] + [] [][] 
  []
 
+[5]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 761.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 834.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 834.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 764.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 837.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 837.
  [6]
-Overfull \hbox (42.59279pt too wide) in paragraph at lines 877--877
+Overfull \hbox (42.59279pt too wide) in paragraph at lines 880--880
 [] 
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Extra height:0.0pt when 170.37498pt
-(2)Left:170.37498pt Right:164.0pt Output:170.37498pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:21.0pt when 71.97421pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:21.0pt when 72.97421pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:21.0pt when 73.97421pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:21.0pt when 74.97421pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:21.0pt when 75.97421pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+Extra height:0.0pt when 76.97421pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+(2)Left:76.97421pt Right:65.0pt Output:76.97421pt
 - LAST -
-Left:170.37498pt
-Right:164.0pt
-Output:170.37498pt
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 895.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 895.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 895.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 895.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 895.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 895.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 913.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 913.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 913.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 913.
+Left:76.97421pt
+Right:65.0pt
+Output:76.97421pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
  [7]
-
-LaTeX Warning: Reference `singleton_congestion_game' on page 8 undefined on inp
-ut line 941.
-
-
-<../figures/03_distributedChannelAllocation/layout.pdf, id=420, 643.40375pt x 6
+<../figures/03_distributedChannelAllocation/layout.pdf, id=421, 643.40375pt x 6
 44.4075pt>
 File: ../figures/03_distributedChannelAllocation/layout.pdf Graphic file (type 
 pdf)
  <use ../figures/03_distributedChannelAllocation/layout.pdf>
 Package pdftex.def Info: ../figures/03_distributedChannelAllocation/layout.pdf 
-used on input line 968.
+used on input line 974.
 (pdftex.def)             Requested size: 105.0pt x 105.16237pt.
 
-Overfull \hbox (17.80978pt too wide) in paragraph at lines 977--993
+Overfull \hbox (17.80978pt too wide) in paragraph at lines 983--999
  [][] 
  []
 
 
-<../../channel-power-allocation-802.22/plots/ECC_multiChannel_Tx.pdf, id=424, 4
-79.7925pt x 393.47pt>
-File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_Tx.pdf Graph
-ic file (type pdf)
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
+_1000.pdf, id=425, 479.7925pt x 393.47pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Tx_1000.pdf Graphic file (type pdf)
 
-<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_Tx.pdf>
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Tx_1000.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_Tx.pdf used on input line 1007.
+hannel_withComparison_Tx_1000.pdf used on input line 1014.
 (pdftex.def)             Requested size: 188.99872pt x 154.99567pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<../../channel-power-allocation-802.22/plots/ECC_multiChannel_Capacity.pdf, id=
-426, 484.81125pt x 409.53pt>
-File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_Capacity.pdf
- Graphic file (type pdf)
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
+pacity_1000.pdf, id=427, 470.75874pt x 409.53pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Capacity_1000.pdf Graphic file (type pdf)
 
-<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_Capacity.pdf>
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Capacity_1000.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_Capacity.pdf used on input line 1019.
-(pdftex.def)             Requested size: 188.99872pt x 159.65356pt.
+hannel_withComparison_Capacity_1000.pdf used on input line 1026.
+(pdftex.def)             Requested size: 188.99872pt x 164.41524pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8 <../figures/03_distributedChannelAllocation/layout.pdf>]
-(./power_channel.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
+_1000_16WBS.pdf, id=428, 479.7925pt x 393.47pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Tx_1000_16WBS.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Tx_1000_16WBS.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Tx_1000_16WBS.pdf used on input line 1040.
+(pdftex.def)             Requested size: 188.99872pt x 154.99567pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
+pacity_1000_16WBS.pdf, id=429, 484.81125pt x 409.53pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Capacity_1000_16WBS.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Capacity_1000_16WBS.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Capacity_1000_16WBS.pdf used on input line 1047.
+(pdftex.def)             Requested size: 188.99872pt x 159.65356pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_Tx.pdf> <../.
-./channel-power-allocation-802.22/plots/ECC_multiChannel_Capacity.pdf>]
+ [8 <../figures/03_distributedChannelAllocation/layout.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+(./power_channel.bbl [9 <../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Tx_1000.pdf> <../../channel-power-allocation-802.22/plots
+/ECC_multiChannel_withComparison_Capacity_1000.pdf> <../../channel-power-alloca
+tion-802.22/plots/ECC_multiChannel_withComparison_Tx_1000_16WBS.pdf> <../../cha
+nnel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Capacity_100
+0_16WBS.pdf>]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¤ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 136--140
 []\OT1/ptm/m/n/9 X. Ying, M. M. Bud-dhikot, and S. Roy,
@@ -1438,7 +1503,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--140
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
+ [10]
 Underfull \hbox (badness 10000) in paragraph at lines 214--217
 []\OT1/ptm/m/n/9 A. Mit-sos, B. Chachuat, and P. I. Bar-ton,
  []
@@ -1449,12 +1514,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--217
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1046.
- [10]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1046.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1069.
+ [11
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1069.
  (./power_channel.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1046.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1046.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1069.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1069.
 
 Package rerunfilecheck Info: File `power_channel.out' has not changed.
 (rerunfilecheck)             Checksum: 3820ACD8A580A15C42EA21A941FD05B3;738.
@@ -1467,24 +1534,24 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1046.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1069.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22538 strings out of 492995
- 394301 string characters out of 6132704
- 796812 words of memory out of 5000000
- 25613 multiletter control sequences out of 15000+600000
+ 22554 strings out of 492995
+ 395517 string characters out of 6132704
+ 794812 words of memory out of 5000000
+ 25624 multiletter control sequences out of 15000+600000
  56887 words of font info for 126 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  43i,25n,77p,10430b,10105s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.2} has been referenced bu
 t does not exist, replaced by a fixed one
 
-pdfTeX warning (dest): name{section*.10} has been referenced but does not exist
+pdfTeX warning (dest): name{section*.12} has been referenced but does not exist
 , replaced by a fixed one
 
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
@@ -1508,10 +1575,10 @@ ts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
 1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on power_channel.pdf (10 pages, 530608 bytes).
+Output written on power_channel.pdf (11 pages, 540706 bytes).
 PDF statistics:
- 586 PDF objects out of 1000 (max. 8388607)
- 478 compressed objects within 5 object streams
- 99 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 625 PDF objects out of 1000 (max. 8388607)
+ 510 compressed objects within 6 object streams
+ 102 named destinations out of 1000 (max. 500000)
+ 121 words of extra memory for PDF output out of 10000 (max. 10000000)
 
