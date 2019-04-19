@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  1 APR 2019 08:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  19 APR 2019 23:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1403,23 +1403,23 @@ File: ../figures/03_distributedChannelAllocation/layout.pdf Graphic file (type
 pdf)
  <use ../figures/03_distributedChannelAllocation/layout.pdf>
 Package pdftex.def Info: ../figures/03_distributedChannelAllocation/layout.pdf 
-used on input line 974.
+used on input line 975.
 (pdftex.def)             Requested size: 105.0pt x 105.16237pt.
 
-Overfull \hbox (17.80978pt too wide) in paragraph at lines 983--999
+Overfull \hbox (15.40698pt too wide) in paragraph at lines 984--1001
  [][] 
  []
 
 
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
-_1000.pdf, id=425, 479.7925pt x 393.47pt>
+_1000_9WBS-crop.pdf, id=427, 479.7925pt x 393.47pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
-on_Tx_1000.pdf Graphic file (type pdf)
+on_Tx_1000_9WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
-n_Tx_1000.pdf>
+n_Tx_1000_9WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Tx_1000.pdf used on input line 1014.
+hannel_withComparison_Tx_1000_9WBS-crop.pdf used on input line 1018.
 (pdftex.def)             Requested size: 188.99872pt x 154.99567pt.
 
 
@@ -1427,101 +1427,152 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
-pacity_1000.pdf, id=427, 470.75874pt x 409.53pt>
+pacity_1000_9WBS-crop.pdf, id=428, 484.81125pt x 409.53pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
-on_Capacity_1000.pdf Graphic file (type pdf)
+on_Capacity_1000_9WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
-n_Capacity_1000.pdf>
+n_Capacity_1000_9WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Capacity_1000.pdf used on input line 1026.
-(pdftex.def)             Requested size: 188.99872pt x 164.41524pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
-_1000_16WBS.pdf, id=428, 479.7925pt x 393.47pt>
-File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
-on_Tx_1000_16WBS.pdf Graphic file (type pdf)
-
-<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
-n_Tx_1000_16WBS.pdf>
-Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Tx_1000_16WBS.pdf used on input line 1040.
-(pdftex.def)             Requested size: 188.99872pt x 154.99567pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
-pacity_1000_16WBS.pdf, id=429, 484.81125pt x 409.53pt>
-File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
-on_Capacity_1000_16WBS.pdf Graphic file (type pdf)
-
-<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
-n_Capacity_1000_16WBS.pdf>
-Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Capacity_1000_16WBS.pdf used on input line 1047.
+hannel_withComparison_Capacity_1000_9WBS-crop.pdf used on input line 1025.
 (pdftex.def)             Requested size: 188.99872pt x 159.65356pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
+_All_9_WBS-crop.pdf, id=429, 464.73625pt x 382.42876pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Tx_All_9_WBS-crop.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Tx_All_9_WBS-crop.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Tx_All_9_WBS-crop.pdf used on input line 1032.
+(pdftex.def)             Requested size: 188.99872pt x 155.52469pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
+pacity_All_9_WBS-crop.pdf, id=430, 470.75874pt x 382.42876pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Capacity_All_9_WBS-crop.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Capacity_All_9_WBS-crop.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Capacity_All_9_WBS-crop.pdf used on input line 1039.
+(pdftex.def)             Requested size: 188.99872pt x 153.53482pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <../figures/03_distributedChannelAllocation/layout.pdf>]
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
+_1000_16WBS-crop.pdf, id=457, 479.7925pt x 393.47pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Tx_1000_16WBS-crop.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Tx_1000_16WBS-crop.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Tx_1000_16WBS-crop.pdf used on input line 1055.
+(pdftex.def)             Requested size: 188.99872pt x 154.99567pt.
+
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
+pacity_1000_16WBS-crop.pdf, id=458, 484.81125pt x 409.53pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Capacity_1000_16WBS-crop.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Capacity_1000_16WBS-crop.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Capacity_1000_16WBS-crop.pdf used on input line 1062.
+(pdftex.def)             Requested size: 188.99872pt x 159.65356pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
+_All_16_WBS-crop.pdf, id=459, 512.91624pt x 399.4925pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Tx_All_16_WBS-crop.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Tx_All_16_WBS-crop.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Tx_All_16_WBS-crop.pdf used on input line 1069.
+(pdftex.def)             Requested size: 210.0pt x 163.56134pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
+pacity_All_16_WBS-crop.pdf, id=460, 464.73625pt x 382.42876pt>
+File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Capacity_All_16_WBS-crop.pdf Graphic file (type pdf)
+
+<use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
+n_Capacity_All_16_WBS-crop.pdf>
+Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Capacity_All_16_WBS-crop.pdf used on input line 1076.
+(pdftex.def)             Requested size: 210.0pt x 172.80325pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison
+_Tx_1000_9WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Capacity_1000_9WBS-crop.pdf> <../../channel-power-allocat
+ion-802.22/plots/ECC_multiChannel_withComparison_Tx_All_9_WBS-crop.pdf> <../../
+channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Capacity_
+All_9_WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/ECC_multiChann
+el_withComparison_Tx_1000_16WBS-crop.pdf>] (./power_channel.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [8 <../figures/03_distributedChannelAllocation/layout.pdf>]
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
-(./power_channel.bbl [9 <../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Tx_1000.pdf> <../../channel-power-allocation-802.22/plots
-/ECC_multiChannel_withComparison_Capacity_1000.pdf> <../../channel-power-alloca
-tion-802.22/plots/ECC_multiChannel_withComparison_Tx_1000_16WBS.pdf> <../../cha
-nnel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Capacity_100
-0_16WBS.pdf>]
+ [10 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Capacity_1000_16WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/E
+CC_multiChannel_withComparison_Tx_All_16_WBS-crop.pdf> <../../channel-power-all
+ocation-802.22/plots/ECC_multiChannel_withComparison_Capacity_All_16_WBS-crop.p
+df>]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¤ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 136--140
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 []\OT1/ptm/m/n/9 X. Ying, M. M. Bud-dhikot, and S. Roy,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--140
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 \OT1/ptm/m/n/9 ``Coexistence-aware dynamic chan-nel allo-ca-tion
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10]
-Underfull \hbox (badness 10000) in paragraph at lines 214--217
-[]\OT1/ptm/m/n/9 A. Mit-sos, B. Chachuat, and P. I. Bar-ton,
- []
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \hbox (badness 10000) in paragraph at lines 214--217
-\OT1/ptm/m/n/9 ``Mccormick-based relax-ations of algo-rithms,''
- []
+ [11])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1096.
 
-)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1069.
- [11
+[12
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1069.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1096.
  (./power_channel.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1069.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1069.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1096.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1096.
 
 Package rerunfilecheck Info: File `power_channel.out' has not changed.
 (rerunfilecheck)             Checksum: 3820ACD8A580A15C42EA21A941FD05B3;738.
@@ -1531,28 +1582,22 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1069.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1096.
  )
 (\end occurred inside a group at level 1)
 
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 22554 strings out of 492995
- 395517 string characters out of 6132704
+ 22583 strings out of 492995
+ 397828 string characters out of 6132704
  794812 words of memory out of 5000000
- 25624 multiletter control sequences out of 15000+600000
+ 25646 multiletter control sequences out of 15000+600000
  56887 words of font info for 126 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  43i,25n,77p,10430b,10105s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.2} has been referenced bu
+pdfTeX warning (dest): name{section*.16} has been referenced bu
 t does not exist, replaced by a fixed one
-
-pdfTeX warning (dest): name{section*.12} has been referenced but does not exist
-, replaced by a fixed one
 
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/tex
 live/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texli
@@ -1575,10 +1620,10 @@ ts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
 1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on power_channel.pdf (11 pages, 540706 bytes).
+Output written on power_channel.pdf (12 pages, 620919 bytes).
 PDF statistics:
- 625 PDF objects out of 1000 (max. 8388607)
- 510 compressed objects within 6 object streams
- 102 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 631 PDF objects out of 1000 (max. 8388607)
+ 508 compressed objects within 6 object streams
+ 105 named destinations out of 1000 (max. 500000)
+ 141 words of extra memory for PDF output out of 10000 (max. 10000000)
 

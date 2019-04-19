@@ -56,25 +56,6 @@ K.~{Harrison} and A.~{Sahai}, ``Seeing the bigger picture: Context-aware
   \url{https://www.google.com/get/spectrumdatabase/}
 \BIBentrySTDinterwordspacing
 
-\bibitem{wuinfocom09}
-Y.~Wu and D.~Tsang, ``Distributed power allocation algorithm for spectrum
-  sharing cognitive radio networks with qos guarantee,'' in \emph{Proc. of IEEE
-  INFOCOM 2009}, Apr. 2009.
-
-\bibitem{HoangPowerChannel2010}
-\BIBentryALTinterwordspacing
-A.~Hoang, Y.~Liang, and M.~Islam, ``Power control and channel allocation in
-  cognitive radio networks with primary users' cooperation,'' \emph{IEEE
-  Transactions on Mobile Computing}, vol.~9, no.~3, pp. 348--360, Mar. 2010.
-  [Online]. Available: \url{http://dx.doi.org/10.1109/TMC.2009.136}
-\BIBentrySTDinterwordspacing
-
-\bibitem{spectrum_sharing_tvspace_2012}
-X.~Chen and J.~Huang, ``Game theoretic analysis of distributed spectrum sharing
-  with database,'' in \emph{In Proceedings of 2012 IEEE 32nd International
-  Conference on Distributed Computing Systems (ICDCS)}, June 2012, pp.
-  255--264.
-
 \bibitem{ECC186}
 T.~E. C.~C. (ECC), \emph{Technical and operational requirements for the
   operation of white space devices undergeo-location approach}.
@@ -82,16 +63,11 @@ T.~E. C.~C. (ECC), \emph{Technical and operational requirements for the
 \bibitem{ECMA392}
 E.~International, \emph{MAC and PHY for Operation in TVWS}, ser. 1 June 2012.
 
-\bibitem{multipleIntf_pimrc11}
-K.~Koufos, K.~Ruttik, and R.~Jantti, ``Controlling the interference from
-  multiple secondary systems at the {TV} cell border,'' in \emph{Proc. of IEEE
-  PIMRC 2011}, Sep. 2011.
-
-\bibitem{aggregate_interference_shadow_fading_2010}
-K.~Ruttik, K.~Koufos, and R.~Jantti, ``Model for computing aggregate
-  interference from secondary cellular network in presence of correlated shadow
-  fading,'' in \emph{In Proceedings of IEEE PIMRC 2011}, Sept 2011, pp.
-  433--437.
+\bibitem{spectrum_sharing_tvspace_2012}
+X.~Chen and J.~Huang, ``Game theoretic analysis of distributed spectrum sharing
+  with database,'' in \emph{In Proceedings of 2012 IEEE 32nd International
+  Conference on Distributed Computing Systems (ICDCS)}, June 2012, pp.
+  255--264.
 
 \bibitem{DySpAN10MeasuringWhitespaceCapacity}
 K.~Harrison, S.~Mishra, and A.~Sahai, ``How much white-space capacity is
@@ -180,6 +156,30 @@ S.~Hart and A.~Colell, ``{A simple adaptive procedure leading to correlated
   [Online]. Available: \url{http://dx.doi.org/10.2307/2999445}
 \BIBentrySTDinterwordspacing
 
+\bibitem{wuinfocom09}
+Y.~Wu and D.~Tsang, ``Distributed power allocation algorithm for spectrum
+  sharing cognitive radio networks with qos guarantee,'' in \emph{Proc. of IEEE
+  INFOCOM 2009}, Apr. 2009.
+
+\bibitem{HoangPowerChannel2010}
+\BIBentryALTinterwordspacing
+A.~Hoang, Y.~Liang, and M.~Islam, ``Power control and channel allocation in
+  cognitive radio networks with primary users' cooperation,'' \emph{IEEE
+  Transactions on Mobile Computing}, vol.~9, no.~3, pp. 348--360, Mar. 2010.
+  [Online]. Available: \url{http://dx.doi.org/10.1109/TMC.2009.136}
+\BIBentrySTDinterwordspacing
+
+\bibitem{multipleIntf_pimrc11}
+K.~Koufos, K.~Ruttik, and R.~Jantti, ``Controlling the interference from
+  multiple secondary systems at the {TV} cell border,'' in \emph{Proc. of IEEE
+  PIMRC 2011}, Sep. 2011.
+
+\bibitem{aggregate_interference_shadow_fading_2010}
+K.~Ruttik, K.~Koufos, and R.~Jantti, ``Model for computing aggregate
+  interference from secondary cellular network in presence of correlated shadow
+  fading,'' in \emph{In Proceedings of IEEE PIMRC 2011}, Sept 2011, pp.
+  433--437.
+
 \bibitem{Li2012DistributedTS}
 D.~Li and J.~Gross, ``Distributed tv spectrum allocation for cognitive cellular
   network under game theoretical framework,'' \emph{2012 IEEE International
@@ -209,10 +209,5 @@ B.~Babadi and V.~Tarokh, ``Distributed dynamic frequency allocation in wireless
 B.~Ko, V.~Misra, J.~Padhye, and D.~Rubenstein, ``Distributed channel assignment
   in multi-radio 802.11 mesh networks,'' in \emph{Proc. of IEEE WCNC 2007},
   Mar. 2007.
-
-\bibitem{Mitsos2009McCormickBasedRO}
-A.~Mitsos, B.~Chachuat, and P.~I. Barton, ``Mccormick-based relaxations of
-  algorithms,'' \emph{SIAM Journal on Optimization}, vol.~20, pp. 573--601,
-  2009.
 
 \end{thebibliography}

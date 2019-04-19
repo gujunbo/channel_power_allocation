@@ -454,10 +454,10 @@ Hessar et al.~\cite{ReAlloTVWS14DySPAN} aim to maximize the Shannon capacity of 
 The solution seeks the trade-off between the benefits brought in by wide band and co-channel interference which is resulted on the wide band.
 Centralized schemes are proposed to increase the throughput of the secondary work, but they only focus on the capacities on the location of the secondary base stations.
 % This statement is wrong: But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the digital terrestrial TV receivers.
-This scheme only 
 Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} follow the rules of FCC, and propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
 Ying et al.~\cite{Ying2018DySPAN} look for the maximal set of white space devices which could access the spectrum, a heuristic scheme is proposed based on maximum weighted independent set in the graph which representing the secondary network.
 This work doesn't consider the aggregate interference caused to the digital TV receivers.
+Conflict graph is used in many works folllowing FCC rules. Ying et al,~\cite{conflictGraphTWC2018} increases the percentage of nodes served and the number of assigned channels. A Wi-Fi like secondary network is formulated into a conflict graph with consideration on pairwise interference and channel contiguity. 
 
 
 %TODO-to modify
@@ -474,126 +474,7 @@ In ~\cite{spectrum_sharing_tvspace_2012}, Chen et al. formulate the channel allo
 %Thirdly, the convergence speed of the scheme is not given, in fact, as the problem is formulated into a potential game, converge speed or the number of updates before convergence is a theoretic problem which is still unsolved.
 %Last but not least, as the utility function and the potential in the game are designed as the sum of received and introduced interference, the desired signal power and the punishment, the minimization of this \textit{sum} does indicate meaningful  performance metrics, \ie SINR on terminals, or the total transmission power consumption.
 
-\begin{comment}
-\subsection{Problem Decomposition}
-We obtain the maximal transmission power over each channel for every WBS before dealing with channel and power allocation, afterwards, the transmission power should not exceed this power mask.
-The maximal transmission power over all channels for each WBS is obtained at the centralized database.
-As the database has the global info of both the secondary network and primary network, the attenuation and shadowing between any two users are known \ie attenuation is based on propagation model and shadowing is obtained from measurement, the database is able to guarantee the service of primary users not be interfered when all the WBSs work on the same channel.
-Meanwhile, as the secondary users belong to different groups of interest, the channel and power allocation should be done in distributed manner.
-%By decomposing the problem into two subproblems, the protection on the primary users from harmful interferences is excluded out of the latter consideration on channel and power allocation.
 
-%We propose a distributed workaround for the join power channel allocation problem, so that 
-In summery, we solve the channel and power allocation in downlink communication in IEEE 802.22 network by solving three sequential subproblems:
-\begin{itemize}
-\item  Firstly, given a set of secondary WBSs and their geo-locations, the maximum permitted transmission power on each channel for each WBS is determined, so that the interference margin of primary users can not be exceeded no matter how WBSs utilize the spectrum and power resources.
-In other words, the dynamics in the secondary network is transparent to the primary system. 
-\item Secondly, once the maximum permitted transmission power is determined, WBSs choose their operating channels.
-Note that this channel assignment problem is different from the works available in literature, where the transmission power is identical over different channels for different WBSs.
-In this subproblem, the maximum permitted transmission power $p_i^c$ could be different for different channel $c\in \mathbb{C}$ and different WBS $i\in \mathcal{N}$.
-\item Thirdly, working with the maximal permitted transmission power may not be the optimal in terms of power consumption and the SINR on terminals, thus distributed power adjustment is conducted and the working channel is unchanged.
-\end{itemize}
-%The first subproblem is a centralized approach, the following two problems are solved with distributed schemes.
-%We name the our solution of channel and power allocation as \gls{DiCAPS} (Distributed Channel Allocation and Power Selection).
-The solution to the channel allocation subproblem is named as \textit{whiteCat} (white space Channel allocation).
-
-In the following, we introduce the related works of spectrum and power allocation problem in CRN, especially the works about the usage of TV white space.
-we also introduce the works related with subproblems mentioned above.
-
-%We discuss the detailed problems in the following two subsections in combination with related work in the respective area.
-%XXX Di, how can it be possible that we set the maximum transmit power and let the secondaries choose their operating channel afterwards? Isn't this related to each other ? XXX  
-%XXX Answer: I decide the maximal transmission power in a very conservation way: let all of the WBSs work on the same channel and decide the max power. This need strong argument XXX
-
-%In this paper we contribute by addressing this problem from two complementary directions. On the one hand, we study a convex formulation for setting the maximum transmit power at a set of secondary users given different interference margins for primary users. This scheme assumes a central controller to be in place which has geo-information and sufficiently detailed radio maps to characterize the path loss. We show that this convex formulation provides superior performance compared to linear problem formulations proposed in related work. Furthermore, we address the problem of assigning channels to WBS. Here, apart from the resulting cell performance, we also consider convergence of the assignment scheme as well as power consumption as important metrics. We propose a distributed scheme which interacts with a data base to get to know the channel choices of neighboring base stations, the interference relationships as predicted by radio maps as well as the maximal transmit powers. Formulated into a congestion game, the proposed schemes converges fast and provides superior performance in terms of cell performance and power consumption. 
-
-
-\subsection{Resource Allocation in CRN}
-
-We will emphasis more on the distributed solutions, but in order to give readers a full picture of the solutions as to resource allocation in CRN, we will also introduce the related works on centralized solutions.
-
-Centralized solutions usually solve the formulated constrained optimization problems at a centralized unit.
-In \cite{downlink-centralized-08-TWC}, the objective is to increase the number of supported terminals whose SINRs are above a threshold, and the constrains are to refrain the interference at the primary users within a certain margin.
-Work \cite{joint_power_channel_linkpair_08ICT} minimizes the transmission power and meanwhile makes sure the SINR of terminal is above a threshold, but this work fails to consider the protection of primary users.
-A heuristic algorithm is proposed in \cite{centralized_80222_sharing_ifip2011}, which considers the channel availability and transmission demand of each WBS.
-The aforementioned two schemes don't consider varying the transmission power.
-% xxxx important paper
-%A centralized scheme is proposed in \cite{nashbargaining_2012jsac} for joint channel and power allocation among end terminals in OFDM cognitive radio network. 
-
-There is a large variety of distributed solutions.
-In order to avoid or to alleviate co-channel interference between cells, and to allow arbitrary number of cells to work in IEEE 802.22 network, \cite{Inter-Network_Spectrum_Sharing_80222_08} proposes distributed inter-network spectrum sharing scheme, where contention decisions are made in a distributed way and the winner cells can use the shared channels.
-But this work doesn't consider the role of transmission power in the co-channel interference.
-An distributed power allocation (single channel) scheme based on learning for secondary networks is given in \cite{aggregatedInf_Galindo_crowncom09}, where penalty function involving the interference threshold on primary systems is used.
-%
-\cite{HoangPowerChannel2010} discusses power control and channel assignment in both down-link and up-link communication in cellular network. 
-Although the solution is distributed, primary users are required to cooperate with secondary base station in a learning process to decide the transmission power, in addition, there is only one secondary base station considered whereas we need to cope with the multiple cells in our problem.
-%
-Joint channel-power selection for multiple transmission links (pairs) is investigated in \cite{wuinfocom09}. 
-The authors decompose the Lagrangian dual of the problem, then propose a distributed scheme based on the dual parameters. 
-The scheme converges into pure Nash equilibrium, but in order to facilitate this scheme, monitors are required to watch interference from secondary users, moreover, monitors have to be equipped computational ability and interact with secondary users in the whole process of convergence.
-%
-
-As introduced in Chapter~\ref{INTRODUCTION}, game theory is a powerful tool in designing distributed algorithms.
-A distributed joint power and channel allocation is proposed in~\cite{pimrc_2012}, each base station chooses optimal power level and channel to optimize its utility, which results in induced received interference and caused interference on primary users. 
-The execution of this scheme is formulated into an exact potential game. 
-For each base station, after several rounds of best responses in terms of channel and power level, Nash equilibrium is achieved.
-There are some flaws hindering the application of this scheme.
-Firstly, the paper doesn't provide means for base stations to obtain the needed information which is needed to calculate the utility function.
-Secondly, it is not clear how to calculate the punishment in the utility function, which indicates whether and how much the interference threshold on primary users is violated.
-Thirdly, the convergence speed of the scheme is not given, in fact, as the problem is formulated into a potential game, converge speed or the number of updates before convergence is a theoretic problem which is still unsolved.
-Last but not least, as the utility function and the potential in the game are designed as the sum of received and introduced interference, the desired signal power and the punishment, the minimization of this \textit{sum} does indicate meaningful  performance metrics, \ie SINR on terminals, or the total transmission power consumption.
-In~\cite{spectrum_sharing_tvspace_2012}, Chen et al. investigate the channel allocation problem in the scenario of TV white space.
-The channel allocation problem is formulated into a potential game, individual WBS's utility is to maximize the capacity of one single static terminal.
-%
-Potential game is also adopted in work~\cite{tvws_paper_networking2015} to design algorithms, which mitigates the adjacent interference.
-%
-\cite{powerChannelAllocation_2015_shapley} adopts cooperation game to research the coexistence of femtocells.
-Each femtocell negotiates with neighbouring fremcells, and they form temporary coalition, but the goal of this solution is to allocate resource block in terms of time and transmission power.
-\cite{joint_power_channel_linkpair_08ICT} proposes both centralized and decentralized solutions.
-Two distributed schemes are proposed, joint channel and power allocation is formulated into a weighted potential game, as an alternative workaround, the problem is solved in two sequential phases.
-
-%
-Distributed algorithm based on Learning is proposed in \cite{cogCE_huang} for LTE to allocate the the resource block in down link, which leads to correlated equilibrium, but slow converge hinters its application.
-%
-
-
-
-\subsection*{Utilization of TV White Space}
-Here we introduce the solutions proposed on the utilization of TV white space, which includes regulations, proposed standards and recent research advances.
-In accordance with the regulations of FCC, there are some prototype applications proposed in both cellular network~\cite{tvwhite_lte2011, multicell_geo_dyspan11} and WiFi-like network~\cite{whitefi09}.
-The secondary users access a centralized data base to know the allowed channels and transmission power.
-%
-Standardization bodies are also working on TVWS utilization, including IEEE 802.22~\cite{802.22} for Wireless Regional Area Networks (WRAN), IEEE 802.11af~\cite{802.11af} for WLAN, IEEE 802.15.4m~\cite{802.15.4m} for 802.15.4 wireless networks in TVWS and 802.19.1~\cite{802.19} for coexistence methods among local and Metropolitan Area Networks (MAN).
-
-%\cite{HoangPowerChannel2010} proposes a distributed solution for power control and channel assignment in both down-link and up-link communication in a WRAN, but the investigated secondary network is composed with only one base station and multiple terminals.
-
-%% related work!!!
-Scientific research on utilization of TVWS goes on in parallel with the regulatory agencies.
-Feng et al.~\cite{hybridPricing_tvspace_2014} investigate the business model of TV spectrum utilization in database involved network structure, emphasis on the price policy of the channels approved by FCC.
-Spectrum sharing in TVWS is formulated as a series of optimization problems. 
-The guarantee that TV receivers should not be affected by the aggregate interferences form TVBDs is one constraint.
-The objective can be maximizing TVBD's downlink transmission power~\cite{multipleIntf_pimrc11}, uplink transmission power~\cite{uplink_power_tvws13}, or best geographic distribution of TVBDs~\cite{withinTVcoverage_PIMRC13}.
-A series of works~\cite{game_CA_association_ICDCS12,SA_CA_TVWS_2012crowncom, 802.22co-existence09, 802.22game_08globecom,self-coexistenceWRAN2010infocom} emphasise on interference mitigation among TVBDs via spectrum allocation.
-Vehicular networks operating with TVWS assisted by TV database and cooperative sensing is discussed in~\cite{tvws_vtc13}.
-Work~\cite{increaseTVWS12} steps further from the database paradigm and makes efforts to utilize the \textit{grey space}, where white space device is allowed to operate even within the TV service area.
-
-%After each update, WBS needs to access the data base to retrieve the current channel usage, then they can calculate xxx.
-
-
-
-
-%Secondary network should not interfere TV receivers, thus regulation on transmission power is necessary.
-%\cite{Chen_PowerControl,SenhuaHuang10,Zhu09} propose schemes for secondary users to decide the transmission power with sensing technology, one prime consideration of schemes is obviating interfering incumbent primary users. A distributed scheme to adjust power based on learning is proposed in \cite{aggregatedInf_Galindo_crowncom09} for each WBS, where a penalty function involving the interference threshold is used. This scheme needs many steps to converge, and there is no interference margin for network dynamics.
-%Solving the joint problem of power and channel allocation in a distributed manner is challenging.
-  
-To protect the TV receivers from harmful interference, the aggregate interference caused by WBSs at the contours of TV receivers should not exceed the interference margin.
-Work \cite{maximum_power_TVWS_dyspan_2011} proposes detailed calculations which a geolocation database performs in order to derive location-specific maximum permitted EIRP levels for white space devices which operate in digital terrestrial TV bands.
-\cite{multipleIntf_pimrc11} considers the maximum permitted transmission power for the network which complies with IEEE 802.22 standard. 
-The standard requires a centralized database to store the available channels for each secondary base station, thus centralized scheme can be conducted there after trivial modification.
-The sufficient condition for the TV receivers not be interfered in the context of TV white space is formulated into a centralized linear programming program (LP) in~\cite{multipleIntf_pimrc11}.
-The objective function is to maximize the summation of all secondary base stations' transmission power, and the constraints are formed to satisfy the sufficient condition for every interference measuring device for the TV receivers. 
-However, this approach doesn't take the channel assignment problem into account.
-%XXX This discussion of the related work is a bit confusing. The problem is that it is no clear per discussed paper what the shortcoming of the approach is. I.e. you describe the approaches but you do not help the reader why this approach is not contributing to the goal defined in the first sentence. Try to reformulate this section more precisely expressing what is the problem with the corresponding approach XXX.
-
-\end{comment}
 
 With the doctrine of not interfering the primary TV services and regulations imposed by institutes, the problem we solve in this paper is different from the channel allocation problems discussed in the domain of cognitive radio networks.
 But we think a brief review in terms of the channel allocation techniques in CRN is necessary.
@@ -603,7 +484,7 @@ But we think a brief review in terms of the channel allocation techniques in CRN
 With identical transmission power and symetric path attenuation, Nie et al.~\cite{CApotentialLearning_05dyspan} formulate channel assignment problem in ad-hoc cognitive radio network into a potential game which leads to pure NE, the authors~\cite{CA_Felegyhazi_07infocom, Wu_GOP_CA_08infocom} propose algorithms which converge to pure Nash equilibrium (NE) and strongly dominate strategy equilibrium respectively. 
 Simulated annealing is applied to mitigate co-channel interferences in~\cite{SA_CA_TVWS_2012crowncom}.
 For the same purpose, no-regret learning~\cite{qlearning_huang, hart00correlatedeq} is exploit to optimize the choice on channel.
-in~\cite{hart00correlatedeq}, each WBS maps the probability of choosing each strategy to a certain proportion of the regret which the WBS may have if it doesn't choose that strategy, and the WBS choose the strategy with the biggest probability.  
+In~\cite{hart00correlatedeq}, each WBS maps the probability of choosing each strategy to a certain proportion of the regret which the WBS may have if it doesn't choose that strategy, and the WBS choose the strategy with the biggest probability.  
 WBSs update such mapping dynamically and this approach converges to correlated equilibrium. 
 
 %As to our knowledge, there is no work dealing with channel allocation problem where transmission power is different.
@@ -657,7 +538,7 @@ To address this fairness issue, we maximize the sum of the logarithmic value of 
 		& & \sum_{i\in \mathcal{N}} (P^c_i \cdot h_{i,\text{cp}}\cdot z) < I, \forall\text{cp} \in \mathcal{K}
 		\end{aligned}
 	\end{equation}
-This optimization is conducted in WSDB for each channel $c\in \mathbb{C}$, and the calculated maximum permitted transmission powers are used by the WBSs afterwards.
+This optimization is conducted in WSDB for each channel $c\in \mathbb{C}$, the obtained power-channel map will be used by the WBSs to decide the operation channel afterwards.
 The interference threshold on the critical points will not be exceeded even when all the WBSs work on one same channel.
 
 %there are multiple channels available and WBSs are free to choose their preferred channels, the aggregate interference on one channel will be smaller than that when all WBSs work on that channel. 
@@ -966,7 +847,8 @@ A square area which is 60km x 60km is divided evenly into 16 square blocks.
 There is one WBS sitting in the middle of each block,  where its end terminals are distributed within the same block.
 There is a 20km wide rim area around the square area, where the critical points for the DTV receivers are randomly located.
 The locations of WBSs and TV contours are illustrated in Fig.~\ref{sim:layout}.
-WBSs' locations are fixed, but the locations of interference measurement devices for the TV receivers, the end terminals, and the sequence for WBS to update are randomly decided in each run.
+WBSs' locations are fixed, but the end terminals, and the sequence for WBS to update are randomly decided in each run.
+In each run the critical points for the digital TV service are located at different places, so that the power-channel map for every WBS is different in different runs.
 Simulation results are averaged over 50 runs.
 
 \begin{figure}[h!]
@@ -983,16 +865,17 @@ Some parameters are listed in Table~\ref{6}.
 \begin{tabular}{|l|r|}
   \hline
   Number of channels 						& 4 \\
-  Number of WBSs							& 9\\
-  Noise 									& $10^{-12}$ Watt \\ % -90dbm
-  Length of side the square to locate WBSs		& 60km\\
-  Distance between quasai terminal and WBS 	& 7km \\
-  Interference threshold on TV contour 		& $10^{-8}$W \\ % -67dbm
+  Number of WBSs							& 9, 16\\
+  Noise 									& $10^{-13}$ Watt \\ % -90dbm
+  Side length of area for locate WBSs		& 60km\\
+  Auxiliary circle radius 	& 1km \\
+  Inf. threshold on critical point 		& $10^{-8}$, 5x$10^{-8}$Watt \\ % -67dbm
   Path loss factor 							& 2 \\
   Standard deviation in flat shadowing		& 8\\
   Number of end terminals per cell 		& 10 \\
-  Min. WBS Tx power~\footnotemark{} complying with ECC 			& 1 Watt \\
-  Max. WBS Tx power complying with ECC			& 4 Watt \\
+  Min. WBS Tx power 			& 1 Watt \\
+  Max. WBS Tx power			& 4 Watt \\
+  Number of simulation runs & 50 \\
 
   \hline
 \end{tabular}
@@ -1003,53 +886,78 @@ Some parameters are listed in Table~\ref{6}.
 
 
 
-The first group of simulation is conducted with 9 WBSs which randomly secure the 16 available locations for WBSs, there are 4 TVWS channels.
-Figure~\ref{transPower} depicts the average transmission power of WBSs when working with different amount of channels.
-The two schemes consume the same energy working with single channel, while the distributed scheme consumes two times more than the centralized optimization.
-The greedy scheme consumes as less power as our proposed schemes when single channel is used, because many WBSs are in idle state. 
-
+The first group of simulation is conducted with 9 WBSs which locate as a 3 X 3 array, there are 4 TVWS channels.
+Figure~\ref{transPower} and~\ref{ECC_multiChannel_Capacity} depict the average transmission power of all the WBSs and average capacity over all the end user when working with different amount of channels.
+Figure~\ref{transPower_each_cell} and~\ref{ECC_multiChannel_Capacity_each_cell} illustrate the average transmission power and capacity for each WBS over all simulation runs. 
+The two proposed schemes have similar performances which increase linearly with the number of TVWS channels in use.
+The greedy scheme consumes as less power as our proposed schemes when single channel is used, because many WBSs are in idle state by adopting the greedy scheme.
+The average Shannon capacity is also comparable to our proposed schemes.
+When more channels are allowed, our proposed schemes clearly outperform the greedy scheme in terms of achieved Shannon capacity, with the cost of high transmission power.
 
  \begin{figure}[h!]
     \centering
-      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Tx_1000.pdf}
-    \caption{Average transmission power of WBSs, 9 WBSs, 4 channels.}
+      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Tx_1000_9WBS-crop.pdf}
+    \caption{Average transmission power of all WBSs, 9 WBSs, 4 channels.}
 \label{transPower}    
   \end{figure}
   
-
-     
-The average capacity on end terminals is depicted in Figure~\ref{ECC_multiChannel_Capacity}.
-The distributed and centralized optimization schemes achieve similar performance.
-With the increase of the amount of channels in use, the capacity of the two schemes increases linearly.
      \begin{figure}[h!]
        \centering
-       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Capacity_1000.pdf}
-       \caption{Average capacity on end terminals,  9 WBSs, 4 channels.}
+       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Capacity_1000_9WBS-crop.pdf}
+       \caption{Average capacity over all end terminals,  9 WBSs, 4 channels.}
 	\label{ECC_multiChannel_Capacity}
+     \end{figure}
+%------------------------------------
+ \begin{figure}[h!]
+    \centering
+      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Tx_All_9_WBS-crop.pdf}
+    \caption{Average transmission power of each WBS, 9 WBSs, 4 available channels. Increasing number of channels (1 to 4 channels) are used from top to bottom.}
+\label{transPower_each_cell}    
+  \end{figure}
+  
+     \begin{figure}[h!]
+       \centering
+       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Capacity_All_9_WBS-crop.pdf}
+       \caption{Average capacity of end terminals in each WBS's cell,  9 WBSs, 4 available channels. Increasing number of channels (1 to 4 channels) are used from top to bottom.}
+	\label{ECC_multiChannel_Capacity_each_cell}
      \end{figure}
 
 
-The proposed schemes achieve a balance between the achieved throughput and transmis
-In contrary, the greedy scheme is sensitive to the radius of the auxiliary circle.
+The second group of simulation is done with 16 WBSs, which is a denser scenario than group 1. 
+The average transmission power of WBSs and average capacity on end users, as shown in~\ref{transPower2} and~\ref{ECC_multiChannel_Capacity2}, are similar when implying the proposed centralized and distributed schemes.
+Figure~\ref{transPower2_each_cell} and Figure~\ref{ECC_multiChannel_Capacity2_each_cell} depict the average transmission power and Shannon capacity in each WBS cell.
+Comparing with group 1, less transmission power is consumed by all the three investigated schemes, and meanwhile the achieved capacity is less.
+This is because the network is denser in group 2 and the co-channel interference has bigger impact on the WBSs.
+The greedy scheme is liable to generate more idle WBSs, as a result, both of the transmission power and Shannon capacity are less than our proposed schemes.
 
-The second group of simulation is done with 16 WBSs, which creates a denser scenario than group 1. 
-There are 5 TVWS channels.
 
  \begin{figure}[h!]
     \centering
-      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Tx_1000_16WBS.pdf}
-    \caption{Average transmission power of WBSs,  16 WBSs, 5 channels.}
+      \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Tx_1000_16WBS-crop.pdf}
+    \caption{Average transmission power of WBSs,  16 WBSs, 4 channels.}
 \label{transPower2}    
   \end{figure}
   
        \begin{figure}[h!]
        \centering
-       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Capacity_1000_16WBS.pdf}
-       \caption{Average capacity on end terminals,  16 WBSs, 5 channels.}
+       \includegraphics[width=0.9\linewidth]{ECC_multiChannel_withComparison_Capacity_1000_16WBS-crop.pdf}
+       \caption{Average capacity on end terminals,  16 WBSs, 4 channels.}
 	\label{ECC_multiChannel_Capacity2}
      \end{figure}
-
-
+%-----
+ \begin{figure}[h!]
+    \centering
+      \includegraphics[width=1\linewidth]{ECC_multiChannel_withComparison_Tx_All_16_WBS-crop.pdf}
+    \caption{Average transmission power of WBSs,  16 WBSs, 4 available channels. Increasing number of channels (1 to 4 channels) are used from top to bottom.}
+\label{transPower2_each_cell}    
+  \end{figure}
+  
+       \begin{figure}[h!]
+       \centering
+       \includegraphics[width=1\linewidth]{ECC_multiChannel_withComparison_Capacity_All_16_WBS-crop.pdf}
+       \caption{Average capacity on end terminals,  16 WBSs, 4 available channels. Increasing number of channels (1 to 4 channels) are used from top to bottom.}
+	\label{ECC_multiChannel_Capacity2_each_cell}
+     \end{figure}
 
 
 \section{Conclusions}
