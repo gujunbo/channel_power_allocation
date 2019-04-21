@@ -423,8 +423,8 @@ $h_{ij}$ & The attenuation between WBS $i$ to the auxiliary circle of WBS $j$.\\
 $h_{i}$ & The attenuation between WBS $i$ to its won auxiliary circle.\\
 $z_{ij}$ & The shadowing from WBS $i$ to the auxiliary circle of WBS $j$.\\
 $z_{i}$ & in Section~\ref{whitecat}, the shadowing from WBS $i$ to its own auxiliary circle.\\
-$\alpha_{ij}^k,\beta_{ij}^k$ & Binary auxiliary variables in the\\
-$y_i, z_i$ & in Section~\ref{WhiteSussa}, optimization parameters.\\
+%$\alpha_{ij}^k,\beta_{ij}^k$ & Binary auxiliary variables in the\\
+%$y_i, z_i$ & in Section~\ref{WhiteSussa}, optimization parameters.\\
 $\text{cp}$ & Critical point\\
 \bottomrule
 \end{tabular}
@@ -450,21 +450,26 @@ WBSs calculate their QuasiSINRs with these information respectively.
 %Besides, when assuming such communication media is available and preventing primary users from being interfered during secondary users' power and channel allocation, the communication overhead between primary users and second users is considerable.
 
 To exploit TVWS, authors in \cite{DySpAN10MeasuringWhitespaceCapacity, HessarTMC15, Deshmukh2015, Achtzehn12} have proposed different approaches for assessment of TVWS capacity under FCC and ECC regulations respectively.
-Hessar et al.~\cite{ReAlloTVWS14DySPAN} aim to maximize the Shannon capacity of the network which complies with FCC rules.
-The solution seeks the trade-off between the benefits brought in by wide band and co-channel interference which is resulted on the wide band.
+Thereafter, a lot of works which comply with the FCC regulations are proposed to investigate the spectrum sharing issues in the coexistence of white space devices.
+Hessar et al.~\cite{ReAlloTVWS14DySPAN} maximize the Shannon capacity of the cellular networks working on TV white space.
+The solution seeks the trade-off between wide band and co-channel interference.
 Centralized schemes are proposed to increase the throughput of the secondary work, but they only focus on the capacities on the location of the secondary base stations.
-% This statement is wrong: But this scheme doesn't restrict the number of TVWSs and doesn't consider the harmful interference caused on the digital terrestrial TV receivers.
-Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} follow the rules of FCC, and propose throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
-Ying et al.~\cite{Ying2018DySPAN} look for the maximal set of white space devices which could access the spectrum, a heuristic scheme is proposed based on maximum weighted independent set in the graph which representing the secondary network.
-This work doesn't consider the aggregate interference caused to the digital TV receivers.
-Conflict graph is used in many works folllowing FCC rules. Ying et al,~\cite{conflictGraphTWC2018} increases the percentage of nodes served and the number of assigned channels. A Wi-Fi like secondary network is formulated into a conflict graph with consideration on pairwise interference and channel contiguity. 
+Yang et al.~\cite{yang2013WiFiWSTVCapacity} and Gopal et al.~\cite{gopalTCCN16} work towards throughput maximization of a CSMA/CA based WiFi like network in TVWS under aggregate interference.
+The authors of \cite{TMC14channelScharing} and~\cite{conflictGraphTWC2018} formulate the secondary networks into conflict graphs. 
+Targeting at Wi-Fi like white space device networks, Ying et al.~\cite{conflictGraphTWC2018} increases the percentage of nodes served and the number of assigned channels. 
+Bansal et al. of~\cite{TMC14channelScharing} proposed a improved graph coloring scheme to improve the fairness and throughput.
+\cite{TWC17HeteroWS, TWC14HeteroWS} devote themselves to the heterogeneous unlicensed networks, \ie the white space devices operates on heterogeneous network technologies.
 
-
-%TODO-to modify
+Game theory draws a lot of attention to utilize the unlicensed spectrum.
+With identical transmission power and symetric path attenuation, Nie et al.~\cite{CApotentialLearning_05dyspan} formulate channel assignment problem in ad-hoc cognitive radio network into a potential game which leads to pure NE, the authors of~\cite{CA_Felegyhazi_07infocom, Wu_GOP_CA_08infocom} propose algorithms which converge to pure Nash equilibrium (NE) and strongly dominate strategy equilibrium respectively. 
 Omidvar et al. ~\cite{pimrc_2012} use potential game to propose a distributed joint power and channel allocation in cognitive radio network.
-Although the scheme is not tailored for TVWS, protection on the primary users are also considered.
-Potential game is adopted in work~\cite{Elias17} to mitigate the adjacent interference meanwhile bonding multiple channels, but the white space devices adopt fixed and identical transmission power.
+Although the scheme is not tailored for TVWS, protection on the primary users are considered.
+Potential game is adopted in work~\cite{Elias17} to mitigate the adjacent interference meanwhile bonding multiple channels, where the white space devices comply with the FCC rulings.
 In ~\cite{spectrum_sharing_tvspace_2012}, Chen et al. formulate the channel allocation problem in TV white space into a potential game where individual WBS's utility is to maximize the capacity of one static terminal.
+%Besides, simulated annealing is applied to mitigate co-channel interferences in~\cite{SA_CA_TVWS_2012crowncom}.
+
+As to the spectrum sharing in the context of ECC rulings, \ie each white space device transmits with unique transmission power which is decided by its location, there is 
+
 %TODO: read the commented part.
 %The execution of this scheme is formulated into an exact potential game. 
 %For each base station, after several rounds of best responses in terms of channel and power level, Nash equilibrium is achieved.
@@ -475,23 +480,16 @@ In ~\cite{spectrum_sharing_tvspace_2012}, Chen et al. formulate the channel allo
 %Last but not least, as the utility function and the potential in the game are designed as the sum of received and introduced interference, the desired signal power and the punishment, the minimization of this \textit{sum} does indicate meaningful  performance metrics, \ie SINR on terminals, or the total transmission power consumption.
 
 
-
-With the doctrine of not interfering the primary TV services and regulations imposed by institutes, the problem we solve in this paper is different from the channel allocation problems discussed in the domain of cognitive radio networks.
-But we think a brief review in terms of the channel allocation techniques in CRN is necessary.
-%
-%Channel assignment problem can be converted into colouring problem thus is NP hard~\cite{Hyacinth}. 
-%Authors of~\cite{Ko_DistributedCA} propose best response to improve the transmitters' utilities, but best response process can only converge when the transmission powers are identical and path loss is symmetric.
-With identical transmission power and symetric path attenuation, Nie et al.~\cite{CApotentialLearning_05dyspan} formulate channel assignment problem in ad-hoc cognitive radio network into a potential game which leads to pure NE, the authors~\cite{CA_Felegyhazi_07infocom, Wu_GOP_CA_08infocom} propose algorithms which converge to pure Nash equilibrium (NE) and strongly dominate strategy equilibrium respectively. 
-Simulated annealing is applied to mitigate co-channel interferences in~\cite{SA_CA_TVWS_2012crowncom}.
-For the same purpose, no-regret learning~\cite{qlearning_huang, hart00correlatedeq} is exploit to optimize the choice on channel.
-In~\cite{hart00correlatedeq}, each WBS maps the probability of choosing each strategy to a certain proportion of the regret which the WBS may have if it doesn't choose that strategy, and the WBS choose the strategy with the biggest probability.  
-WBSs update such mapping dynamically and this approach converges to correlated equilibrium. 
+%With the doctrine that the primary TV services should not be interfered, along with the regulations imposed by institutes, the problem we solve in this paper is different from the channel allocation problems discussed in the domain of cognitive radio networks.
+%But we think a brief review in terms of the channel allocation techniques in CRN is still necessary.
+%%
+%For the same purpose, no-regret learning~\cite{qlearning_huang, hart00correlatedeq} is exploit to optimize the choice on channel.
+%In~\cite{hart00correlatedeq}, each WBS maps the probability of choosing each strategy to a certain proportion of the regret which the WBS may have if it doesn't choose that strategy, and the WBS choose the strategy with the biggest probability.  
+%WBSs update such mapping dynamically and this approach converges to correlated equilibrium. 
 
 %As to our knowledge, there is no work dealing with channel allocation problem where transmission power is different.
 %XXX So here we have the same problem as above: Only for the first two papers you say explicitly what problems come up with them - for the rest you simply mention them and their approach. Here we really need a much more clearer formulation of the shortcomings - why are they failing to be a solution to our problem ? Furthermore, there seem to be quite a lot of work in game theory and power control in secondary networks - how do they relate to our work? XXX
 
-%Channel allocation facilitates CRN to improve throughput~\cite{channelAllocation_throughput_12wcnc}, or cooperatively relay~\cite{channelAllocation_relay_2010ICASSP} and so on.
-%This thesis emphasises on co-channel interference mitigation with distributed channel allocation. 
 
 
 
@@ -849,7 +847,7 @@ There is a 20km wide rim area around the square area, where the critical points 
 The locations of WBSs and TV contours are illustrated in Fig.~\ref{sim:layout}.
 WBSs' locations are fixed, but the end terminals, and the sequence for WBS to update are randomly decided in each run.
 In each run the critical points for the digital TV service are located at different places, so that the power-channel map for every WBS is different in different runs.
-Simulation results are averaged over 50 runs.
+Each simulation was repeated 50 times and the mean along with its 95 percent confidence interval is plotted for every measurement. 
 
 \begin{figure}[h!]
   \centering

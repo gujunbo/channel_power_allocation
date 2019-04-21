@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  19 APR 2019 23:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.3)  21 APR 2019 16:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1296,160 +1296,111 @@ ures/03_distributedChannelAllocation/quasiSINR2_2.pdf
 pdfTeX warning: /usr/local/texlive/2017/bin/x86_64-darwin/pdflatex (file ../fig
 ures/03_distributedChannelAllocation/quasiSINR2_2.pdf): PDF inclusion: multiple
  pdfs with page group included in a single page
->]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 427.
-
-
-LaTeX Warning: Reference `WhiteSussa' on page 4 undefined on input line 427.
-
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 686--688
+>] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 565--567
 \OT1/ptm/m/n/9 for WBS $\OML/cmm/m/it/9 i$ \OT1/ptm/m/n/9 are denoted by a con-
 stant vec-tor
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 686--688
+Underfull \hbox (badness 10000) in paragraph at lines 565--567
 \OT1/cmr/bx/n/9 P[] \OT1/cmr/m/n/9 = \OMS/cmsy/m/n/9 f\OML/cmm/m/it/9 P[]; []  
 ; P[]; []  ; P[]\OMS/cmsy/m/n/9 g$\OT1/ptm/m/n/9 . The trans-mis-sion
  []
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 732.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 732.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 732.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 611.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 611.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 611.
 
-Overfull \hbox (11.56255pt too wide) detected at line 733
+Overfull \hbox (11.56255pt too wide) detected at line 612
 [][]\OML/cmm/m/it/9 u[] \OT1/cmr/m/n/9 = [] + [] [] [] + [] [][] 
  []
 
-[5]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 621.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6.5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 764.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 837.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 837.
- [6]
-Overfull \hbox (42.59279pt too wide) in paragraph at lines 880--880
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 643.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[5]
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 716.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 716.
+
+Overfull \hbox (42.59279pt too wide) in paragraph at lines 759--759
 [] 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:21.0pt when 71.97421pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:21.0pt when 72.97421pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:21.0pt when 73.97421pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:21.0pt when 74.97421pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:21.0pt when 75.97421pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-Extra height:0.0pt when 76.97421pt
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-(2)Left:76.97421pt Right:65.0pt Output:76.97421pt
+Extra height:0.0pt when 632.31735pt
+(2)Left:632.31735pt Right:630.81154pt Output:632.31735pt
 - LAST -
-Left:76.97421pt
-Right:65.0pt
-Output:76.97421pt
+Left:632.31735pt
+Right:630.81154pt
+Output:632.31735pt
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \vbox (82.55978pt too high) has occurred while \output is active []
 
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 898.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
-LaTeX Font Warning: Command \tiny invalid in math mode on input line 916.
+
+Overfull \vbox (21.31735pt too high) has occurred while \output is active []
+
+
+[6]
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 777.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 777.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 777.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 777.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 777.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 777.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 795.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 795.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 795.
+LaTeX Font Warning: Command \tiny invalid in math mode on input line 795.
  [7]
-<../figures/03_distributedChannelAllocation/layout.pdf, id=421, 643.40375pt x 6
+<../figures/03_distributedChannelAllocation/layout.pdf, id=423, 643.40375pt x 6
 44.4075pt>
 File: ../figures/03_distributedChannelAllocation/layout.pdf Graphic file (type 
 pdf)
  <use ../figures/03_distributedChannelAllocation/layout.pdf>
 Package pdftex.def Info: ../figures/03_distributedChannelAllocation/layout.pdf 
-used on input line 975.
+used on input line 854.
 (pdftex.def)             Requested size: 105.0pt x 105.16237pt.
 
-Overfull \hbox (15.40698pt too wide) in paragraph at lines 984--1001
+Overfull \hbox (15.40698pt too wide) in paragraph at lines 863--880
  [][] 
  []
 
 
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
-_1000_9WBS-crop.pdf, id=427, 479.7925pt x 393.47pt>
+_1000_9WBS-crop.pdf, id=429, 479.7925pt x 393.47pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Tx_1000_9WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Tx_1000_9WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Tx_1000_9WBS-crop.pdf used on input line 1018.
+hannel_withComparison_Tx_1000_9WBS-crop.pdf used on input line 897.
 (pdftex.def)             Requested size: 188.99872pt x 154.99567pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
-pacity_1000_9WBS-crop.pdf, id=428, 484.81125pt x 409.53pt>
+pacity_1000_9WBS-crop.pdf, id=430, 484.81125pt x 409.53pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Capacity_1000_9WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Capacity_1000_9WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Capacity_1000_9WBS-crop.pdf used on input line 1025.
+hannel_withComparison_Capacity_1000_9WBS-crop.pdf used on input line 904.
 (pdftex.def)             Requested size: 188.99872pt x 159.65356pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
-_All_9_WBS-crop.pdf, id=429, 464.73625pt x 382.42876pt>
+_All_9_WBS-crop.pdf, id=431, 464.73625pt x 382.42876pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Tx_All_9_WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Tx_All_9_WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Tx_All_9_WBS-crop.pdf used on input line 1032.
+hannel_withComparison_Tx_All_9_WBS-crop.pdf used on input line 911.
 (pdftex.def)             Requested size: 188.99872pt x 155.52469pt.
 
 
@@ -1457,40 +1408,47 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
-pacity_All_9_WBS-crop.pdf, id=430, 470.75874pt x 382.42876pt>
+pacity_All_9_WBS-crop.pdf, id=432, 470.75874pt x 382.42876pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Capacity_All_9_WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Capacity_All_9_WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Capacity_All_9_WBS-crop.pdf used on input line 1039.
+hannel_withComparison_Capacity_All_9_WBS-crop.pdf used on input line 918.
 (pdftex.def)             Requested size: 188.99872pt x 153.53482pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[8 <../figures/03_distributedChannelAllocation/layout.pdf>]
+[8 <../figures/03_distributedChannelAllocation/layout.pdf> <../../channel-power
+-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx_1000_9WBS-crop.pdf>
+ <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_C
+apacity_1000_9WBS-crop.pdf>]
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
-_1000_16WBS-crop.pdf, id=457, 479.7925pt x 393.47pt>
+_1000_16WBS-crop.pdf, id=469, 479.7925pt x 393.47pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Tx_1000_16WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Tx_1000_16WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Tx_1000_16WBS-crop.pdf used on input line 1055.
+hannel_withComparison_Tx_1000_16WBS-crop.pdf used on input line 934.
 (pdftex.def)             Requested size: 188.99872pt x 154.99567pt.
 
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
-pacity_1000_16WBS-crop.pdf, id=458, 484.81125pt x 409.53pt>
+pacity_1000_16WBS-crop.pdf, id=470, 484.81125pt x 409.53pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Capacity_1000_16WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Capacity_1000_16WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Capacity_1000_16WBS-crop.pdf used on input line 1062.
+hannel_withComparison_Capacity_1000_16WBS-crop.pdf used on input line 941.
 (pdftex.def)             Requested size: 188.99872pt x 159.65356pt.
 
 
@@ -1498,14 +1456,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Tx
-_All_16_WBS-crop.pdf, id=459, 512.91624pt x 399.4925pt>
+_All_16_WBS-crop.pdf, id=471, 512.91624pt x 399.4925pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Tx_All_16_WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Tx_All_16_WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Tx_All_16_WBS-crop.pdf used on input line 1069.
+hannel_withComparison_Tx_All_16_WBS-crop.pdf used on input line 948.
 (pdftex.def)             Requested size: 210.0pt x 163.56134pt.
 
 
@@ -1513,76 +1471,50 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Ca
-pacity_All_16_WBS-crop.pdf, id=460, 464.73625pt x 382.42876pt>
+pacity_All_16_WBS-crop.pdf, id=472, 464.73625pt x 382.42876pt>
 File: ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
 on_Capacity_All_16_WBS-crop.pdf Graphic file (type pdf)
 
 <use ../../channel-power-allocation-802.22/plots/ECC_multiChannel_withCompariso
 n_Capacity_All_16_WBS-crop.pdf>
 Package pdftex.def Info: ../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Capacity_All_16_WBS-crop.pdf used on input line 1076.
+hannel_withComparison_Capacity_All_16_WBS-crop.pdf used on input line 955.
 (pdftex.def)             Requested size: 210.0pt x 172.80325pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [9 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison
-_Tx_1000_9WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/ECC_multiC
-hannel_withComparison_Capacity_1000_9WBS-crop.pdf> <../../channel-power-allocat
-ion-802.22/plots/ECC_multiChannel_withComparison_Tx_All_9_WBS-crop.pdf> <../../
-channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Capacity_
-All_9_WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/ECC_multiChann
-el_withComparison_Tx_1000_16WBS-crop.pdf>] (./power_channel.bbl
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
-on_Capacity_1000_16WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/E
-CC_multiChannel_withComparison_Tx_All_16_WBS-crop.pdf> <../../channel-power-all
-ocation-802.22/plots/ECC_multiChannel_withComparison_Capacity_All_16_WBS-crop.p
-df>]
+_Tx_All_9_WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/ECC_multiC
+hannel_withComparison_Capacity_All_9_WBS-crop.pdf> <../../channel-power-allocat
+ion-802.22/plots/ECC_multiChannel_withComparison_Tx_1000_16WBS-crop.pdf> <../..
+/channel-power-allocation-802.22/plots/ECC_multiChannel_withComparison_Capacity
+_1000_16WBS-crop.pdf> <../../channel-power-allocation-802.22/plots/ECC_multiCha
+nnel_withComparison_Tx_All_16_WBS-crop.pdf>] (./power_channel.bbl
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¤ in font ptmr7t!
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ¶ in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--116
-[]\OT1/ptm/m/n/9 X. Ying, M. M. Bud-dhikot, and S. Roy,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 112--116
-\OT1/ptm/m/n/9 ``Coexistence-aware dynamic chan-nel allo-ca-tion
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
+ [10 <../../channel-power-allocation-802.22/plots/ECC_multiChannel_withComparis
+on_Capacity_All_16_WBS-crop.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1096.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 975.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 975.
 
-[12
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1096.
- (./power_channel.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1096.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1096.
-
+(./power_channel.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 975.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 975.
 Package rerunfilecheck Info: File `power_channel.out' has not changed.
 (rerunfilecheck)             Checksum: 3820ACD8A580A15C42EA21A941FD05B3;738.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.75pt have occurred.
-
-
-LaTeX Warning: There were undefined references.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1096.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 975.
  )
 (\end occurred inside a group at level 1)
 
@@ -1590,8 +1522,8 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1096.
 ### bottom level 
 Here is how much of TeX's memory you used:
  22583 strings out of 492995
- 397828 string characters out of 6132704
- 794812 words of memory out of 5000000
+ 397854 string characters out of 6132704
+ 816812 words of memory out of 5000000
  25646 multiletter control sequences out of 15000+600000
  56887 words of font info for 126 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
@@ -1620,10 +1552,10 @@ ts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type
 1/urw/helvetic/uhvro8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/
 times/utmb8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmr
 8a.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on power_channel.pdf (12 pages, 620919 bytes).
+Output written on power_channel.pdf (11 pages, 618905 bytes).
 PDF statistics:
- 631 PDF objects out of 1000 (max. 8388607)
- 508 compressed objects within 6 object streams
+ 626 PDF objects out of 1000 (max. 8388607)
+ 504 compressed objects within 6 object streams
  105 named destinations out of 1000 (max. 500000)
  141 words of extra memory for PDF output out of 10000 (max. 10000000)
 
